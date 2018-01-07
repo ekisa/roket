@@ -1,0 +1,123 @@
+entity Hub {
+	hubName String required
+}
+
+entity Courier {
+	
+}
+
+entity Location {
+	bbk String,
+    ickapiNo String,
+    diskapiNo String,
+    siteAdi String,
+	sokakAdi String,
+	caddeAdi String
+}
+
+entity Mahalle{
+	mahalleAdi String,
+	postaKodu String,
+	city String required
+}
+
+entity GPSLocation {
+	latitude String required,
+    longitude String required
+}
+
+entity Shop {
+	title String,
+    phoneNumber String,
+	description String
+}
+
+entity Client{
+	name String,
+	email String,
+	phoneNumber String,
+    address String
+}
+
+entity Employee {
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+	hireDate Instant,
+	salary Long,
+    sicil String
+}
+
+entity Bike{
+	number String,
+	model String,
+    year String
+}
+
+entity Order{
+	
+}
+
+entity OrderHistory{
+	time Instant
+}
+
+entity Invoice{
+	year String required,
+    month String required
+}
+
+enum STATUS{
+	WAITING, PICKINGUP, 
+    ONDELIVERY, DELIVERED, 
+    CANCELLED, ONPENALTY
+}
+enum SIZE {
+    1, 2, 3, 4, 5
+}
+
+relationship OneToOne {
+	Courier{hub} to Hub,
+	Courier{employee} to Employee,
+    Courier{currentLocation} to Location,
+    Courier{gpsLocation} to GPSLocation,
+    Shop{hub} to Hub,
+    Shop{currentLocation} to Location,
+    Shop{gpsLocation} to GPSLocation,
+    Hub{currentLocation} to Location,
+    Hub{gpsLocation} to GPSLocation,
+    Hub{mahalleler} to Mahalle,
+    Employee{bike} to Bike,
+    OrderHistory{status} to STATUS,
+    Invoice{client} to Client,
+    Order{toLocation} to Location,
+    Order{toGPSLocation} to GPSLocation,
+    Location{mahalle} to Mahalle
+}
+
+//relationship ManyToMany {
+//	Job{task(title)} to Task{job}
+//}
+
+relationship OneToMany {
+	Order{history} to OrderHistory,
+    Shop{orders} to Order,
+    Invoice{orders} to Order,
+    Client{shops} to Shop
+}
+
+//relationship ManyToOne {
+//	Courier{hub} to Hub
+//}
+
+// Set pagination options
+paginate Order, OrderHistory with infinite-scroll
+paginate Courier, Hub, Employee, Bike, Shop, Invoice with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl //except Employee, Job
+// Set an angular suffix
+angularSuffix * with ngapp
