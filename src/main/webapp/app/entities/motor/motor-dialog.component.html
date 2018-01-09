@@ -1,0 +1,45 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMotorLabel" jhiTranslate="roketApp.motor.home.createOrEditLabel">Create or edit a Motor</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!motor.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="motor.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.motor.numarasi" for="field_numarasi">Numarasi</label>
+            <input type="text" class="form-control" name="numarasi" id="field_numarasi"
+                [(ngModel)]="motor.numarasi" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.motor.marka" for="field_marka">Marka</label>
+            <input type="text" class="form-control" name="marka" id="field_marka"
+                [(ngModel)]="motor.marka" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.motor.model" for="field_model">Model</label>
+            <input type="text" class="form-control" name="model" id="field_model"
+                [(ngModel)]="motor.model" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.motor.yil" for="field_yil">Yil</label>
+            <input type="text" class="form-control" name="yil" id="field_yil"
+                [(ngModel)]="motor.yil" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

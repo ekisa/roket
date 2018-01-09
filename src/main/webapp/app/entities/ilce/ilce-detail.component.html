@@ -1,0 +1,32 @@
+
+<div *ngIf="ilce">
+    <h2><span jhiTranslate="roketApp.ilce.detail.title">Ilce</span> {{ilce.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roketApp.ilce.ad">Ad</span></dt>
+        <dd>
+            <span>{{ilce.ad}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.ilce.il">Il</span></dt>
+        <dd>
+            <div *ngIf="ilce.ilId">
+                <a [routerLink]="['/il', ilce.ilId]">{{ilce.ilId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ilce/'+ ilce.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

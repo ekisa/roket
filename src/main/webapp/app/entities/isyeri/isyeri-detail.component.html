@@ -1,0 +1,58 @@
+
+<div *ngIf="isyeri">
+    <h2><span jhiTranslate="roketApp.isyeri.detail.title">Isyeri</span> {{isyeri.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roketApp.isyeri.adi">Adi</span></dt>
+        <dd>
+            <span>{{isyeri.adi}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isyeri.telefon">Telefon</span></dt>
+        <dd>
+            <span>{{isyeri.telefon}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isyeri.aciklama">Aciklama</span></dt>
+        <dd>
+            <span>{{isyeri.aciklama}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isyeri.merkez">Merkez</span></dt>
+        <dd>
+            <div *ngIf="isyeri.merkezId">
+                <a [routerLink]="['/merkez', isyeri.merkezId]">{{isyeri.merkezId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isyeri.adres">Adres</span></dt>
+        <dd>
+            <div *ngIf="isyeri.adresId">
+                <a [routerLink]="['/adres', isyeri.adresId]">{{isyeri.adresId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isyeri.gpsLokasyon">Gps Lokasyon</span></dt>
+        <dd>
+            <div *ngIf="isyeri.gpsLokasyonId">
+                <a [routerLink]="['/gps-lokasyon', isyeri.gpsLokasyonId]">{{isyeri.gpsLokasyonId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isyeri.musteri">Musteri</span></dt>
+        <dd>
+            <div *ngIf="isyeri.musteriId">
+                <a [routerLink]="['/musteri', isyeri.musteriId]">{{isyeri.musteriId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'isyeri/'+ isyeri.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

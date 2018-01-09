@@ -1,0 +1,63 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myKuryeLabel" jhiTranslate="roketApp.kurye.home.createOrEditLabel">Create or edit a Kurye</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!kurye.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="kurye.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.kurye.statu" for="field_statu">Statu</label>
+            <select class="form-control" name="statu" [(ngModel)]="kurye.statu" id="field_statu"  required>
+                <option value="HAZIR">{{'roketApp.KURYE_STATU.HAZIR' | translate}}</option>
+                <option value="CALISMIYOR">{{'roketApp.KURYE_STATU.CALISMIYOR' | translate}}</option>
+                <option value="DAGITIMA_CIKTI">{{'roketApp.KURYE_STATU.DAGITIMA_CIKTI' | translate}}</option>
+                <option value="TESLIM_ALINIYOR">{{'roketApp.KURYE_STATU.TESLIM_ALINIYOR' | translate}}</option>
+                <option value="DAGITIMDA">{{'roketApp.KURYE_STATU.DAGITIMDA' | translate}}</option>
+                <option value="MERKEZE_DONUYOR">{{'roketApp.KURYE_STATU.MERKEZE_DONUYOR' | translate}}</option>
+            </select>
+            <div [hidden]="!(editForm.controls.statu?.dirty && editForm.controls.statu?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.statu?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.kurye.merkez" for="field_merkez">Merkez</label>
+            <select class="form-control" id="field_merkez" name="merkez" [(ngModel)]="kurye.merkezId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="merkezOption.id" *ngFor="let merkezOption of merkezs; trackBy: trackMerkezById">{{merkezOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.kurye.isci" for="field_isci">Isci</label>
+            <select class="form-control" id="field_isci" name="isci" [(ngModel)]="kurye.isciId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="isciOption.id" *ngFor="let isciOption of iscis; trackBy: trackIsciById">{{isciOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.kurye.gpsLokasyon" for="field_gpsLokasyon">Gps Lokasyon</label>
+            <select class="form-control" id="field_gpsLokasyon" name="gpsLokasyon" [(ngModel)]="kurye.gpsLokasyonId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="gPSLokasyonOption.id" *ngFor="let gPSLokasyonOption of gpslokasyons; trackBy: trackGPSLokasyonById">{{gPSLokasyonOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

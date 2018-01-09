@@ -1,0 +1,50 @@
+
+<div *ngIf="emir">
+    <h2><span jhiTranslate="roketApp.emir.detail.title">Emir</span> {{emir.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roketApp.emir.statu">Statu</span></dt>
+        <dd>
+            <span jhiTranslate="{{'roketApp.EMIR_STATU.' + emir.statu}}">{{emir.statu}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.emir.isyeri">Isyeri</span></dt>
+        <dd>
+            <div *ngIf="emir.isyeriId">
+                <a [routerLink]="['/isyeri', emir.isyeriId]">{{emir.isyeriId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="roketApp.emir.adres">Adres</span></dt>
+        <dd>
+            <div *ngIf="emir.adresId">
+                <a [routerLink]="['/adres', emir.adresId]">{{emir.adresId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="roketApp.emir.gpsLokasyon">Gps Lokasyon</span></dt>
+        <dd>
+            <div *ngIf="emir.gpsLokasyonId">
+                <a [routerLink]="['/gps-lokasyon', emir.gpsLokasyonId]">{{emir.gpsLokasyonId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="roketApp.emir.fatura">Fatura</span></dt>
+        <dd>
+            <div *ngIf="emir.faturaId">
+                <a [routerLink]="['/fatura', emir.faturaId]">{{emir.faturaId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'emir/'+ emir.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

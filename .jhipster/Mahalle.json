@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "mahalleAd",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "postaKodu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "semt",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180109193506",
+    "entityTableName": "mahalle",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

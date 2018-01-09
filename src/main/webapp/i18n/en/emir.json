@@ -1,0 +1,26 @@
+{
+    "roketApp": {
+        "emir" : {
+            "home": {
+                "title": "Emirs",
+                "createLabel": "Create a new Emir",
+                "createOrEditLabel": "Create or edit a Emir"
+            },
+            "created": "A new Emir is created with identifier {{ param }}",
+            "updated": "A Emir is updated with identifier {{ param }}",
+            "deleted": "A Emir is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Emir {{ id }}?"
+            },
+            "detail": {
+                "title": "Emir"
+            },
+            "statu": "Statu",
+            "isyeri": "Isyeri",
+            "adres": "Adres",
+            "gpsLokasyon": "Gps Lokasyon",
+            "emirGecmisi": "Emir Gecmisi",
+            "fatura": "Fatura"
+        }
+    }
+}

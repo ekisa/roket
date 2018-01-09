@@ -1,0 +1,25 @@
+{
+    "roketApp": {
+        "kurye" : {
+            "home": {
+                "title": "Kuryes",
+                "createLabel": "Create a new Kurye",
+                "createOrEditLabel": "Create or edit a Kurye"
+            },
+            "created": "A new Kurye is created with identifier {{ param }}",
+            "updated": "A Kurye is updated with identifier {{ param }}",
+            "deleted": "A Kurye is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Kurye {{ id }}?"
+            },
+            "detail": {
+                "title": "Kurye"
+            },
+            "statu": "Statu",
+            "merkez": "Merkez",
+            "isci": "Isci",
+            "gpsLokasyon": "Gps Lokasyon",
+            "statuGecmisi": "Statu Gecmisi"
+        }
+    }
+}

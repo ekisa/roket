@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "musteri"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "isyerleri",
+            "otherEntityName": "isyeri",
+            "otherEntityRelationshipName": "musteri"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "unvan",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "eposta",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telefon",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180109193509",
+    "entityTableName": "musteri",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

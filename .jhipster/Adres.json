@@ -1,0 +1,61 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "mahalle",
+            "otherEntityName": "mahalle",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "adres"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ilce",
+            "otherEntityName": "ilce",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "adres"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "bbk",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ickapiNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diskapiNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "site",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sokak",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cadde",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "semt",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adresTarifi",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180109193503",
+    "entityTableName": "adres",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

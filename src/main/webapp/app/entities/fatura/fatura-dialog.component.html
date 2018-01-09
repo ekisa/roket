@@ -1,0 +1,54 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myFaturaLabel" jhiTranslate="roketApp.fatura.home.createOrEditLabel">Create or edit a Fatura</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!fatura.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="fatura.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.fatura.yil" for="field_yil">Yil</label>
+            <input type="text" class="form-control" name="yil" id="field_yil"
+                [(ngModel)]="fatura.yil" required/>
+            <div [hidden]="!(editForm.controls.yil?.dirty && editForm.controls.yil?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.yil?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.fatura.ay" for="field_ay">Ay</label>
+            <input type="text" class="form-control" name="ay" id="field_ay"
+                [(ngModel)]="fatura.ay" required/>
+            <div [hidden]="!(editForm.controls.ay?.dirty && editForm.controls.ay?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ay?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.fatura.musteri" for="field_musteri">Musteri</label>
+            <select class="form-control" id="field_musteri" name="musteri" [(ngModel)]="fatura.musteriId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="musteriOption.id" *ngFor="let musteriOption of musteris; trackBy: trackMusteriById">{{musteriOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

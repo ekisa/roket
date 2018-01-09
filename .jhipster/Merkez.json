@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "merkez"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "gpsLokasyon",
+            "otherEntityName": "gPSLokasyon",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "merkez"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "mahalleler",
+            "otherEntityName": "mahalle",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "adi",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180109193500",
+    "entityTableName": "merkez",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

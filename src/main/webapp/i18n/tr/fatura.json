@@ -1,0 +1,24 @@
+{
+    "roketApp": {
+        "fatura" : {
+            "home": {
+                "title": "Faturas",
+                "createLabel": "Create a new Fatura",
+                "createOrEditLabel": "Create or edit a Fatura"
+            },
+            "created": "A new Fatura is created with identifier {{ param }}",
+            "updated": "A Fatura is updated with identifier {{ param }}",
+            "deleted": "A Fatura is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Fatura {{ id }}?"
+            },
+            "detail": {
+                "title": "Fatura"
+            },
+            "yil": "Yil",
+            "ay": "Ay",
+            "musteri": "Musteri",
+            "emirler": "Emirler"
+        }
+    }
+}

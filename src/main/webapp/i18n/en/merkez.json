@@ -1,0 +1,24 @@
+{
+    "roketApp": {
+        "merkez" : {
+            "home": {
+                "title": "Merkezs",
+                "createLabel": "Create a new Merkez",
+                "createOrEditLabel": "Create or edit a Merkez"
+            },
+            "created": "A new Merkez is created with identifier {{ param }}",
+            "updated": "A Merkez is updated with identifier {{ param }}",
+            "deleted": "A Merkez is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Merkez {{ id }}?"
+            },
+            "detail": {
+                "title": "Merkez"
+            },
+            "adi": "Adi",
+            "adres": "Adres",
+            "gpsLokasyon": "Gps Lokasyon",
+            "mahalleler": "Mahalleler"
+        }
+    }
+}

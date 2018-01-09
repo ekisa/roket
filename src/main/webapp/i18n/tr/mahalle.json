@@ -1,0 +1,23 @@
+{
+    "roketApp": {
+        "mahalle" : {
+            "home": {
+                "title": "Mahalles",
+                "createLabel": "Create a new Mahalle",
+                "createOrEditLabel": "Create or edit a Mahalle"
+            },
+            "created": "A new Mahalle is created with identifier {{ param }}",
+            "updated": "A Mahalle is updated with identifier {{ param }}",
+            "deleted": "A Mahalle is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mahalle {{ id }}?"
+            },
+            "detail": {
+                "title": "Mahalle"
+            },
+            "mahalleAd": "Mahalle Ad",
+            "postaKodu": "Posta Kodu",
+            "semt": "Semt"
+        }
+    }
+}

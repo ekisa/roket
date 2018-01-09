@@ -1,0 +1,12 @@
+{
+    "roketApp": {
+        "EMIR_STATU" : {
+            "null": "",
+            "HAZIR": "HAZIR",
+            "DAGITIMDA": "DAGITIMDA",
+            "TESLIM_EDILDI": "TESLIM_EDILDI",
+            "IPTAL": "IPTAL",
+            "CEZA": "CEZA"
+        }
+    }
+}

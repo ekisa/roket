@@ -1,0 +1,77 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIsciLabel" jhiTranslate="roketApp.isci.home.createOrEditLabel">Create or edit a Isci</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!isci.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="isci.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.adi" for="field_adi">Adi</label>
+            <input type="text" class="form-control" name="adi" id="field_adi"
+                [(ngModel)]="isci.adi" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.soyadi" for="field_soyadi">Soyadi</label>
+            <input type="text" class="form-control" name="soyadi" id="field_soyadi"
+                [(ngModel)]="isci.soyadi" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.eposta" for="field_eposta">Eposta</label>
+            <input type="text" class="form-control" name="eposta" id="field_eposta"
+                [(ngModel)]="isci.eposta" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.telefon" for="field_telefon">Telefon</label>
+            <input type="text" class="form-control" name="telefon" id="field_telefon"
+                [(ngModel)]="isci.telefon" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.teminatTutari" for="field_teminatTutari">Teminat Tutari</label>
+            <input type="number" class="form-control" name="teminatTutari" id="field_teminatTutari"
+                [(ngModel)]="isci.teminatTutari" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.maas" for="field_maas">Maas</label>
+            <input type="number" class="form-control" name="maas" id="field_maas"
+                [(ngModel)]="isci.maas" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.sicil" for="field_sicil">Sicil</label>
+            <input type="text" class="form-control" name="sicil" id="field_sicil"
+                [(ngModel)]="isci.sicil" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.tckn" for="field_tckn">Tckn</label>
+            <input type="text" class="form-control" name="tckn" id="field_tckn"
+                [(ngModel)]="isci.tckn" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.zimmetliMallar" for="field_zimmetliMallar">Zimmetli Mallar</label>
+            <input type="text" class="form-control" name="zimmetliMallar" id="field_zimmetliMallar"
+                [(ngModel)]="isci.zimmetliMallar" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.motor" for="field_motor">Motor</label>
+            <select class="form-control" id="field_motor" name="motor" [(ngModel)]="isci.motorId">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="motorOption.id" *ngFor="let motorOption of motors; trackBy: trackMotorById">{{motorOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

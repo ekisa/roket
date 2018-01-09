@@ -7,6 +7,21 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Varlıklar",
+                "merkez": "Merkez",
+                "kurye": "Kurye",
+                "kuryeGecmisi": "Kurye Gecmisi",
+                "adres": "Adres",
+                "ilce": "Ilce",
+                "il": "Il",
+                "mahalle": "Mahalle",
+                "gpsLokasyon": "GPS Lokasyon",
+                "isyeri": "Isyeri",
+                "musteri": "Musteri",
+                "isci": "Isci",
+                "motor": "Motor",
+                "emir": "Emir",
+                "emirGecmisi": "Emir Gecmisi",
+                "fatura": "Fatura",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

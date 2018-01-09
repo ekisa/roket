@@ -1,0 +1,82 @@
+<div>
+    <h2>
+        <span jhiTranslate="roketApp.emir.home.title">Emirs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-emir" [routerLink]="['/', { outlets: { popup: ['emir-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="roketApp.emir.home.createLabel">
+            Create new Emir
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="emirs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="statu"><span jhiTranslate="roketApp.emir.statu">Statu</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isyeriId"><span jhiTranslate="roketApp.emir.isyeri">Isyeri</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="adresId"><span jhiTranslate="roketApp.emir.adres">Adres</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="gpsLokasyonId"><span jhiTranslate="roketApp.emir.gpsLokasyon">Gps Lokasyon</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="faturaId"><span jhiTranslate="roketApp.emir.fatura">Fatura</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let emir of emirs ;trackBy: trackId">
+                <td><a [routerLink]="['../emir', emir.id ]">{{emir.id}}</a></td>
+                <td jhiTranslate="{{'roketApp.EMIR_STATU.' + emir.statu}}">{{emir.statu}}</td>
+                <td>
+                    <div *ngIf="emir.isyeriId">
+                        <a [routerLink]="['../isyeri', emir.isyeriId  ]" >{{emir.isyeriId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="emir.adresId">
+                        <a [routerLink]="['../adres', emir.adresId  ]" >{{emir.adresId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="emir.gpsLokasyonId">
+                        <a [routerLink]="['../gps-lokasyon', emir.gpsLokasyonId  ]" >{{emir.gpsLokasyonId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="emir.faturaId">
+                        <a [routerLink]="['../fatura', emir.faturaId  ]" >{{emir.faturaId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../emir', emir.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'emir/'+ emir.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'emir/'+ emir.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

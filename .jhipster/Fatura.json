@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "musteri",
+            "otherEntityName": "musteri",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "fatura"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "emirler",
+            "otherEntityName": "emir",
+            "otherEntityRelationshipName": "fatura"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "yil",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ay",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180109193514",
+    "entityTableName": "fatura",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}
