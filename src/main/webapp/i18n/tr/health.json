@@ -11,6 +11,7 @@
             "error": "Hata"
         },
         "indicator": {
+            "binders": "Message broker",
             "diskSpace": "Disk alanı",
             "mail": "E-posta",
             "db": "Veritabanı"

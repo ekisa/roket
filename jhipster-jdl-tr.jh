@@ -3,37 +3,22 @@ entity Merkez {
 }
 
 entity Kurye {
-	statu KURYE_STATU required
+	
 }
 
-entity KuryeGecmisi{
-	zaman Instant required,
-    statu KURYE_STATU required
-}
-
-entity Adres {
+entity Lokasyon {
 	bbk String,
     ickapiNo String,
     diskapiNo String,
-    site String,
-	sokak String,
-	cadde String,
-    semt String,
-    adresTarifi String
-}
-
-entity Ilce{
-	ad String required
-}
-
-entity Il{
-	ad String required
+    siteAdi String,
+	sokakAdi String,
+	caddeAdi String
 }
 
 entity Mahalle{
-	mahalleAd String required,
+	mahalleAd String,
 	postaKodu String,
-	semt String
+	sehir String required
 }
 
 entity GPSLokasyon {
@@ -42,15 +27,16 @@ entity GPSLokasyon {
 }
 
 entity Isyeri {
-	adi String required,
-    telefon String required,
+	adi String,
+    telefon String,
 	aciklama String
 }
 
 entity Musteri{
-	unvan String required,
-	eposta String required,
-	telefon String required,
+	unvan String,
+	eposta String,
+	telefon String,
+    adres String
 }
 
 entity Isci {
@@ -60,25 +46,22 @@ entity Isci {
 	telefon String,
 	teminatTutari Long,
 	maas Long,
-    sicil String,
-    tckn String,
-    zimmetliMallar String
+    sicil String
 }
 
 entity Motor{
 	numarasi String,
-	marka String,
-    model String,
+	model String,
     yil String
 }
 
 entity Emir{
-	statu EMIR_STATU required
+	
 }
 
 entity EmirGecmisi{
-	zaman Instant required,
-    statu EMIR_STATU required
+	zaman Instant,
+    statu STATU
 }
 
 entity Fatura{
@@ -86,38 +69,30 @@ entity Fatura{
     ay String required
 }
 
-enum EMIR_STATU{
-	HAZIR, DAGITIMDA, TESLIM_EDILDI, 
+enum STATU{
+	BEKLEMEDE, ISYERINDE, 
+    DAGITIMDA, TESLIM_EDILDI, 
     IPTAL, CEZA
-}
-
-enum KURYE_STATU{
-	HAZIR, CALISMIYOR,
-    DAGITIMA_CIKTI,
-    TESLIM_ALINIYOR, DAGITIMDA, 
-    MERKEZE_DONUYOR
 }
 enum BOYUT {
     1, 2, 3, 4, 5
 }
 
 relationship OneToOne {
-	Kurye{merkez} to Merkez,
+	Kurye{merkezi} to Merkez,
 	Kurye{isci} to Isci,
+    Kurye{lokasyon} to Lokasyon,
     Kurye{gpsLokasyon} to GPSLokasyon,
-    Isyeri{merkez} to Merkez,
-    Isyeri{adres} to Adres,
+    Isyeri{merkezi} to Merkez,
+    Isyeri{currentLocation} to Lokasyon,
     Isyeri{gpsLokasyon} to GPSLokasyon,
-    Merkez{adres} to Adres,
+    Merkez{currentLokasyon} to Lokasyon,
     Merkez{gpsLokasyon} to GPSLokasyon,
     Isci{motor} to Motor,
     Fatura{musteri} to Musteri,
-    Emir{adres} to Adres,
+    Emir{lokasyon} to Lokasyon,
     Emir{gpsLokasyon} to GPSLokasyon,
-    Adres{mahalle} to Mahalle,
-    Ilce{il} to Il,
-    Adres{ilce} to Ilce,
-    Musteri{adres} to Adres
+    Lokasyon{mahalle} to Mahalle
 }
 
 //relationship ManyToMany {
@@ -126,7 +101,6 @@ relationship OneToOne {
 
 relationship OneToMany {
 	Emir{emirGecmisi} to EmirGecmisi,
-    Kurye{statuGecmisi} to KuryeGecmisi
     Isyeri{emirler} to Emir,
     Fatura{emirler} to Emir,
     Musteri{isyerleri} to Isyeri
@@ -137,7 +111,7 @@ relationship ManyToOne {
 }
 
 // Set pagination options
-paginate Emir, EmirGecmisi, KuryeGecmisi with infinite-scroll
+paginate Emir, EmirGecmisi with infinite-scroll
 paginate Kurye, Merkez, Isci, Motor, Isyeri, Fatura with pagination
 
 dto * with mapstruct
@@ -145,4 +119,4 @@ dto * with mapstruct
 // Set service options to all except few
 service all with serviceImpl //except Isyeri
 // Set an angular suffix
-//angularSuffix * with ngapp
+angularSuffix * with ngapp

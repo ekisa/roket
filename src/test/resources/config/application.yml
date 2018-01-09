@@ -27,6 +27,15 @@ spring:
         serialization.write_dates_as_timestamps: false
     cache:
         type: simple
+    cloud:
+        stream:
+            kafka:
+                binder:
+                    brokers: localhost
+                    zk-nodes: localhost
+            bindings:
+                output:
+                    destination: topic-jhipster
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:h2:mem:roket;DB_CLOSE_DELAY=-1
@@ -94,7 +103,7 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: 9465cd919ba9a5e5b8abdad392610f8223a03034
+                secret: c767339015d4248eb305ffc261794a5a220a1480
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
