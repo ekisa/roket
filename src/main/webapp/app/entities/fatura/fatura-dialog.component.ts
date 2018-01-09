@@ -34,19 +34,8 @@ export class FaturaDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.musteriService
-            .query({filter: 'fatura-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.fatura.musteriId) {
-                    this.musteris = res.json;
-                } else {
-                    this.musteriService
-                        .find(this.fatura.musteriId)
-                        .subscribe((subRes: Musteri) => {
-                            this.musteris = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.musteriService.query()
+            .subscribe((res: ResponseWrapper) => { this.musteris = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {

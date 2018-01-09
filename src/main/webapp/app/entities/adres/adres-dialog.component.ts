@@ -10,7 +10,7 @@ import { Adres } from './adres.model';
 import { AdresPopupService } from './adres-popup.service';
 import { AdresService } from './adres.service';
 import { Mahalle, MahalleService } from '../mahalle';
-import { Ilce, IlceService } from '../ilce';
+import { Musteri, MusteriService } from '../musteri';
 import { ResponseWrapper } from '../../shared';
 
 @Component({
@@ -24,46 +24,24 @@ export class AdresDialogComponent implements OnInit {
 
     mahalles: Mahalle[];
 
-    ilces: Ilce[];
+    musteris: Musteri[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private adresService: AdresService,
         private mahalleService: MahalleService,
-        private ilceService: IlceService,
+        private musteriService: MusteriService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.mahalleService
-            .query({filter: 'adres-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.adres.mahalleId) {
-                    this.mahalles = res.json;
-                } else {
-                    this.mahalleService
-                        .find(this.adres.mahalleId)
-                        .subscribe((subRes: Mahalle) => {
-                            this.mahalles = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
-        this.ilceService
-            .query({filter: 'adres-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.adres.ilceId) {
-                    this.ilces = res.json;
-                } else {
-                    this.ilceService
-                        .find(this.adres.ilceId)
-                        .subscribe((subRes: Ilce) => {
-                            this.ilces = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.mahalleService.query()
+            .subscribe((res: ResponseWrapper) => { this.mahalles = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.musteriService.query()
+            .subscribe((res: ResponseWrapper) => { this.musteris = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -104,7 +82,7 @@ export class AdresDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackIlceById(index: number, item: Ilce) {
+    trackMusteriById(index: number, item: Musteri) {
         return item.id;
     }
 }

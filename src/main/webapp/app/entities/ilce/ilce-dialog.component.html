@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.ilce.il" for="field_il">Il</label>
-            <select class="form-control" id="field_il" name="il" [(ngModel)]="ilce.ilId">
+            <select class="form-control" id="field_il" name="il" [(ngModel)]="ilce.ilId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="ilOption.id" *ngFor="let ilOption of ils; trackBy: trackIlById">{{ilOption.id}}</option>
             </select>

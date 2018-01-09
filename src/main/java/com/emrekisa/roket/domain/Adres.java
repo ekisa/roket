@@ -46,13 +46,11 @@ public class Adres implements Serializable {
     @Column(name = "adres_tarifi")
     private String adresTarifi;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Mahalle mahalle;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Ilce ilce;
+    @ManyToOne
+    private Musteri musteri;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -180,17 +178,17 @@ public class Adres implements Serializable {
         this.mahalle = mahalle;
     }
 
-    public Ilce getIlce() {
-        return ilce;
+    public Musteri getMusteri() {
+        return musteri;
     }
 
-    public Adres ilce(Ilce ilce) {
-        this.ilce = ilce;
+    public Adres musteri(Musteri musteri) {
+        this.musteri = musteri;
         return this;
     }
 
-    public void setIlce(Ilce ilce) {
-        this.ilce = ilce;
+    public void setMusteri(Musteri musteri) {
+        this.musteri = musteri;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

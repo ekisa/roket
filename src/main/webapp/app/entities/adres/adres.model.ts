@@ -12,7 +12,7 @@ export class Adres implements BaseEntity {
         public semt?: string,
         public adresTarifi?: string,
         public mahalleId?: number,
-        public ilceId?: number,
+        public musteriId?: number,
     ) {
     }
 }

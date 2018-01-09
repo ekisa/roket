@@ -20,7 +20,6 @@
             <th><span jhiTranslate="roketApp.musteri.unvan">Unvan</span></th>
             <th><span jhiTranslate="roketApp.musteri.eposta">Eposta</span></th>
             <th><span jhiTranslate="roketApp.musteri.telefon">Telefon</span></th>
-            <th><span jhiTranslate="roketApp.musteri.adres">Adres</span></th>
             <th></th>
             </tr>
             </thead>
@@ -30,11 +29,6 @@
                 <td>{{musteri.unvan}}</td>
                 <td>{{musteri.eposta}}</td>
                 <td>{{musteri.telefon}}</td>
-                <td>
-                    <div *ngIf="musteri.adresId">
-                        <a [routerLink]="['../adres', musteri.adresId  ]" >{{musteri.adresId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

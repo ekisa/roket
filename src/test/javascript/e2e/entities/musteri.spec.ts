@@ -39,7 +39,6 @@ describe('Musteri e2e test', () => {
         expect(musteriDialogPage.getEpostaInput()).toMatch('eposta');
         musteriDialogPage.setTelefonInput('telefon');
         expect(musteriDialogPage.getTelefonInput()).toMatch('telefon');
-        musteriDialogPage.adresSelectLastOption();
         musteriDialogPage.save();
         expect(musteriDialogPage.getSaveButton().isPresent()).toBeFalsy();
     });
@@ -69,7 +68,6 @@ export class MusteriDialogPage {
     unvanInput = element(by.css('input#field_unvan'));
     epostaInput = element(by.css('input#field_eposta'));
     telefonInput = element(by.css('input#field_telefon'));
-    adresSelect = element(by.css('select#field_adres'));
 
     getModalTitle() {
         return this.modalTitle.getAttribute('jhiTranslate');
@@ -97,22 +95,6 @@ export class MusteriDialogPage {
 
     getTelefonInput = function() {
         return this.telefonInput.getAttribute('value');
-    }
-
-    adresSelectLastOption = function() {
-        this.adresSelect.all(by.tagName('option')).last().click();
-    }
-
-    adresSelectOption = function(option) {
-        this.adresSelect.sendKeys(option);
-    }
-
-    getAdresSelect = function() {
-        return this.adresSelect;
-    }
-
-    getAdresSelectedOption = function() {
-        return this.adresSelect.element(by.css('option:checked')).getText();
     }
 
     save() {

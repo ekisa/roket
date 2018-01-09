@@ -8,7 +8,6 @@ import { RoketTestModule } from '../../../test.module';
 import { MusteriDialogComponent } from '../../../../../../main/webapp/app/entities/musteri/musteri-dialog.component';
 import { MusteriService } from '../../../../../../main/webapp/app/entities/musteri/musteri.service';
 import { Musteri } from '../../../../../../main/webapp/app/entities/musteri/musteri.model';
-import { AdresService } from '../../../../../../main/webapp/app/entities/adres';
 
 describe('Component Tests', () => {
 
@@ -24,7 +23,6 @@ describe('Component Tests', () => {
                 imports: [RoketTestModule],
                 declarations: [MusteriDialogComponent],
                 providers: [
-                    AdresService,
                     MusteriService
                 ]
             })

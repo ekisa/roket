@@ -33,6 +33,9 @@ public class Mahalle implements Serializable {
     @Column(name = "semt")
     private String semt;
 
+    @ManyToOne
+    private Ilce ilce;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -79,6 +82,19 @@ public class Mahalle implements Serializable {
 
     public void setSemt(String semt) {
         this.semt = semt;
+    }
+
+    public Ilce getIlce() {
+        return ilce;
+    }
+
+    public Mahalle ilce(Ilce ilce) {
+        this.ilce = ilce;
+        return this;
+    }
+
+    public void setIlce(Ilce ilce) {
+        this.ilce = ilce;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

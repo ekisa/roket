@@ -34,19 +34,8 @@ export class IlceDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.ilService
-            .query({filter: 'ilce-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.ilce.ilId) {
-                    this.ils = res.json;
-                } else {
-                    this.ilService
-                        .find(this.ilce.ilId)
-                        .subscribe((subRes: Il) => {
-                            this.ils = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.ilService.query()
+            .subscribe((res: ResponseWrapper) => { this.ils = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {

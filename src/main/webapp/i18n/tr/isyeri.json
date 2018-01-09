@@ -18,10 +18,10 @@
             "adi": "Adi",
             "telefon": "Telefon",
             "aciklama": "Aciklama",
-            "merkez": "Merkez",
-            "adres": "Adres",
-            "gpsLokasyon": "Gps Lokasyon",
             "emirler": "Emirler",
+            "merkez": "Merkez",
+            "gpsLokasyon": "Gps Lokasyon",
+            "adres": "Adres",
             "musteri": "Musteri"
         }
     }

@@ -48,32 +48,10 @@ export class EmirDialogComponent implements OnInit {
         this.isSaving = false;
         this.isyeriService.query()
             .subscribe((res: ResponseWrapper) => { this.isyeris = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-        this.adresService
-            .query({filter: 'emir-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.emir.adresId) {
-                    this.adres = res.json;
-                } else {
-                    this.adresService
-                        .find(this.emir.adresId)
-                        .subscribe((subRes: Adres) => {
-                            this.adres = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
-        this.gPSLokasyonService
-            .query({filter: 'emir-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.emir.gpsLokasyonId) {
-                    this.gpslokasyons = res.json;
-                } else {
-                    this.gPSLokasyonService
-                        .find(this.emir.gpsLokasyonId)
-                        .subscribe((subRes: GPSLokasyon) => {
-                            this.gpslokasyons = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.adresService.query()
+            .subscribe((res: ResponseWrapper) => { this.adres = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.gPSLokasyonService.query()
+            .subscribe((res: ResponseWrapper) => { this.gpslokasyons = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.faturaService.query()
             .subscribe((res: ResponseWrapper) => { this.faturas = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }

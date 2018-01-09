@@ -49,8 +49,7 @@ public class Isci implements Serializable {
     @Column(name = "zimmetli_mallar")
     private String zimmetliMallar;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Motor motor;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

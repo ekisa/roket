@@ -13,10 +13,10 @@ export class Kurye implements BaseEntity {
     constructor(
         public id?: number,
         public statu?: KURYE_STATU,
-        public merkezId?: number,
         public isciId?: number,
-        public gpsLokasyonId?: number,
         public statuGecmisis?: BaseEntity[],
+        public merkezId?: number,
+        public gpsLokasyonId?: number,
     ) {
     }
 }

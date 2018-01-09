@@ -34,8 +34,8 @@ describe('Kurye e2e test', () => {
     it('should create and save Kuryes', () => {
         kuryeComponentsPage.clickOnCreateButton();
         kuryeDialogPage.statuSelectLastOption();
-        kuryeDialogPage.merkezSelectLastOption();
         kuryeDialogPage.isciSelectLastOption();
+        kuryeDialogPage.merkezSelectLastOption();
         kuryeDialogPage.gpsLokasyonSelectLastOption();
         kuryeDialogPage.save();
         expect(kuryeDialogPage.getSaveButton().isPresent()).toBeFalsy();
@@ -64,8 +64,8 @@ export class KuryeDialogPage {
     saveButton = element(by.css('.modal-footer .btn.btn-primary'));
     closeButton = element(by.css('button.close'));
     statuSelect = element(by.css('select#field_statu'));
-    merkezSelect = element(by.css('select#field_merkez'));
     isciSelect = element(by.css('select#field_isci'));
+    merkezSelect = element(by.css('select#field_merkez'));
     gpsLokasyonSelect = element(by.css('select#field_gpsLokasyon'));
 
     getModalTitle() {
@@ -83,22 +83,6 @@ export class KuryeDialogPage {
     statuSelectLastOption = function() {
         this.statuSelect.all(by.tagName('option')).last().click();
     }
-    merkezSelectLastOption = function() {
-        this.merkezSelect.all(by.tagName('option')).last().click();
-    }
-
-    merkezSelectOption = function(option) {
-        this.merkezSelect.sendKeys(option);
-    }
-
-    getMerkezSelect = function() {
-        return this.merkezSelect;
-    }
-
-    getMerkezSelectedOption = function() {
-        return this.merkezSelect.element(by.css('option:checked')).getText();
-    }
-
     isciSelectLastOption = function() {
         this.isciSelect.all(by.tagName('option')).last().click();
     }
@@ -113,6 +97,22 @@ export class KuryeDialogPage {
 
     getIsciSelectedOption = function() {
         return this.isciSelect.element(by.css('option:checked')).getText();
+    }
+
+    merkezSelectLastOption = function() {
+        this.merkezSelect.all(by.tagName('option')).last().click();
+    }
+
+    merkezSelectOption = function(option) {
+        this.merkezSelect.sendKeys(option);
+    }
+
+    getMerkezSelect = function() {
+        return this.merkezSelect;
+    }
+
+    getMerkezSelectedOption = function() {
+        return this.merkezSelect.element(by.css('option:checked')).getText();
     }
 
     gpsLokasyonSelectLastOption = function() {

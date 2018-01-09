@@ -36,18 +36,16 @@ public class Emir implements Serializable {
     @ManyToOne
     private Isyeri isyeri;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Adres adres;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private GPSLokasyon gpsLokasyon;
-
     @OneToMany(mappedBy = "emir")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<EmirGecmisi> emirGecmisis = new HashSet<>();
+
+    @ManyToOne
+    private Adres adres;
+
+    @ManyToOne
+    private GPSLokasyon gpsLokasyon;
 
     @ManyToOne
     private Fatura fatura;
@@ -87,6 +85,31 @@ public class Emir implements Serializable {
         this.isyeri = isyeri;
     }
 
+    public Set<EmirGecmisi> getEmirGecmisis() {
+        return emirGecmisis;
+    }
+
+    public Emir emirGecmisis(Set<EmirGecmisi> emirGecmisis) {
+        this.emirGecmisis = emirGecmisis;
+        return this;
+    }
+
+    public Emir addEmirGecmisi(EmirGecmisi emirGecmisi) {
+        this.emirGecmisis.add(emirGecmisi);
+        emirGecmisi.setEmir(this);
+        return this;
+    }
+
+    public Emir removeEmirGecmisi(EmirGecmisi emirGecmisi) {
+        this.emirGecmisis.remove(emirGecmisi);
+        emirGecmisi.setEmir(null);
+        return this;
+    }
+
+    public void setEmirGecmisis(Set<EmirGecmisi> emirGecmisis) {
+        this.emirGecmisis = emirGecmisis;
+    }
+
     public Adres getAdres() {
         return adres;
     }
@@ -111,31 +134,6 @@ public class Emir implements Serializable {
 
     public void setGpsLokasyon(GPSLokasyon gPSLokasyon) {
         this.gpsLokasyon = gPSLokasyon;
-    }
-
-    public Set<EmirGecmisi> getEmirGecmisis() {
-        return emirGecmisis;
-    }
-
-    public Emir emirGecmisis(Set<EmirGecmisi> emirGecmisis) {
-        this.emirGecmisis = emirGecmisis;
-        return this;
-    }
-
-    public Emir addEmirGecmisi(EmirGecmisi emirGecmisi) {
-        this.emirGecmisis.add(emirGecmisi);
-        emirGecmisi.setEmir(this);
-        return this;
-    }
-
-    public Emir removeEmirGecmisi(EmirGecmisi emirGecmisi) {
-        this.emirGecmisis.remove(emirGecmisi);
-        emirGecmisi.setEmir(null);
-        return this;
-    }
-
-    public void setEmirGecmisis(Set<EmirGecmisi> emirGecmisis) {
-        this.emirGecmisis = emirGecmisis;
     }
 
     public Fatura getFatura() {

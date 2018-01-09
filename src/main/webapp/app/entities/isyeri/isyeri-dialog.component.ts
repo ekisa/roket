@@ -10,8 +10,8 @@ import { Isyeri } from './isyeri.model';
 import { IsyeriPopupService } from './isyeri-popup.service';
 import { IsyeriService } from './isyeri.service';
 import { Merkez, MerkezService } from '../merkez';
-import { Adres, AdresService } from '../adres';
 import { GPSLokasyon, GPSLokasyonService } from '../gps-lokasyon';
+import { Adres, AdresService } from '../adres';
 import { Musteri, MusteriService } from '../musteri';
 import { ResponseWrapper } from '../../shared';
 
@@ -26,9 +26,9 @@ export class IsyeriDialogComponent implements OnInit {
 
     merkezs: Merkez[];
 
-    adres: Adres[];
-
     gpslokasyons: GPSLokasyon[];
+
+    adres: Adres[];
 
     musteris: Musteri[];
 
@@ -37,8 +37,8 @@ export class IsyeriDialogComponent implements OnInit {
         private jhiAlertService: JhiAlertService,
         private isyeriService: IsyeriService,
         private merkezService: MerkezService,
-        private adresService: AdresService,
         private gPSLokasyonService: GPSLokasyonService,
+        private adresService: AdresService,
         private musteriService: MusteriService,
         private eventManager: JhiEventManager
     ) {
@@ -46,45 +46,12 @@ export class IsyeriDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.merkezService
-            .query({filter: 'isyeri-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.isyeri.merkezId) {
-                    this.merkezs = res.json;
-                } else {
-                    this.merkezService
-                        .find(this.isyeri.merkezId)
-                        .subscribe((subRes: Merkez) => {
-                            this.merkezs = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
-        this.adresService
-            .query({filter: 'isyeri-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.isyeri.adresId) {
-                    this.adres = res.json;
-                } else {
-                    this.adresService
-                        .find(this.isyeri.adresId)
-                        .subscribe((subRes: Adres) => {
-                            this.adres = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
-        this.gPSLokasyonService
-            .query({filter: 'isyeri-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.isyeri.gpsLokasyonId) {
-                    this.gpslokasyons = res.json;
-                } else {
-                    this.gPSLokasyonService
-                        .find(this.isyeri.gpsLokasyonId)
-                        .subscribe((subRes: GPSLokasyon) => {
-                            this.gpslokasyons = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.merkezService.query()
+            .subscribe((res: ResponseWrapper) => { this.merkezs = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.gPSLokasyonService.query()
+            .subscribe((res: ResponseWrapper) => { this.gpslokasyons = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.adresService.query()
+            .subscribe((res: ResponseWrapper) => { this.adres = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.musteriService.query()
             .subscribe((res: ResponseWrapper) => { this.musteris = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
@@ -127,11 +94,11 @@ export class IsyeriDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackAdresById(index: number, item: Adres) {
+    trackGPSLokasyonById(index: number, item: GPSLokasyon) {
         return item.id;
     }
 
-    trackGPSLokasyonById(index: number, item: GPSLokasyon) {
+    trackAdresById(index: number, item: Adres) {
         return item.id;
     }
 

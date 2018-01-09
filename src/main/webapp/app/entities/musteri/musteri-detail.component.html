@@ -16,12 +16,6 @@
         <dd>
             <span>{{musteri.telefon}}</span>
         </dd>
-        <dt><span jhiTranslate="roketApp.musteri.adres">Adres</span></dt>
-        <dd>
-            <div *ngIf="musteri.adresId">
-                <a [routerLink]="['/adres', musteri.adresId]">{{musteri.adresId}}</a>
-            </div>
-        </dd>
     </dl>
 
     <button type="submit"

@@ -27,8 +27,7 @@ public class Ilce implements Serializable {
     @Column(name = "ad", nullable = false)
     private String ad;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Il il;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

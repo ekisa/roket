@@ -39,6 +39,7 @@ describe('Mahalle e2e test', () => {
         expect(mahalleDialogPage.getPostaKoduInput()).toMatch('postaKodu');
         mahalleDialogPage.setSemtInput('semt');
         expect(mahalleDialogPage.getSemtInput()).toMatch('semt');
+        mahalleDialogPage.ilceSelectLastOption();
         mahalleDialogPage.save();
         expect(mahalleDialogPage.getSaveButton().isPresent()).toBeFalsy();
     });
@@ -68,6 +69,7 @@ export class MahalleDialogPage {
     mahalleAdInput = element(by.css('input#field_mahalleAd'));
     postaKoduInput = element(by.css('input#field_postaKodu'));
     semtInput = element(by.css('input#field_semt'));
+    ilceSelect = element(by.css('select#field_ilce'));
 
     getModalTitle() {
         return this.modalTitle.getAttribute('jhiTranslate');
@@ -95,6 +97,22 @@ export class MahalleDialogPage {
 
     getSemtInput = function() {
         return this.semtInput.getAttribute('value');
+    }
+
+    ilceSelectLastOption = function() {
+        this.ilceSelect.all(by.tagName('option')).last().click();
+    }
+
+    ilceSelectOption = function(option) {
+        this.ilceSelect.sendKeys(option);
+    }
+
+    getIlceSelect = function() {
+        return this.ilceSelect;
+    }
+
+    getIlceSelectedOption = function() {
+        return this.ilceSelect.element(by.css('option:checked')).getText();
     }
 
     save() {

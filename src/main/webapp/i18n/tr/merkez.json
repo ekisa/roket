@@ -16,9 +16,9 @@
                 "title": "Merkez"
             },
             "adi": "Adi",
-            "adres": "Adres",
+            "mahalle": "Mahalle",
             "gpsLokasyon": "Gps Lokasyon",
-            "mahalleler": "Mahalleler"
+            "adres": "Adres"
         }
     }
 }

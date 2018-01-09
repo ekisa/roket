@@ -2,25 +2,21 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "adres",
-            "otherEntityName": "adres",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "merkez"
-        },
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "gpsLokasyon",
-            "otherEntityName": "gPSLokasyon",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "merkez"
+            "relationshipType": "many-to-one",
+            "relationshipName": "mahalle",
+            "otherEntityName": "mahalle",
+            "otherEntityField": "id"
         },
         {
             "relationshipType": "many-to-one",
-            "relationshipName": "mahalleler",
-            "otherEntityName": "mahalle",
+            "relationshipName": "gpsLokasyon",
+            "otherEntityName": "gPSLokasyon",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
             "otherEntityField": "id"
         }
     ],
@@ -33,7 +29,7 @@
             ]
         }
     ],
-    "changelogDate": "20180109193500",
+    "changelogDate": "20180109210242",
     "entityTableName": "merkez",
     "dto": "mapstruct",
     "pagination": "pagination",

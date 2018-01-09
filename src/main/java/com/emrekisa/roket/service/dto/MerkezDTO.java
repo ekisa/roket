@@ -17,11 +17,11 @@ public class MerkezDTO implements Serializable {
     @NotNull
     private String adi;
 
-    private Long adresId;
+    private Long mahalleId;
 
     private Long gpsLokasyonId;
 
-    private Long mahallelerId;
+    private Long adresId;
 
     public Long getId() {
         return id;
@@ -39,12 +39,12 @@ public class MerkezDTO implements Serializable {
         this.adi = adi;
     }
 
-    public Long getAdresId() {
-        return adresId;
+    public Long getMahalleId() {
+        return mahalleId;
     }
 
-    public void setAdresId(Long adresId) {
-        this.adresId = adresId;
+    public void setMahalleId(Long mahalleId) {
+        this.mahalleId = mahalleId;
     }
 
     public Long getGpsLokasyonId() {
@@ -55,12 +55,12 @@ public class MerkezDTO implements Serializable {
         this.gpsLokasyonId = gPSLokasyonId;
     }
 
-    public Long getMahallelerId() {
-        return mahallelerId;
+    public Long getAdresId() {
+        return adresId;
     }
 
-    public void setMahallelerId(Long mahalleId) {
-        this.mahallelerId = mahalleId;
+    public void setAdresId(Long adresId) {
+        this.adresId = adresId;
     }
 
     @Override

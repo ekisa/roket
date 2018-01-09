@@ -10,7 +10,7 @@
             ]
         }
     ],
-    "changelogDate": "20180109193505",
+    "changelogDate": "20180109210247",
     "entityTableName": "il",
     "dto": "mapstruct",
     "pagination": "no",

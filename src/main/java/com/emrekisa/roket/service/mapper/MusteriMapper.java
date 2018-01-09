@@ -8,14 +8,13 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Musteri and its DTO MusteriDTO.
  */
-@Mapper(componentModel = "spring", uses = {AdresMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface MusteriMapper extends EntityMapper<MusteriDTO, Musteri> {
 
-    @Mapping(source = "adres.id", target = "adresId")
-    MusteriDTO toDto(Musteri musteri);
 
-    @Mapping(source = "adresId", target = "adres")
     @Mapping(target = "isyerleris", ignore = true)
+    @Mapping(target = "adres", ignore = true)
+    @Mapping(target = "faturalars", ignore = true)
     Musteri toEntity(MusteriDTO musteriDTO);
 
     default Musteri fromId(Long id) {

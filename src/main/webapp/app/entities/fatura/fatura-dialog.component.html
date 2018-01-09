@@ -37,7 +37,7 @@
 
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.fatura.musteri" for="field_musteri">Musteri</label>
-            <select class="form-control" id="field_musteri" name="musteri" [(ngModel)]="fatura.musteriId">
+            <select class="form-control" id="field_musteri" name="musteri" [(ngModel)]="fatura.musteriId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="musteriOption.id" *ngFor="let musteriOption of musteris; trackBy: trackMusteriById">{{musteriOption.id}}</option>
             </select>

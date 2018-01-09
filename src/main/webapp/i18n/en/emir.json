@@ -17,9 +17,9 @@
             },
             "statu": "Statu",
             "isyeri": "Isyeri",
+            "emirGecmisi": "Emir Gecmisi",
             "adres": "Adres",
             "gpsLokasyon": "Gps Lokasyon",
-            "emirGecmisi": "Emir Gecmisi",
             "fatura": "Fatura"
         }
     }

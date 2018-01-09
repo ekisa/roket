@@ -37,22 +37,19 @@ public class Isyeri implements Serializable {
     @Column(name = "aciklama")
     private String aciklama;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Merkez merkez;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Adres adres;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private GPSLokasyon gpsLokasyon;
-
     @OneToMany(mappedBy = "isyeri")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Emir> emirlers = new HashSet<>();
+
+    @ManyToOne
+    private Merkez merkez;
+
+    @ManyToOne
+    private GPSLokasyon gpsLokasyon;
+
+    @ManyToOne
+    private Adres adres;
 
     @ManyToOne
     private Musteri musteri;
@@ -105,45 +102,6 @@ public class Isyeri implements Serializable {
         this.aciklama = aciklama;
     }
 
-    public Merkez getMerkez() {
-        return merkez;
-    }
-
-    public Isyeri merkez(Merkez merkez) {
-        this.merkez = merkez;
-        return this;
-    }
-
-    public void setMerkez(Merkez merkez) {
-        this.merkez = merkez;
-    }
-
-    public Adres getAdres() {
-        return adres;
-    }
-
-    public Isyeri adres(Adres adres) {
-        this.adres = adres;
-        return this;
-    }
-
-    public void setAdres(Adres adres) {
-        this.adres = adres;
-    }
-
-    public GPSLokasyon getGpsLokasyon() {
-        return gpsLokasyon;
-    }
-
-    public Isyeri gpsLokasyon(GPSLokasyon gPSLokasyon) {
-        this.gpsLokasyon = gPSLokasyon;
-        return this;
-    }
-
-    public void setGpsLokasyon(GPSLokasyon gPSLokasyon) {
-        this.gpsLokasyon = gPSLokasyon;
-    }
-
     public Set<Emir> getEmirlers() {
         return emirlers;
     }
@@ -167,6 +125,45 @@ public class Isyeri implements Serializable {
 
     public void setEmirlers(Set<Emir> emirs) {
         this.emirlers = emirs;
+    }
+
+    public Merkez getMerkez() {
+        return merkez;
+    }
+
+    public Isyeri merkez(Merkez merkez) {
+        this.merkez = merkez;
+        return this;
+    }
+
+    public void setMerkez(Merkez merkez) {
+        this.merkez = merkez;
+    }
+
+    public GPSLokasyon getGpsLokasyon() {
+        return gpsLokasyon;
+    }
+
+    public Isyeri gpsLokasyon(GPSLokasyon gPSLokasyon) {
+        this.gpsLokasyon = gPSLokasyon;
+        return this;
+    }
+
+    public void setGpsLokasyon(GPSLokasyon gPSLokasyon) {
+        this.gpsLokasyon = gPSLokasyon;
+    }
+
+    public Adres getAdres() {
+        return adres;
+    }
+
+    public Isyeri adres(Adres adres) {
+        this.adres = adres;
+        return this;
+    }
+
+    public void setAdres(Adres adres) {
+        this.adres = adres;
     }
 
     public Musteri getMusteri() {

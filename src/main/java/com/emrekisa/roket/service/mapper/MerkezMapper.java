@@ -8,17 +8,17 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Merkez and its DTO MerkezDTO.
  */
-@Mapper(componentModel = "spring", uses = {AdresMapper.class, GPSLokasyonMapper.class, MahalleMapper.class})
+@Mapper(componentModel = "spring", uses = {MahalleMapper.class, GPSLokasyonMapper.class, AdresMapper.class})
 public interface MerkezMapper extends EntityMapper<MerkezDTO, Merkez> {
 
-    @Mapping(source = "adres.id", target = "adresId")
+    @Mapping(source = "mahalle.id", target = "mahalleId")
     @Mapping(source = "gpsLokasyon.id", target = "gpsLokasyonId")
-    @Mapping(source = "mahalleler.id", target = "mahallelerId")
+    @Mapping(source = "adres.id", target = "adresId")
     MerkezDTO toDto(Merkez merkez);
 
-    @Mapping(source = "adresId", target = "adres")
+    @Mapping(source = "mahalleId", target = "mahalle")
     @Mapping(source = "gpsLokasyonId", target = "gpsLokasyon")
-    @Mapping(source = "mahallelerId", target = "mahalleler")
+    @Mapping(source = "adresId", target = "adres")
     Merkez toEntity(MerkezDTO merkezDTO);
 
     default Merkez fromId(Long id) {

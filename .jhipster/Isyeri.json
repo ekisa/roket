@@ -2,34 +2,28 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "merkez",
-            "otherEntityName": "merkez",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "isyeri"
-        },
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "adres",
-            "otherEntityName": "adres",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "isyeri"
-        },
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "gpsLokasyon",
-            "otherEntityName": "gPSLokasyon",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "isyeri"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "emirler",
             "otherEntityName": "emir",
             "otherEntityRelationshipName": "isyeri"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "merkez",
+            "otherEntityName": "merkez",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gpsLokasyon",
+            "otherEntityName": "gPSLokasyon",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
+            "otherEntityField": "id"
         },
         {
             "relationshipName": "musteri",
@@ -58,7 +52,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180109193508",
+    "changelogDate": "20180109210250",
     "entityTableName": "isyeri",
     "dto": "mapstruct",
     "pagination": "pagination",

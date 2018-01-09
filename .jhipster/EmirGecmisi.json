@@ -25,7 +25,7 @@
             ]
         }
     ],
-    "changelogDate": "20180109193513",
+    "changelogDate": "20180109210255",
     "entityTableName": "emir_gecmisi",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

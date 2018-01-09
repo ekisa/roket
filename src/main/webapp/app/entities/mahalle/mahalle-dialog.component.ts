@@ -4,11 +4,13 @@ import { Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { Mahalle } from './mahalle.model';
 import { MahallePopupService } from './mahalle-popup.service';
 import { MahalleService } from './mahalle.service';
+import { Ilce, IlceService } from '../ilce';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-mahalle-dialog',
@@ -19,15 +21,21 @@ export class MahalleDialogComponent implements OnInit {
     mahalle: Mahalle;
     isSaving: boolean;
 
+    ilces: Ilce[];
+
     constructor(
         public activeModal: NgbActiveModal,
+        private jhiAlertService: JhiAlertService,
         private mahalleService: MahalleService,
+        private ilceService: IlceService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.ilceService.query()
+            .subscribe((res: ResponseWrapper) => { this.ilces = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -58,6 +66,14 @@ export class MahalleDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    private onError(error: any) {
+        this.jhiAlertService.error(error.message, null, null);
+    }
+
+    trackIlceById(index: number, item: Ilce) {
+        return item.id;
     }
 }
 

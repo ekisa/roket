@@ -8,6 +8,7 @@ import { RoketTestModule } from '../../../test.module';
 import { MahalleDialogComponent } from '../../../../../../main/webapp/app/entities/mahalle/mahalle-dialog.component';
 import { MahalleService } from '../../../../../../main/webapp/app/entities/mahalle/mahalle.service';
 import { Mahalle } from '../../../../../../main/webapp/app/entities/mahalle/mahalle.model';
+import { IlceService } from '../../../../../../main/webapp/app/entities/ilce';
 
 describe('Component Tests', () => {
 
@@ -23,6 +24,7 @@ describe('Component Tests', () => {
                 imports: [RoketTestModule],
                 declarations: [MahalleDialogComponent],
                 providers: [
+                    IlceService,
                     MahalleService
                 ]
             })

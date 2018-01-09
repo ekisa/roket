@@ -50,7 +50,7 @@ describe('Adres e2e test', () => {
         adresDialogPage.setAdresTarifiInput('adresTarifi');
         expect(adresDialogPage.getAdresTarifiInput()).toMatch('adresTarifi');
         adresDialogPage.mahalleSelectLastOption();
-        adresDialogPage.ilceSelectLastOption();
+        adresDialogPage.musteriSelectLastOption();
         adresDialogPage.save();
         expect(adresDialogPage.getSaveButton().isPresent()).toBeFalsy();
     });
@@ -86,7 +86,7 @@ export class AdresDialogPage {
     semtInput = element(by.css('input#field_semt'));
     adresTarifiInput = element(by.css('input#field_adresTarifi'));
     mahalleSelect = element(by.css('select#field_mahalle'));
-    ilceSelect = element(by.css('select#field_ilce'));
+    musteriSelect = element(by.css('select#field_musteri'));
 
     getModalTitle() {
         return this.modalTitle.getAttribute('jhiTranslate');
@@ -172,20 +172,20 @@ export class AdresDialogPage {
         return this.mahalleSelect.element(by.css('option:checked')).getText();
     }
 
-    ilceSelectLastOption = function() {
-        this.ilceSelect.all(by.tagName('option')).last().click();
+    musteriSelectLastOption = function() {
+        this.musteriSelect.all(by.tagName('option')).last().click();
     }
 
-    ilceSelectOption = function(option) {
-        this.ilceSelect.sendKeys(option);
+    musteriSelectOption = function(option) {
+        this.musteriSelect.sendKeys(option);
     }
 
-    getIlceSelect = function() {
-        return this.ilceSelect;
+    getMusteriSelect = function() {
+        return this.musteriSelect;
     }
 
-    getIlceSelectedOption = function() {
-        return this.ilceSelect.element(by.css('option:checked')).getText();
+    getMusteriSelectedOption = function() {
+        return this.musteriSelect.element(by.css('option:checked')).getText();
     }
 
     save() {

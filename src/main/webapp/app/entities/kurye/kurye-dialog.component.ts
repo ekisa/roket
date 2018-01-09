@@ -9,8 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Kurye } from './kurye.model';
 import { KuryePopupService } from './kurye-popup.service';
 import { KuryeService } from './kurye.service';
-import { Merkez, MerkezService } from '../merkez';
 import { Isci, IsciService } from '../isci';
+import { Merkez, MerkezService } from '../merkez';
 import { GPSLokasyon, GPSLokasyonService } from '../gps-lokasyon';
 import { ResponseWrapper } from '../../shared';
 
@@ -23,9 +23,9 @@ export class KuryeDialogComponent implements OnInit {
     kurye: Kurye;
     isSaving: boolean;
 
-    merkezs: Merkez[];
-
     iscis: Isci[];
+
+    merkezs: Merkez[];
 
     gpslokasyons: GPSLokasyon[];
 
@@ -33,8 +33,8 @@ export class KuryeDialogComponent implements OnInit {
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private kuryeService: KuryeService,
-        private merkezService: MerkezService,
         private isciService: IsciService,
+        private merkezService: MerkezService,
         private gPSLokasyonService: GPSLokasyonService,
         private eventManager: JhiEventManager
     ) {
@@ -42,19 +42,6 @@ export class KuryeDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.merkezService
-            .query({filter: 'kurye-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.kurye.merkezId) {
-                    this.merkezs = res.json;
-                } else {
-                    this.merkezService
-                        .find(this.kurye.merkezId)
-                        .subscribe((subRes: Merkez) => {
-                            this.merkezs = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
         this.isciService
             .query({filter: 'kurye-is-null'})
             .subscribe((res: ResponseWrapper) => {
@@ -68,19 +55,10 @@ export class KuryeDialogComponent implements OnInit {
                         }, (subRes: ResponseWrapper) => this.onError(subRes.json));
                 }
             }, (res: ResponseWrapper) => this.onError(res.json));
-        this.gPSLokasyonService
-            .query({filter: 'kurye-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.kurye.gpsLokasyonId) {
-                    this.gpslokasyons = res.json;
-                } else {
-                    this.gPSLokasyonService
-                        .find(this.kurye.gpsLokasyonId)
-                        .subscribe((subRes: GPSLokasyon) => {
-                            this.gpslokasyons = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.merkezService.query()
+            .subscribe((res: ResponseWrapper) => { this.merkezs = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.gPSLokasyonService.query()
+            .subscribe((res: ResponseWrapper) => { this.gpslokasyons = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -117,11 +95,11 @@ export class KuryeDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackMerkezById(index: number, item: Merkez) {
+    trackIsciById(index: number, item: Isci) {
         return item.id;
     }
 
-    trackIsciById(index: number, item: Isci) {
+    trackMerkezById(index: number, item: Merkez) {
         return item.id;
     }
 

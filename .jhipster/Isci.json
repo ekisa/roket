@@ -2,12 +2,10 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipName": "motor",
             "otherEntityName": "motor",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "isci"
+            "otherEntityField": "id"
         }
     ],
     "fields": [
@@ -48,7 +46,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180109193510",
+    "changelogDate": "20180109210252",
     "entityTableName": "isci",
     "dto": "mapstruct",
     "pagination": "pagination",

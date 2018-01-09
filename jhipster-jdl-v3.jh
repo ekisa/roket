@@ -1,0 +1,148 @@
+entity Merkez {
+	adi String required
+}
+
+entity Kurye {
+	statu KURYE_STATU required
+}
+
+entity KuryeGecmisi{
+	zaman Instant required,
+    statu KURYE_STATU required
+}
+
+entity Adres {
+	bbk String,
+    ickapiNo String,
+    diskapiNo String,
+    site String,
+	sokak String,
+	cadde String,
+    semt String,
+    adresTarifi String
+}
+
+entity Ilce{
+	ad String required
+}
+
+entity Il{
+	ad String required
+}
+
+entity Mahalle{
+	mahalleAd String required,
+	postaKodu String,
+	semt String
+}
+
+entity GPSLokasyon {
+	enlem String required,
+    boylam String required
+}
+
+entity Isyeri {
+	adi String required,
+    telefon String required,
+	aciklama String
+}
+
+entity Musteri{
+	unvan String required,
+	eposta String required,
+	telefon String required,
+}
+
+entity Isci {
+	adi String,
+	soyadi String,
+	eposta String,
+	telefon String,
+	teminatTutari Long,
+	maas Long,
+    sicil String,
+    tckn String,
+    zimmetliMallar String
+}
+
+entity Motor{
+	numarasi String,
+	marka String,
+    model String,
+    yil String
+}
+
+entity Emir{
+	statu EMIR_STATU required
+}
+
+entity EmirGecmisi{
+	zaman Instant required,
+    statu EMIR_STATU required
+}
+
+entity Fatura{
+	yil String required,
+    ay String required
+}
+
+enum EMIR_STATU{
+	HAZIR, DAGITIMDA, TESLIM_EDILDI, 
+    IPTAL, CEZA
+}
+
+enum KURYE_STATU{
+	HAZIR, CALISMIYOR,
+    DAGITIMA_CIKTI,
+    TESLIM_ALINIYOR, DAGITIMDA, 
+    MERKEZE_DONUYOR
+}
+enum BOYUT {
+    1, 2, 3, 4, 5
+}
+
+relationship OneToOne {
+	Kurye{isci} to Isci,
+    Kurye{merkez} to Merkez,
+    Isyeri{merkez} to Merkez,
+    Isyeri{adres} to Adres,
+    Isyeri{gpsLokasyon} to GPSLokasyon,
+    Merkez{adres} to Adres,
+    Merkez{gpsLokasyon} to GPSLokasyon
+}
+
+//relationship ManyToMany {
+//	Job{task(title)} to Task{job}
+//}
+
+relationship OneToMany {
+	Emir{emirGecmisi} to EmirGecmisi,
+    Kurye{statuGecmisi} to KuryeGecmisi,
+    Kurye{gpsLokasyon} to GPSLokasyon,
+    Isyeri{emirler} to Emir,
+    Fatura{emirler} to Emir,
+    Musteri{isyerleri} to Isyeri,
+    Musteri{adres} to Adres,
+    Adres{ilce} to Ilce,
+    Ilce{il} to Il,
+    Adres{mahalle} to Mahalle,
+    Isci{motor} to Motor,
+    Fatura{musteri} to Musteri,
+    Emir{adres} to Adres,
+    Emir{gpsLokasyon} to GPSLokasyon
+}
+
+relationship ManyToOne {
+	Merkez{mahalleler} to Mahalle
+}
+
+// Set pagination options
+paginate Emir, EmirGecmisi, KuryeGecmisi with infinite-scroll
+paginate Kurye, Merkez, Isci, Motor, Isyeri, Fatura with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl //except Isyeri
+// Set an angular suffix
+//angularSuffix * with ngapp

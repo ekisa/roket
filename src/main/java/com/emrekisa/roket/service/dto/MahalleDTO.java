@@ -3,6 +3,8 @@ package com.emrekisa.roket.service.dto;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -18,6 +20,8 @@ public class MahalleDTO implements Serializable {
     private String postaKodu;
 
     private String semt;
+
+    private Long ilceId;
 
     public Long getId() {
         return id;
@@ -49,6 +53,14 @@ public class MahalleDTO implements Serializable {
 
     public void setSemt(String semt) {
         this.semt = semt;
+    }
+
+    public Long getIlceId() {
+        return ilceId;
+    }
+
+    public void setIlceId(Long ilceId) {
+        this.ilceId = ilceId;
     }
 
     @Override

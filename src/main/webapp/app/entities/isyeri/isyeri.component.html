@@ -21,8 +21,8 @@
             <th jhiSortBy="telefon"><span jhiTranslate="roketApp.isyeri.telefon">Telefon</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="aciklama"><span jhiTranslate="roketApp.isyeri.aciklama">Aciklama</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="merkezId"><span jhiTranslate="roketApp.isyeri.merkez">Merkez</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="adresId"><span jhiTranslate="roketApp.isyeri.adres">Adres</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="gpsLokasyonId"><span jhiTranslate="roketApp.isyeri.gpsLokasyon">Gps Lokasyon</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="adresId"><span jhiTranslate="roketApp.isyeri.adres">Adres</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="musteriId"><span jhiTranslate="roketApp.isyeri.musteri">Musteri</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
@@ -39,13 +39,13 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="isyeri.adresId">
-                        <a [routerLink]="['../adres', isyeri.adresId  ]" >{{isyeri.adresId}}</a>
+                    <div *ngIf="isyeri.gpsLokasyonId">
+                        <a [routerLink]="['../gps-lokasyon', isyeri.gpsLokasyonId  ]" >{{isyeri.gpsLokasyonId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="isyeri.gpsLokasyonId">
-                        <a [routerLink]="['../gps-lokasyon', isyeri.gpsLokasyonId  ]" >{{isyeri.gpsLokasyonId}}</a>
+                    <div *ngIf="isyeri.adresId">
+                        <a [routerLink]="['../adres', isyeri.adresId  ]" >{{isyeri.adresId}}</a>
                     </div>
                 </td>
                 <td>

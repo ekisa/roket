@@ -19,7 +19,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180109193511",
+    "changelogDate": "20180109210253",
     "entityTableName": "motor",
     "dto": "mapstruct",
     "pagination": "pagination",

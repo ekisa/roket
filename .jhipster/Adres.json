@@ -2,20 +2,16 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "many-to-one",
             "relationshipName": "mahalle",
             "otherEntityName": "mahalle",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "adres"
+            "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "ilce",
-            "otherEntityName": "ilce",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "adres"
+            "relationshipName": "musteri",
+            "otherEntityName": "musteri",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [
@@ -52,7 +48,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180109193503",
+    "changelogDate": "20180109210245",
     "entityTableName": "adres",
     "dto": "mapstruct",
     "pagination": "no",

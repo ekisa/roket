@@ -3,24 +3,8 @@
     "relationships": [
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "merkez",
-            "otherEntityName": "merkez",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "kurye"
-        },
-        {
-            "relationshipType": "one-to-one",
             "relationshipName": "isci",
             "otherEntityName": "isci",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "kurye"
-        },
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "gpsLokasyon",
-            "otherEntityName": "gPSLokasyon",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "kurye"
@@ -30,6 +14,18 @@
             "relationshipName": "statuGecmisi",
             "otherEntityName": "kuryeGecmisi",
             "otherEntityRelationshipName": "kurye"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "merkez",
+            "otherEntityName": "merkez",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gpsLokasyon",
+            "otherEntityName": "gPSLokasyon",
+            "otherEntityField": "id"
         }
     ],
     "fields": [
@@ -42,7 +38,7 @@
             ]
         }
     ],
-    "changelogDate": "20180109193501",
+    "changelogDate": "20180109210243",
     "entityTableName": "kurye",
     "dto": "mapstruct",
     "pagination": "pagination",

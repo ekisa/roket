@@ -35,20 +35,18 @@ public class Kurye implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Merkez merkez;
-
-    @OneToOne
-    @JoinColumn(unique = true)
     private Isci isci;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private GPSLokasyon gpsLokasyon;
 
     @OneToMany(mappedBy = "kurye")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<KuryeGecmisi> statuGecmisis = new HashSet<>();
+
+    @ManyToOne
+    private Merkez merkez;
+
+    @ManyToOne
+    private GPSLokasyon gpsLokasyon;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -72,19 +70,6 @@ public class Kurye implements Serializable {
         this.statu = statu;
     }
 
-    public Merkez getMerkez() {
-        return merkez;
-    }
-
-    public Kurye merkez(Merkez merkez) {
-        this.merkez = merkez;
-        return this;
-    }
-
-    public void setMerkez(Merkez merkez) {
-        this.merkez = merkez;
-    }
-
     public Isci getIsci() {
         return isci;
     }
@@ -96,19 +81,6 @@ public class Kurye implements Serializable {
 
     public void setIsci(Isci isci) {
         this.isci = isci;
-    }
-
-    public GPSLokasyon getGpsLokasyon() {
-        return gpsLokasyon;
-    }
-
-    public Kurye gpsLokasyon(GPSLokasyon gPSLokasyon) {
-        this.gpsLokasyon = gPSLokasyon;
-        return this;
-    }
-
-    public void setGpsLokasyon(GPSLokasyon gPSLokasyon) {
-        this.gpsLokasyon = gPSLokasyon;
     }
 
     public Set<KuryeGecmisi> getStatuGecmisis() {
@@ -134,6 +106,32 @@ public class Kurye implements Serializable {
 
     public void setStatuGecmisis(Set<KuryeGecmisi> kuryeGecmisis) {
         this.statuGecmisis = kuryeGecmisis;
+    }
+
+    public Merkez getMerkez() {
+        return merkez;
+    }
+
+    public Kurye merkez(Merkez merkez) {
+        this.merkez = merkez;
+        return this;
+    }
+
+    public void setMerkez(Merkez merkez) {
+        this.merkez = merkez;
+    }
+
+    public GPSLokasyon getGpsLokasyon() {
+        return gpsLokasyon;
+    }
+
+    public Kurye gpsLokasyon(GPSLokasyon gPSLokasyon) {
+        this.gpsLokasyon = gPSLokasyon;
+        return this;
+    }
+
+    public void setGpsLokasyon(GPSLokasyon gPSLokasyon) {
+        this.gpsLokasyon = gPSLokasyon;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -6,6 +6,7 @@ export class Mahalle implements BaseEntity {
         public mahalleAd?: string,
         public postaKodu?: string,
         public semt?: string,
+        public ilceId?: number,
     ) {
     }
 }

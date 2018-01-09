@@ -31,7 +31,7 @@ public class AdresDTO implements Serializable {
 
     private Long mahalleId;
 
-    private Long ilceId;
+    private Long musteriId;
 
     public Long getId() {
         return id;
@@ -113,12 +113,12 @@ public class AdresDTO implements Serializable {
         this.mahalleId = mahalleId;
     }
 
-    public Long getIlceId() {
-        return ilceId;
+    public Long getMusteriId() {
+        return musteriId;
     }
 
-    public void setIlceId(Long ilceId) {
-        this.ilceId = ilceId;
+    public void setMusteriId(Long musteriId) {
+        this.musteriId = musteriId;
     }
 
     @Override

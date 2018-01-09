@@ -34,19 +34,8 @@ export class IsciDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.motorService
-            .query({filter: 'isci-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.isci.motorId) {
-                    this.motors = res.json;
-                } else {
-                    this.motorService
-                        .find(this.isci.motorId)
-                        .subscribe((subRes: Motor) => {
-                            this.motors = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+        this.motorService.query()
+            .subscribe((res: ResponseWrapper) => { this.motors = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {

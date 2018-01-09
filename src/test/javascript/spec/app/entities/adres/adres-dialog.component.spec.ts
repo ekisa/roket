@@ -9,7 +9,7 @@ import { AdresDialogComponent } from '../../../../../../main/webapp/app/entities
 import { AdresService } from '../../../../../../main/webapp/app/entities/adres/adres.service';
 import { Adres } from '../../../../../../main/webapp/app/entities/adres/adres.model';
 import { MahalleService } from '../../../../../../main/webapp/app/entities/mahalle';
-import { IlceService } from '../../../../../../main/webapp/app/entities/ilce';
+import { MusteriService } from '../../../../../../main/webapp/app/entities/musteri';
 
 describe('Component Tests', () => {
 
@@ -26,7 +26,7 @@ describe('Component Tests', () => {
                 declarations: [AdresDialogComponent],
                 providers: [
                     MahalleService,
-                    IlceService,
+                    MusteriService,
                     AdresService
                 ]
             })

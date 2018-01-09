@@ -34,8 +34,7 @@ public class Fatura implements Serializable {
     @Column(name = "ay", nullable = false)
     private String ay;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Musteri musteri;
 
     @OneToMany(mappedBy = "fatura")

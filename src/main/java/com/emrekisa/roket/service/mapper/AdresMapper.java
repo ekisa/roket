@@ -8,15 +8,15 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Adres and its DTO AdresDTO.
  */
-@Mapper(componentModel = "spring", uses = {MahalleMapper.class, IlceMapper.class})
+@Mapper(componentModel = "spring", uses = {MahalleMapper.class, MusteriMapper.class})
 public interface AdresMapper extends EntityMapper<AdresDTO, Adres> {
 
     @Mapping(source = "mahalle.id", target = "mahalleId")
-    @Mapping(source = "ilce.id", target = "ilceId")
+    @Mapping(source = "musteri.id", target = "musteriId")
     AdresDTO toDto(Adres adres);
 
     @Mapping(source = "mahalleId", target = "mahalle")
-    @Mapping(source = "ilceId", target = "ilce")
+    @Mapping(source = "musteriId", target = "musteri")
     Adres toEntity(AdresDTO adresDTO);
 
     default Adres fromId(Long id) {

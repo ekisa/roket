@@ -1,6 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ilce",
+            "otherEntityName": "ilce",
+            "otherEntityField": "id"
+        }
+    ],
     "fields": [
         {
             "fieldName": "mahalleAd",
@@ -18,7 +25,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180109193506",
+    "changelogDate": "20180109210248",
     "entityTableName": "mahalle",
     "dto": "mapstruct",
     "pagination": "no",

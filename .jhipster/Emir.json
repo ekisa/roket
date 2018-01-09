@@ -8,26 +8,22 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "adres",
-            "otherEntityName": "adres",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "emir"
-        },
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "gpsLokasyon",
-            "otherEntityName": "gPSLokasyon",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "emir"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "emirGecmisi",
             "otherEntityName": "emirGecmisi",
             "otherEntityRelationshipName": "emir"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gpsLokasyon",
+            "otherEntityName": "gPSLokasyon",
+            "otherEntityField": "id"
         },
         {
             "relationshipName": "fatura",
@@ -46,7 +42,7 @@
             ]
         }
     ],
-    "changelogDate": "20180109193512",
+    "changelogDate": "20180109210254",
     "entityTableName": "emir",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

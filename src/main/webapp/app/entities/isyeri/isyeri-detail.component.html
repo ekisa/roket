@@ -22,16 +22,16 @@
                 <a [routerLink]="['/merkez', isyeri.merkezId]">{{isyeri.merkezId}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="roketApp.isyeri.adres">Adres</span></dt>
-        <dd>
-            <div *ngIf="isyeri.adresId">
-                <a [routerLink]="['/adres', isyeri.adresId]">{{isyeri.adresId}}</a>
-            </div>
-        </dd>
         <dt><span jhiTranslate="roketApp.isyeri.gpsLokasyon">Gps Lokasyon</span></dt>
         <dd>
             <div *ngIf="isyeri.gpsLokasyonId">
                 <a [routerLink]="['/gps-lokasyon', isyeri.gpsLokasyonId]">{{isyeri.gpsLokasyonId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isyeri.adres">Adres</span></dt>
+        <dd>
+            <div *ngIf="isyeri.adresId">
+                <a [routerLink]="['/adres', isyeri.adresId]">{{isyeri.adresId}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="roketApp.isyeri.musteri">Musteri</span></dt>

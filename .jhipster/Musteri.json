@@ -2,17 +2,21 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "adres",
-            "otherEntityName": "adres",
-            "otherEntityField": "id",
-            "ownerSide": true,
+            "relationshipType": "one-to-many",
+            "relationshipName": "isyerleri",
+            "otherEntityName": "isyeri",
             "otherEntityRelationshipName": "musteri"
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "isyerleri",
-            "otherEntityName": "isyeri",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
+            "otherEntityRelationshipName": "musteri"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "faturalar",
+            "otherEntityName": "fatura",
             "otherEntityRelationshipName": "musteri"
         }
     ],
@@ -39,7 +43,7 @@
             ]
         }
     ],
-    "changelogDate": "20180109193509",
+    "changelogDate": "20180109210251",
     "entityTableName": "musteri",
     "dto": "mapstruct",
     "pagination": "no",

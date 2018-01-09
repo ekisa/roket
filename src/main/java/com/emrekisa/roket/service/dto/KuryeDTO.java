@@ -18,9 +18,9 @@ public class KuryeDTO implements Serializable {
     @NotNull
     private KURYE_STATU statu;
 
-    private Long merkezId;
-
     private Long isciId;
+
+    private Long merkezId;
 
     private Long gpsLokasyonId;
 
@@ -40,20 +40,20 @@ public class KuryeDTO implements Serializable {
         this.statu = statu;
     }
 
-    public Long getMerkezId() {
-        return merkezId;
-    }
-
-    public void setMerkezId(Long merkezId) {
-        this.merkezId = merkezId;
-    }
-
     public Long getIsciId() {
         return isciId;
     }
 
     public void setIsciId(Long isciId) {
         this.isciId = isciId;
+    }
+
+    public Long getMerkezId() {
+        return merkezId;
+    }
+
+    public void setMerkezId(Long merkezId) {
+        this.merkezId = merkezId;
     }
 
     public Long getGpsLokasyonId() {

@@ -9,8 +9,8 @@ import { IsyeriDialogComponent } from '../../../../../../main/webapp/app/entitie
 import { IsyeriService } from '../../../../../../main/webapp/app/entities/isyeri/isyeri.service';
 import { Isyeri } from '../../../../../../main/webapp/app/entities/isyeri/isyeri.model';
 import { MerkezService } from '../../../../../../main/webapp/app/entities/merkez';
-import { AdresService } from '../../../../../../main/webapp/app/entities/adres';
 import { GPSLokasyonService } from '../../../../../../main/webapp/app/entities/gps-lokasyon';
+import { AdresService } from '../../../../../../main/webapp/app/entities/adres';
 import { MusteriService } from '../../../../../../main/webapp/app/entities/musteri';
 
 describe('Component Tests', () => {
@@ -28,8 +28,8 @@ describe('Component Tests', () => {
                 declarations: [IsyeriDialogComponent],
                 providers: [
                     MerkezService,
-                    AdresService,
                     GPSLokasyonService,
+                    AdresService,
                     MusteriService,
                     IsyeriService
                 ]

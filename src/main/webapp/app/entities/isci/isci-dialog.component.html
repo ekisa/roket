@@ -60,7 +60,7 @@
 
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.isci.motor" for="field_motor">Motor</label>
-            <select class="form-control" id="field_motor" name="motor" [(ngModel)]="isci.motorId">
+            <select class="form-control" id="field_motor" name="motor" [(ngModel)]="isci.motorId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="motorOption.id" *ngFor="let motorOption of motors; trackBy: trackMotorById">{{motorOption.id}}</option>
             </select>

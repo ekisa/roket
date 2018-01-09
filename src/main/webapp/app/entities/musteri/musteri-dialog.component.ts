@@ -4,13 +4,11 @@ import { Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { JhiEventManager } from 'ng-jhipster';
 
 import { Musteri } from './musteri.model';
 import { MusteriPopupService } from './musteri-popup.service';
 import { MusteriService } from './musteri.service';
-import { Adres, AdresService } from '../adres';
-import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-musteri-dialog',
@@ -21,32 +19,15 @@ export class MusteriDialogComponent implements OnInit {
     musteri: Musteri;
     isSaving: boolean;
 
-    adres: Adres[];
-
     constructor(
         public activeModal: NgbActiveModal,
-        private jhiAlertService: JhiAlertService,
         private musteriService: MusteriService,
-        private adresService: AdresService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.adresService
-            .query({filter: 'musteri-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.musteri.adresId) {
-                    this.adres = res.json;
-                } else {
-                    this.adresService
-                        .find(this.musteri.adresId)
-                        .subscribe((subRes: Adres) => {
-                            this.adres = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -77,14 +58,6 @@ export class MusteriDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
-    }
-
-    private onError(error: any) {
-        this.jhiAlertService.error(error.message, null, null);
-    }
-
-    trackAdresById(index: number, item: Adres) {
-        return item.id;
     }
 }
 

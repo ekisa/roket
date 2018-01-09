@@ -18,8 +18,9 @@
             "unvan": "Unvan",
             "eposta": "Eposta",
             "telefon": "Telefon",
+            "isyerleri": "Isyerleri",
             "adres": "Adres",
-            "isyerleri": "Isyerleri"
+            "faturalar": "Faturalar"
         }
     }
 }

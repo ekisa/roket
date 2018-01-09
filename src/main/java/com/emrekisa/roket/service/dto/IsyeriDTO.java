@@ -24,9 +24,9 @@ public class IsyeriDTO implements Serializable {
 
     private Long merkezId;
 
-    private Long adresId;
-
     private Long gpsLokasyonId;
+
+    private Long adresId;
 
     private Long musteriId;
 
@@ -70,20 +70,20 @@ public class IsyeriDTO implements Serializable {
         this.merkezId = merkezId;
     }
 
-    public Long getAdresId() {
-        return adresId;
-    }
-
-    public void setAdresId(Long adresId) {
-        this.adresId = adresId;
-    }
-
     public Long getGpsLokasyonId() {
         return gpsLokasyonId;
     }
 
     public void setGpsLokasyonId(Long gPSLokasyonId) {
         this.gpsLokasyonId = gPSLokasyonId;
+    }
+
+    public Long getAdresId() {
+        return adresId;
+    }
+
+    public void setAdresId(Long adresId) {
+        this.adresId = adresId;
     }
 
     public Long getMusteriId() {

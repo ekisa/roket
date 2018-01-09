@@ -35,9 +35,9 @@ describe('Merkez e2e test', () => {
         merkezComponentsPage.clickOnCreateButton();
         merkezDialogPage.setAdiInput('adi');
         expect(merkezDialogPage.getAdiInput()).toMatch('adi');
-        merkezDialogPage.adresSelectLastOption();
+        merkezDialogPage.mahalleSelectLastOption();
         merkezDialogPage.gpsLokasyonSelectLastOption();
-        merkezDialogPage.mahallelerSelectLastOption();
+        merkezDialogPage.adresSelectLastOption();
         merkezDialogPage.save();
         expect(merkezDialogPage.getSaveButton().isPresent()).toBeFalsy();
     });
@@ -65,9 +65,9 @@ export class MerkezDialogPage {
     saveButton = element(by.css('.modal-footer .btn.btn-primary'));
     closeButton = element(by.css('button.close'));
     adiInput = element(by.css('input#field_adi'));
-    adresSelect = element(by.css('select#field_adres'));
+    mahalleSelect = element(by.css('select#field_mahalle'));
     gpsLokasyonSelect = element(by.css('select#field_gpsLokasyon'));
-    mahallelerSelect = element(by.css('select#field_mahalleler'));
+    adresSelect = element(by.css('select#field_adres'));
 
     getModalTitle() {
         return this.modalTitle.getAttribute('jhiTranslate');
@@ -81,20 +81,20 @@ export class MerkezDialogPage {
         return this.adiInput.getAttribute('value');
     }
 
-    adresSelectLastOption = function() {
-        this.adresSelect.all(by.tagName('option')).last().click();
+    mahalleSelectLastOption = function() {
+        this.mahalleSelect.all(by.tagName('option')).last().click();
     }
 
-    adresSelectOption = function(option) {
-        this.adresSelect.sendKeys(option);
+    mahalleSelectOption = function(option) {
+        this.mahalleSelect.sendKeys(option);
     }
 
-    getAdresSelect = function() {
-        return this.adresSelect;
+    getMahalleSelect = function() {
+        return this.mahalleSelect;
     }
 
-    getAdresSelectedOption = function() {
-        return this.adresSelect.element(by.css('option:checked')).getText();
+    getMahalleSelectedOption = function() {
+        return this.mahalleSelect.element(by.css('option:checked')).getText();
     }
 
     gpsLokasyonSelectLastOption = function() {
@@ -113,20 +113,20 @@ export class MerkezDialogPage {
         return this.gpsLokasyonSelect.element(by.css('option:checked')).getText();
     }
 
-    mahallelerSelectLastOption = function() {
-        this.mahallelerSelect.all(by.tagName('option')).last().click();
+    adresSelectLastOption = function() {
+        this.adresSelect.all(by.tagName('option')).last().click();
     }
 
-    mahallelerSelectOption = function(option) {
-        this.mahallelerSelect.sendKeys(option);
+    adresSelectOption = function(option) {
+        this.adresSelect.sendKeys(option);
     }
 
-    getMahallelerSelect = function() {
-        return this.mahallelerSelect;
+    getAdresSelect = function() {
+        return this.adresSelect;
     }
 
-    getMahallelerSelectedOption = function() {
-        return this.mahallelerSelect.element(by.css('option:checked')).getText();
+    getAdresSelectedOption = function() {
+        return this.adresSelect.element(by.css('option:checked')).getText();
     }
 
     save() {

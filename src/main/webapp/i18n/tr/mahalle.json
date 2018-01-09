@@ -17,7 +17,8 @@
             },
             "mahalleAd": "Mahalle Ad",
             "postaKodu": "Posta Kodu",
-            "semt": "Semt"
+            "semt": "Semt",
+            "ilce": "Ilce"
         }
     }
 }

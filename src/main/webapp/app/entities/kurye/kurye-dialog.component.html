@@ -31,13 +31,6 @@
         </div>
 
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="roketApp.kurye.merkez" for="field_merkez">Merkez</label>
-            <select class="form-control" id="field_merkez" name="merkez" [(ngModel)]="kurye.merkezId">
-                <option [ngValue]="null"></option>
-                <option [ngValue]="merkezOption.id" *ngFor="let merkezOption of merkezs; trackBy: trackMerkezById">{{merkezOption.id}}</option>
-            </select>
-        </div>
-        <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.kurye.isci" for="field_isci">Isci</label>
             <select class="form-control" id="field_isci" name="isci" [(ngModel)]="kurye.isciId">
                 <option [ngValue]="null"></option>
@@ -45,8 +38,15 @@
             </select>
         </div>
         <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.kurye.merkez" for="field_merkez">Merkez</label>
+            <select class="form-control" id="field_merkez" name="merkez" [(ngModel)]="kurye.merkezId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="merkezOption.id" *ngFor="let merkezOption of merkezs; trackBy: trackMerkezById">{{merkezOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.kurye.gpsLokasyon" for="field_gpsLokasyon">Gps Lokasyon</label>
-            <select class="form-control" id="field_gpsLokasyon" name="gpsLokasyon" [(ngModel)]="kurye.gpsLokasyonId">
+            <select class="form-control" id="field_gpsLokasyon" name="gpsLokasyon" [(ngModel)]="kurye.gpsLokasyonId" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="gPSLokasyonOption.id" *ngFor="let gPSLokasyonOption of gpslokasyons; trackBy: trackGPSLokasyonById">{{gPSLokasyonOption.id}}</option>
             </select>

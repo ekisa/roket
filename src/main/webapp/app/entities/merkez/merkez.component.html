@@ -18,9 +18,9 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="adi"><span jhiTranslate="roketApp.merkez.adi">Adi</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="adresId"><span jhiTranslate="roketApp.merkez.adres">Adres</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mahalleId"><span jhiTranslate="roketApp.merkez.mahalle">Mahalle</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="gpsLokasyonId"><span jhiTranslate="roketApp.merkez.gpsLokasyon">Gps Lokasyon</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="mahallelerId"><span jhiTranslate="roketApp.merkez.mahalleler">Mahalleler</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="adresId"><span jhiTranslate="roketApp.merkez.adres">Adres</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -29,8 +29,8 @@
                 <td><a [routerLink]="['../merkez', merkez.id ]">{{merkez.id}}</a></td>
                 <td>{{merkez.adi}}</td>
                 <td>
-                    <div *ngIf="merkez.adresId">
-                        <a [routerLink]="['../adres', merkez.adresId  ]" >{{merkez.adresId}}</a>
+                    <div *ngIf="merkez.mahalleId">
+                        <a [routerLink]="['../mahalle', merkez.mahalleId  ]" >{{merkez.mahalleId}}</a>
                     </div>
                 </td>
                 <td>
@@ -39,8 +39,8 @@
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="merkez.mahallelerId">
-                        <a [routerLink]="['../mahalle', merkez.mahallelerId  ]" >{{merkez.mahallelerId}}</a>
+                    <div *ngIf="merkez.adresId">
+                        <a [routerLink]="['../adres', merkez.adresId  ]" >{{merkez.adresId}}</a>
                     </div>
                 </td>
                 <td class="text-right">

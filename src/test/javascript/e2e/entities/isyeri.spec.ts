@@ -40,8 +40,8 @@ describe('Isyeri e2e test', () => {
         isyeriDialogPage.setAciklamaInput('aciklama');
         expect(isyeriDialogPage.getAciklamaInput()).toMatch('aciklama');
         isyeriDialogPage.merkezSelectLastOption();
-        isyeriDialogPage.adresSelectLastOption();
         isyeriDialogPage.gpsLokasyonSelectLastOption();
+        isyeriDialogPage.adresSelectLastOption();
         isyeriDialogPage.musteriSelectLastOption();
         isyeriDialogPage.save();
         expect(isyeriDialogPage.getSaveButton().isPresent()).toBeFalsy();
@@ -73,8 +73,8 @@ export class IsyeriDialogPage {
     telefonInput = element(by.css('input#field_telefon'));
     aciklamaInput = element(by.css('input#field_aciklama'));
     merkezSelect = element(by.css('select#field_merkez'));
-    adresSelect = element(by.css('select#field_adres'));
     gpsLokasyonSelect = element(by.css('select#field_gpsLokasyon'));
+    adresSelect = element(by.css('select#field_adres'));
     musteriSelect = element(by.css('select#field_musteri'));
 
     getModalTitle() {
@@ -121,22 +121,6 @@ export class IsyeriDialogPage {
         return this.merkezSelect.element(by.css('option:checked')).getText();
     }
 
-    adresSelectLastOption = function() {
-        this.adresSelect.all(by.tagName('option')).last().click();
-    }
-
-    adresSelectOption = function(option) {
-        this.adresSelect.sendKeys(option);
-    }
-
-    getAdresSelect = function() {
-        return this.adresSelect;
-    }
-
-    getAdresSelectedOption = function() {
-        return this.adresSelect.element(by.css('option:checked')).getText();
-    }
-
     gpsLokasyonSelectLastOption = function() {
         this.gpsLokasyonSelect.all(by.tagName('option')).last().click();
     }
@@ -151,6 +135,22 @@ export class IsyeriDialogPage {
 
     getGpsLokasyonSelectedOption = function() {
         return this.gpsLokasyonSelect.element(by.css('option:checked')).getText();
+    }
+
+    adresSelectLastOption = function() {
+        this.adresSelect.all(by.tagName('option')).last().click();
+    }
+
+    adresSelectOption = function(option) {
+        this.adresSelect.sendKeys(option);
+    }
+
+    getAdresSelect = function() {
+        return this.adresSelect;
+    }
+
+    getAdresSelectedOption = function() {
+        return this.adresSelect.element(by.css('option:checked')).getText();
     }
 
     musteriSelectLastOption = function() {

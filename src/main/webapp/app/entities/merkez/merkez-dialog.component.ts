@@ -9,9 +9,9 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Merkez } from './merkez.model';
 import { MerkezPopupService } from './merkez-popup.service';
 import { MerkezService } from './merkez.service';
-import { Adres, AdresService } from '../adres';
-import { GPSLokasyon, GPSLokasyonService } from '../gps-lokasyon';
 import { Mahalle, MahalleService } from '../mahalle';
+import { GPSLokasyon, GPSLokasyonService } from '../gps-lokasyon';
+import { Adres, AdresService } from '../adres';
 import { ResponseWrapper } from '../../shared';
 
 @Component({
@@ -23,53 +23,31 @@ export class MerkezDialogComponent implements OnInit {
     merkez: Merkez;
     isSaving: boolean;
 
-    adres: Adres[];
+    mahalles: Mahalle[];
 
     gpslokasyons: GPSLokasyon[];
 
-    mahalles: Mahalle[];
+    adres: Adres[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private merkezService: MerkezService,
-        private adresService: AdresService,
-        private gPSLokasyonService: GPSLokasyonService,
         private mahalleService: MahalleService,
+        private gPSLokasyonService: GPSLokasyonService,
+        private adresService: AdresService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.adresService
-            .query({filter: 'merkez-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.merkez.adresId) {
-                    this.adres = res.json;
-                } else {
-                    this.adresService
-                        .find(this.merkez.adresId)
-                        .subscribe((subRes: Adres) => {
-                            this.adres = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
-        this.gPSLokasyonService
-            .query({filter: 'merkez-is-null'})
-            .subscribe((res: ResponseWrapper) => {
-                if (!this.merkez.gpsLokasyonId) {
-                    this.gpslokasyons = res.json;
-                } else {
-                    this.gPSLokasyonService
-                        .find(this.merkez.gpsLokasyonId)
-                        .subscribe((subRes: GPSLokasyon) => {
-                            this.gpslokasyons = [subRes].concat(res.json);
-                        }, (subRes: ResponseWrapper) => this.onError(subRes.json));
-                }
-            }, (res: ResponseWrapper) => this.onError(res.json));
         this.mahalleService.query()
             .subscribe((res: ResponseWrapper) => { this.mahalles = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.gPSLokasyonService.query()
+            .subscribe((res: ResponseWrapper) => { this.gpslokasyons = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.adresService.query()
+            .subscribe((res: ResponseWrapper) => { this.adres = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -106,7 +84,7 @@ export class MerkezDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackAdresById(index: number, item: Adres) {
+    trackMahalleById(index: number, item: Mahalle) {
         return item.id;
     }
 
@@ -114,7 +92,7 @@ export class MerkezDialogComponent implements OnInit {
         return item.id;
     }
 
-    trackMahalleById(index: number, item: Mahalle) {
+    trackAdresById(index: number, item: Adres) {
         return item.id;
     }
 }

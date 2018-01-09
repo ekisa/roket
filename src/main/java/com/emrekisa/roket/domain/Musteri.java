@@ -38,14 +38,20 @@ public class Musteri implements Serializable {
     @Column(name = "telefon", nullable = false)
     private String telefon;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Adres adres;
-
     @OneToMany(mappedBy = "musteri")
     @JsonIgnore
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Isyeri> isyerleris = new HashSet<>();
+
+    @OneToMany(mappedBy = "musteri")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Adres> adres = new HashSet<>();
+
+    @OneToMany(mappedBy = "musteri")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Fatura> faturalars = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -95,19 +101,6 @@ public class Musteri implements Serializable {
         this.telefon = telefon;
     }
 
-    public Adres getAdres() {
-        return adres;
-    }
-
-    public Musteri adres(Adres adres) {
-        this.adres = adres;
-        return this;
-    }
-
-    public void setAdres(Adres adres) {
-        this.adres = adres;
-    }
-
     public Set<Isyeri> getIsyerleris() {
         return isyerleris;
     }
@@ -131,6 +124,56 @@ public class Musteri implements Serializable {
 
     public void setIsyerleris(Set<Isyeri> isyeris) {
         this.isyerleris = isyeris;
+    }
+
+    public Set<Adres> getAdres() {
+        return adres;
+    }
+
+    public Musteri adres(Set<Adres> adres) {
+        this.adres = adres;
+        return this;
+    }
+
+    public Musteri addAdres(Adres adres) {
+        this.adres.add(adres);
+        adres.setMusteri(this);
+        return this;
+    }
+
+    public Musteri removeAdres(Adres adres) {
+        this.adres.remove(adres);
+        adres.setMusteri(null);
+        return this;
+    }
+
+    public void setAdres(Set<Adres> adres) {
+        this.adres = adres;
+    }
+
+    public Set<Fatura> getFaturalars() {
+        return faturalars;
+    }
+
+    public Musteri faturalars(Set<Fatura> faturas) {
+        this.faturalars = faturas;
+        return this;
+    }
+
+    public Musteri addFaturalar(Fatura fatura) {
+        this.faturalars.add(fatura);
+        fatura.setMusteri(this);
+        return this;
+    }
+
+    public Musteri removeFaturalar(Fatura fatura) {
+        this.faturalars.remove(fatura);
+        fatura.setMusteri(null);
+        return this;
+    }
+
+    public void setFaturalars(Set<Fatura> faturas) {
+        this.faturalars = faturas;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

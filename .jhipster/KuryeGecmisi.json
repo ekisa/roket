@@ -25,7 +25,7 @@
             ]
         }
     ],
-    "changelogDate": "20180109193502",
+    "changelogDate": "20180109210244",
     "entityTableName": "kurye_gecmisi",
     "dto": "mapstruct",
     "pagination": "infinite-scroll",

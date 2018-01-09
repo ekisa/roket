@@ -27,16 +27,14 @@ public class Merkez implements Serializable {
     @Column(name = "adi", nullable = false)
     private String adi;
 
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Adres adres;
+    @ManyToOne
+    private Mahalle mahalle;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private GPSLokasyon gpsLokasyon;
 
     @ManyToOne
-    private Mahalle mahalleler;
+    private Adres adres;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -60,17 +58,17 @@ public class Merkez implements Serializable {
         this.adi = adi;
     }
 
-    public Adres getAdres() {
-        return adres;
+    public Mahalle getMahalle() {
+        return mahalle;
     }
 
-    public Merkez adres(Adres adres) {
-        this.adres = adres;
+    public Merkez mahalle(Mahalle mahalle) {
+        this.mahalle = mahalle;
         return this;
     }
 
-    public void setAdres(Adres adres) {
-        this.adres = adres;
+    public void setMahalle(Mahalle mahalle) {
+        this.mahalle = mahalle;
     }
 
     public GPSLokasyon getGpsLokasyon() {
@@ -86,17 +84,17 @@ public class Merkez implements Serializable {
         this.gpsLokasyon = gPSLokasyon;
     }
 
-    public Mahalle getMahalleler() {
-        return mahalleler;
+    public Adres getAdres() {
+        return adres;
     }
 
-    public Merkez mahalleler(Mahalle mahalle) {
-        this.mahalleler = mahalle;
+    public Merkez adres(Adres adres) {
+        this.adres = adres;
         return this;
     }
 
-    public void setMahalleler(Mahalle mahalle) {
-        this.mahalleler = mahalle;
+    public void setAdres(Adres adres) {
+        this.adres = adres;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

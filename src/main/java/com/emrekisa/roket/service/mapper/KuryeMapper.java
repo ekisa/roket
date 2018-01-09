@@ -8,18 +8,18 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Kurye and its DTO KuryeDTO.
  */
-@Mapper(componentModel = "spring", uses = {MerkezMapper.class, IsciMapper.class, GPSLokasyonMapper.class})
+@Mapper(componentModel = "spring", uses = {IsciMapper.class, MerkezMapper.class, GPSLokasyonMapper.class})
 public interface KuryeMapper extends EntityMapper<KuryeDTO, Kurye> {
 
-    @Mapping(source = "merkez.id", target = "merkezId")
     @Mapping(source = "isci.id", target = "isciId")
+    @Mapping(source = "merkez.id", target = "merkezId")
     @Mapping(source = "gpsLokasyon.id", target = "gpsLokasyonId")
     KuryeDTO toDto(Kurye kurye);
 
-    @Mapping(source = "merkezId", target = "merkez")
     @Mapping(source = "isciId", target = "isci")
-    @Mapping(source = "gpsLokasyonId", target = "gpsLokasyon")
     @Mapping(target = "statuGecmisis", ignore = true)
+    @Mapping(source = "merkezId", target = "merkez")
+    @Mapping(source = "gpsLokasyonId", target = "gpsLokasyon")
     Kurye toEntity(KuryeDTO kuryeDTO);
 
     default Kurye fromId(Long id) {

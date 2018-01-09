@@ -8,9 +8,9 @@ import { RoketTestModule } from '../../../test.module';
 import { MerkezDialogComponent } from '../../../../../../main/webapp/app/entities/merkez/merkez-dialog.component';
 import { MerkezService } from '../../../../../../main/webapp/app/entities/merkez/merkez.service';
 import { Merkez } from '../../../../../../main/webapp/app/entities/merkez/merkez.model';
-import { AdresService } from '../../../../../../main/webapp/app/entities/adres';
-import { GPSLokasyonService } from '../../../../../../main/webapp/app/entities/gps-lokasyon';
 import { MahalleService } from '../../../../../../main/webapp/app/entities/mahalle';
+import { GPSLokasyonService } from '../../../../../../main/webapp/app/entities/gps-lokasyon';
+import { AdresService } from '../../../../../../main/webapp/app/entities/adres';
 
 describe('Component Tests', () => {
 
@@ -26,9 +26,9 @@ describe('Component Tests', () => {
                 imports: [RoketTestModule],
                 declarations: [MerkezDialogComponent],
                 providers: [
-                    AdresService,
-                    GPSLokasyonService,
                     MahalleService,
+                    GPSLokasyonService,
+                    AdresService,
                     MerkezService
                 ]
             })
