@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "kurye",
+            "otherEntityName": "kurye",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "zaman",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "statu",
+            "fieldType": "KURYE_STATU",
+            "fieldValues": "HAZIR,CALISMIYOR,DAGITIMA_CIKTI,TESLIM_ALINIYOR,DAGITIMDA,MERKEZE_DONUYOR",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180111191458",
+    "entityTableName": "kurye_gecmisi",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

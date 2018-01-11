@@ -1,0 +1,22 @@
+{
+    "roketApp": {
+        "ilce" : {
+            "home": {
+                "title": "Ilces",
+                "createLabel": "Create a new Ilce",
+                "createOrEditLabel": "Create or edit a Ilce"
+            },
+            "created": "A new Ilce is created with identifier {{ param }}",
+            "updated": "A Ilce is updated with identifier {{ param }}",
+            "deleted": "A Ilce is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ilce {{ id }}?"
+            },
+            "detail": {
+                "title": "Ilce"
+            },
+            "ad": "Ad",
+            "il": "Il"
+        }
+    }
+}

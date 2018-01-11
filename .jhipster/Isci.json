@@ -1,0 +1,55 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "motor",
+            "otherEntityName": "motor",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "adi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soyadi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "eposta",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "teminatTutari",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "maas",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "sicil",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tckn",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zimmetliMallar",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180111191506",
+    "entityTableName": "isci",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

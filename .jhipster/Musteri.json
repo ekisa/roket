@@ -1,0 +1,52 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "isyerleri",
+            "otherEntityName": "isyeri",
+            "otherEntityRelationshipName": "musteri"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
+            "otherEntityRelationshipName": "musteri"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "faturalar",
+            "otherEntityName": "fatura",
+            "otherEntityRelationshipName": "musteri"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "unvan",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "eposta",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telefon",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180111191505",
+    "entityTableName": "musteri",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

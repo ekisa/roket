@@ -1,0 +1,80 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIsyeriLabel" jhiTranslate="roketApp.isyeri.home.createOrEditLabel">Create or edit a Isyeri</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!isyeri.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="isyeri.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isyeri.adi" for="field_adi">Adi</label>
+            <input type="text" class="form-control" name="adi" id="field_adi"
+                [(ngModel)]="isyeri.adi" required/>
+            <div [hidden]="!(editForm.controls.adi?.dirty && editForm.controls.adi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.adi?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isyeri.telefon" for="field_telefon">Telefon</label>
+            <input type="text" class="form-control" name="telefon" id="field_telefon"
+                [(ngModel)]="isyeri.telefon" required/>
+            <div [hidden]="!(editForm.controls.telefon?.dirty && editForm.controls.telefon?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.telefon?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isyeri.aciklama" for="field_aciklama">Aciklama</label>
+            <input type="text" class="form-control" name="aciklama" id="field_aciklama"
+                [(ngModel)]="isyeri.aciklama" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isyeri.merkez" for="field_merkez">Merkez</label>
+            <select class="form-control" id="field_merkez" name="merkez" [(ngModel)]="isyeri.merkezId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="merkezOption.id" *ngFor="let merkezOption of merkezs; trackBy: trackMerkezById">{{merkezOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isyeri.gpsLokasyon" for="field_gpsLokasyon">Gps Lokasyon</label>
+            <select class="form-control" id="field_gpsLokasyon" name="gpsLokasyon" [(ngModel)]="isyeri.gpsLokasyonId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="gPSLokasyonOption.id" *ngFor="let gPSLokasyonOption of gpslokasyons; trackBy: trackGPSLokasyonById">{{gPSLokasyonOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isyeri.adres" for="field_adres">Adres</label>
+            <select class="form-control" id="field_adres" name="adres" [(ngModel)]="isyeri.adresId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="adresOption.id" *ngFor="let adresOption of adres; trackBy: trackAdresById">{{adresOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isyeri.musteri" for="field_musteri">Musteri</label>
+            <select class="form-control" id="field_musteri" name="musteri" [(ngModel)]="isyeri.musteriId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="musteriOption.id" *ngFor="let musteriOption of musteris; trackBy: trackMusteriById">{{musteriOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

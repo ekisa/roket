@@ -1,0 +1,34 @@
+
+<div *ngIf="musteri">
+    <h2><span jhiTranslate="roketApp.musteri.detail.title">Musteri</span> {{musteri.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roketApp.musteri.unvan">Unvan</span></dt>
+        <dd>
+            <span>{{musteri.unvan}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.musteri.eposta">Eposta</span></dt>
+        <dd>
+            <span>{{musteri.eposta}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.musteri.telefon">Telefon</span></dt>
+        <dd>
+            <span>{{musteri.telefon}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'musteri/'+ musteri.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

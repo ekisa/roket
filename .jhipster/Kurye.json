@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "isci",
+            "otherEntityName": "isci",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "kurye"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "statuGecmisi",
+            "otherEntityName": "kuryeGecmisi",
+            "otherEntityRelationshipName": "kurye"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "merkez",
+            "otherEntityName": "merkez",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gpsLokasyon",
+            "otherEntityName": "gPSLokasyon",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "statu",
+            "fieldType": "KURYE_STATU",
+            "fieldValues": "HAZIR,CALISMIYOR,DAGITIMA_CIKTI,TESLIM_ALINIYOR,DAGITIMDA,MERKEZE_DONUYOR",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180111191457",
+    "entityTableName": "kurye",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}
