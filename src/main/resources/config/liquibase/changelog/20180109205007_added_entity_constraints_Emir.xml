@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Emir.
+    -->
+    <changeSet id="20180109205007-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="isyeri_id"
+                                 baseTableName="emir"
+                                 constraintName="fk_emir_isyeri_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="isyeri"/>
+
+        <addForeignKeyConstraint baseColumnNames="fatura_id"
+                                 baseTableName="emir"
+                                 constraintName="fk_emir_fatura_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fatura"/>
+
+    </changeSet>
+</databaseChangeLog>

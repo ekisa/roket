@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Merkez.
+    -->
+    <changeSet id="20180109193500-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="adres_id"
+                                 baseTableName="merkez"
+                                 constraintName="fk_merkez_adres_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adres"/>
+
+        <addForeignKeyConstraint baseColumnNames="gps_lokasyon_id"
+                                 baseTableName="merkez"
+                                 constraintName="fk_merkez_gps_lokasyon_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gps_lokasyon"/>
+
+        <addForeignKeyConstraint baseColumnNames="mahalleler_id"
+                                 baseTableName="merkez"
+                                 constraintName="fk_merkez_mahalleler_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mahalle"/>
+
+    </changeSet>
+</databaseChangeLog>
