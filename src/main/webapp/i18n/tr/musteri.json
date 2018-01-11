@@ -1,0 +1,26 @@
+{
+    "roketApp": {
+        "musteri" : {
+            "home": {
+                "title": "Musteris",
+                "createLabel": "Create a new Musteri",
+                "createOrEditLabel": "Create or edit a Musteri"
+            },
+            "created": "A new Musteri is created with identifier {{ param }}",
+            "updated": "A Musteri is updated with identifier {{ param }}",
+            "deleted": "A Musteri is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Musteri {{ id }}?"
+            },
+            "detail": {
+                "title": "Musteri"
+            },
+            "unvan": "Unvan",
+            "eposta": "Eposta",
+            "telefon": "Telefon",
+            "isyerleri": "Isyerleri",
+            "adres": "Adres",
+            "faturalar": "Faturalar"
+        }
+    }
+}

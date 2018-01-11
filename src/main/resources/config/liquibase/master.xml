@@ -5,6 +5,32 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200842_added_entity_Merkez.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200843_added_entity_Kurye.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200844_added_entity_KuryeGecmisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200845_added_entity_Adres.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200846_added_entity_Ilce.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200847_added_entity_Il.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200848_added_entity_Mahalle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200849_added_entity_GPSLokasyon.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200850_added_entity_Isyeri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200851_added_entity_Musteri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200852_added_entity_Isci.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200853_added_entity_Motor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200854_added_entity_Emir.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200855_added_entity_EmirGecmisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200856_added_entity_Fatura.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180111200842_added_entity_constraints_Merkez.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200843_added_entity_constraints_Kurye.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200844_added_entity_constraints_KuryeGecmisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200845_added_entity_constraints_Adres.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200846_added_entity_constraints_Ilce.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200848_added_entity_constraints_Mahalle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200850_added_entity_constraints_Isyeri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200852_added_entity_constraints_Isci.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200854_added_entity_constraints_Emir.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200855_added_entity_constraints_EmirGecmisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180111200856_added_entity_constraints_Fatura.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

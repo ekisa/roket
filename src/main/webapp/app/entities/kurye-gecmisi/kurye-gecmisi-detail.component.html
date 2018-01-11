@@ -1,0 +1,36 @@
+
+<div *ngIf="kuryeGecmisi">
+    <h2><span jhiTranslate="roketApp.kuryeGecmisi.detail.title">Kurye Gecmisi</span> {{kuryeGecmisi.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roketApp.kuryeGecmisi.zaman">Zaman</span></dt>
+        <dd>
+            <span>{{kuryeGecmisi.zaman | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.kuryeGecmisi.statu">Statu</span></dt>
+        <dd>
+            <span jhiTranslate="{{'roketApp.KURYE_STATU.' + kuryeGecmisi.statu}}">{{kuryeGecmisi.statu}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.kuryeGecmisi.kurye">Kurye</span></dt>
+        <dd>
+            <div *ngIf="kuryeGecmisi.kuryeId">
+                <a [routerLink]="['/kurye', kuryeGecmisi.kuryeId]">{{kuryeGecmisi.kuryeId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'kurye-gecmisi/'+ kuryeGecmisi.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

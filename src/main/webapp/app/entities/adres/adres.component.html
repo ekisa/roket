@@ -1,0 +1,90 @@
+<div>
+    <h2>
+        <span jhiTranslate="roketApp.adres.home.title">Adres</span>
+        <button class="btn btn-primary float-right jh-create-entity create-adres" [routerLink]="['/', { outlets: { popup: ['adres-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="roketApp.adres.home.createLabel">
+            Create new Adres
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="adres">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="bbk"><span jhiTranslate="roketApp.adres.bbk">Bbk</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ickapiNo"><span jhiTranslate="roketApp.adres.ickapiNo">Ickapi No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="diskapiNo"><span jhiTranslate="roketApp.adres.diskapiNo">Diskapi No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="site"><span jhiTranslate="roketApp.adres.site">Site</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="sokak"><span jhiTranslate="roketApp.adres.sokak">Sokak</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="cadde"><span jhiTranslate="roketApp.adres.cadde">Cadde</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="adresTarifi"><span jhiTranslate="roketApp.adres.adresTarifi">Adres Tarifi</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mahalleId"><span jhiTranslate="roketApp.adres.mahalle">Mahalle</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="musteriId"><span jhiTranslate="roketApp.adres.musteri">Musteri</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let adres of adres ;trackBy: trackId">
+                <td><a [routerLink]="['../adres', adres.id ]">{{adres.id}}</a></td>
+                <td>{{adres.bbk}}</td>
+                <td>{{adres.ickapiNo}}</td>
+                <td>{{adres.diskapiNo}}</td>
+                <td>{{adres.site}}</td>
+                <td>{{adres.sokak}}</td>
+                <td>{{adres.cadde}}</td>
+                <td>{{adres.adresTarifi}}</td>
+                <td>
+                    <div *ngIf="adres.mahalleId">
+                        <a [routerLink]="['../mahalle', adres.mahalleId  ]" >{{adres.mahalleId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="adres.musteriId">
+                        <a [routerLink]="['../musteri', adres.musteriId  ]" >{{adres.musteriId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../adres', adres.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'adres/'+ adres.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'adres/'+ adres.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="adres && adres.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{
+    "roketApp": {
+        "BOYUT" : {
+            "null": "",
+            "BIR": "BIR",
+            "IKI": "IKI",
+            "UC": "UC",
+            "DORT": "DORT",
+            "BES": "BES"
+        }
+    }
+}

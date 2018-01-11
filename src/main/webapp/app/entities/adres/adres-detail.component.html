@@ -1,0 +1,62 @@
+
+<div *ngIf="adres">
+    <h2><span jhiTranslate="roketApp.adres.detail.title">Adres</span> {{adres.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roketApp.adres.bbk">Bbk</span></dt>
+        <dd>
+            <span>{{adres.bbk}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.adres.ickapiNo">Ickapi No</span></dt>
+        <dd>
+            <span>{{adres.ickapiNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.adres.diskapiNo">Diskapi No</span></dt>
+        <dd>
+            <span>{{adres.diskapiNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.adres.site">Site</span></dt>
+        <dd>
+            <span>{{adres.site}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.adres.sokak">Sokak</span></dt>
+        <dd>
+            <span>{{adres.sokak}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.adres.cadde">Cadde</span></dt>
+        <dd>
+            <span>{{adres.cadde}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.adres.adresTarifi">Adres Tarifi</span></dt>
+        <dd>
+            <span>{{adres.adresTarifi}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.adres.mahalle">Mahalle</span></dt>
+        <dd>
+            <div *ngIf="adres.mahalleId">
+                <a [routerLink]="['/mahalle', adres.mahalleId]">{{adres.mahalleId}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="roketApp.adres.musteri">Musteri</span></dt>
+        <dd>
+            <div *ngIf="adres.musteriId">
+                <a [routerLink]="['/musteri', adres.musteriId]">{{adres.musteriId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'adres/'+ adres.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

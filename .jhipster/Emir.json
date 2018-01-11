@@ -1,0 +1,59 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "isyeri",
+            "otherEntityName": "isyeri",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "emirGecmisi",
+            "otherEntityName": "emirGecmisi",
+            "otherEntityRelationshipName": "emir"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "gpsLokasyon",
+            "otherEntityName": "gPSLokasyon",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "fatura",
+            "otherEntityName": "fatura",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "statu",
+            "fieldType": "EMIR_STATU",
+            "fieldValues": "HAZIR,ATANDI,DAGITIMDA,TESLIM_EDILDI,IPTAL,CEZA",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "boyut",
+            "fieldType": "BOYUT",
+            "fieldValues": "BIR,IKI,UC,DORT,BES",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180111200854",
+    "entityTableName": "emir",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}
