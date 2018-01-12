@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myAdresLabel" jhiTranslate="roketApp.adres.home.createOrEditLabel">Create or edit a Adres</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!adres.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="adres.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.adres.bbk" for="field_bbk">Bbk</label>
+            <input type="text" class="form-control" name="bbk" id="field_bbk"
+                [(ngModel)]="adres.bbk" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.adres.ickapiNo" for="field_ickapiNo">Ickapi No</label>
+            <input type="text" class="form-control" name="ickapiNo" id="field_ickapiNo"
+                [(ngModel)]="adres.ickapiNo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.adres.diskapiNo" for="field_diskapiNo">Diskapi No</label>
+            <input type="text" class="form-control" name="diskapiNo" id="field_diskapiNo"
+                [(ngModel)]="adres.diskapiNo" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.adres.site" for="field_site">Site</label>
+            <input type="text" class="form-control" name="site" id="field_site"
+                [(ngModel)]="adres.site" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.adres.sokak" for="field_sokak">Sokak</label>
+            <input type="text" class="form-control" name="sokak" id="field_sokak"
+                [(ngModel)]="adres.sokak" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.adres.cadde" for="field_cadde">Cadde</label>
+            <input type="text" class="form-control" name="cadde" id="field_cadde"
+                [(ngModel)]="adres.cadde" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.adres.adresTarifi" for="field_adresTarifi">Adres Tarifi</label>
+            <input type="text" class="form-control" name="adresTarifi" id="field_adresTarifi"
+                [(ngModel)]="adres.adresTarifi" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.adres.mahalle" for="field_mahalle">Mahalle</label>
+            <select class="form-control" id="field_mahalle" name="mahalle" [(ngModel)]="adres.mahalleId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="mahalleOption.id" *ngFor="let mahalleOption of mahalles; trackBy: trackMahalleById">{{mahalleOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

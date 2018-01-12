@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "mahalle",
+            "otherEntityName": "mahalle",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "bbk",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ickapiNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "diskapiNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "site",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sokak",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cadde",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adresTarifi",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180112214425",
+    "entityTableName": "adres",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

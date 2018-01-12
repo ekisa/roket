@@ -1,0 +1,1 @@
+C:\\Users\\"Emre KISA"\\AppData\\Local\\Yarn\\bin\\jhipster import-jdl jhipster-jdl-v5.jh

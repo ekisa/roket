@@ -1,0 +1,22 @@
+{
+    "roketApp": {
+        "gPSLokasyon" : {
+            "home": {
+                "title": "GPS Lokasyons",
+                "createLabel": "Create a new GPS Lokasyon",
+                "createOrEditLabel": "Create or edit a GPS Lokasyon"
+            },
+            "created": "A new GPS Lokasyon is created with identifier {{ param }}",
+            "updated": "A GPS Lokasyon is updated with identifier {{ param }}",
+            "deleted": "A GPS Lokasyon is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete GPS Lokasyon {{ id }}?"
+            },
+            "detail": {
+                "title": "GPS Lokasyon"
+            },
+            "enlem": "Enlem",
+            "boylam": "Boylam"
+        }
+    }
+}

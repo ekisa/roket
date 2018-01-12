@@ -1,0 +1,13 @@
+{
+    "roketApp": {
+        "KURYE_STATU" : {
+            "null": "",
+            "HAZIR": "HAZIR",
+            "CALISMIYOR": "CALISMIYOR",
+            "DAGITIMA_CIKTI": "DAGITIMA_CIKTI",
+            "TESLIM_ALINIYOR": "TESLIM_ALINIYOR",
+            "DAGITIMDA": "DAGITIMDA",
+            "MERKEZE_DONUYOR": "MERKEZE_DONUYOR"
+        }
+    }
+}

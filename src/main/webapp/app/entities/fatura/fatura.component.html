@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="roketApp.fatura.home.title">Faturas</span>
+        <button class="btn btn-primary float-right jh-create-entity create-fatura" [routerLink]="['/', { outlets: { popup: ['fatura-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="roketApp.fatura.home.createLabel">
+            Create new Fatura
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="faturas">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="yil"><span jhiTranslate="roketApp.fatura.yil">Yil</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ay"><span jhiTranslate="roketApp.fatura.ay">Ay</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="musteriId"><span jhiTranslate="roketApp.fatura.musteri">Musteri</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fatura of faturas ;trackBy: trackId">
+                <td><a [routerLink]="['../fatura', fatura.id ]">{{fatura.id}}</a></td>
+                <td>{{fatura.yil}}</td>
+                <td>{{fatura.ay}}</td>
+                <td>
+                    <div *ngIf="fatura.musteriId">
+                        <a [routerLink]="['../musteri', fatura.musteriId  ]" >{{fatura.musteriId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../fatura', fatura.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fatura/'+ fatura.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'fatura/'+ fatura.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="faturas && faturas.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

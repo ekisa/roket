@@ -1,0 +1,64 @@
+
+<div *ngIf="isci">
+    <h2><span jhiTranslate="roketApp.isci.detail.title">Isci</span> {{isci.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="roketApp.isci.adi">Adi</span></dt>
+        <dd>
+            <span>{{isci.adi}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isci.soyadi">Soyadi</span></dt>
+        <dd>
+            <span>{{isci.soyadi}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isci.eposta">Eposta</span></dt>
+        <dd>
+            <span>{{isci.eposta}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isci.telefon">Telefon</span></dt>
+        <dd>
+            <span>{{isci.telefon}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isci.teminatTutari">Teminat Tutari</span></dt>
+        <dd>
+            <span>{{isci.teminatTutari}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isci.maas">Maas</span></dt>
+        <dd>
+            <span>{{isci.maas}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isci.sicil">Sicil</span></dt>
+        <dd>
+            <span>{{isci.sicil}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isci.tckn">Tckn</span></dt>
+        <dd>
+            <span>{{isci.tckn}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isci.zimmetliMallar">Zimmetli Mallar</span></dt>
+        <dd>
+            <span>{{isci.zimmetliMallar}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.isci.motor">Motor</span></dt>
+        <dd>
+            <div *ngIf="isci.motorId">
+                <a [routerLink]="['/motor', isci.motorId]">{{isci.motorId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'isci/'+ isci.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

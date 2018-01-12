@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "ogrenciler",
+            "otherEntityName": "ogrenci",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "siniflari"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "sinifAdi",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180112214437",
+    "entityTableName": "sinif",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

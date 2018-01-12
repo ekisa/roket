@@ -1,0 +1,28 @@
+{
+    "roketApp": {
+        "isyeri" : {
+            "home": {
+                "title": "Isyeris",
+                "createLabel": "Create a new Isyeri",
+                "createOrEditLabel": "Create or edit a Isyeri"
+            },
+            "created": "A new Isyeri is created with identifier {{ param }}",
+            "updated": "A Isyeri is updated with identifier {{ param }}",
+            "deleted": "A Isyeri is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Isyeri {{ id }}?"
+            },
+            "detail": {
+                "title": "Isyeri"
+            },
+            "adi": "Adi",
+            "telefon": "Telefon",
+            "aciklama": "Aciklama",
+            "emirler": "Emirler",
+            "merkez": "Merkez",
+            "gpsLokasyon": "Gps Lokasyon",
+            "adres": "Adres",
+            "musteri": "Musteri"
+        }
+    }
+}
