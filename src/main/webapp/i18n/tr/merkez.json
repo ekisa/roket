@@ -2,23 +2,23 @@
     "roketApp": {
         "merkez" : {
             "home": {
-                "title": "Merkezs",
-                "createLabel": "Create a new Merkez",
-                "createOrEditLabel": "Create or edit a Merkez"
+                "title": "Merkezler",
+                "createLabel": "Yeni Merkez",
+                "createOrEditLabel": "Merkez Tanımla / Güncelle"
             },
-            "created": "A new Merkez is created with identifier {{ param }}",
-            "updated": "A Merkez is updated with identifier {{ param }}",
-            "deleted": "A Merkez is deleted with identifier {{ param }}",
+            "created": "{{ param }} ID'li yeni merkez tanımlandı",
+            "updated": "{{ param }} ID'li merkez güncellendi",
+            "deleted": "{{ param }} ID'li merkez silindi",
             "delete": {
-                "question": "Are you sure you want to delete Merkez {{ id }}?"
+                "question": "{{ id }} ID'li merkezi silmek istiyor musunuz?"
             },
             "detail": {
                 "title": "Merkez"
             },
-            "adi": "Adi",
-            "mahalle": "Mahalle",
-            "gpsLokasyon": "Gps Lokasyon",
-            "adres": "Adres"
+            "adi": "Adı",
+            "mahalle": "Mahallesi",
+            "gpsLokasyon": "Gps Lokasyonu",
+            "adres": "Adresi"
         }
     }
 }
