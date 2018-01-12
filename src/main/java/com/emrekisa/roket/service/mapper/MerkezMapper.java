@@ -12,13 +12,17 @@ import org.mapstruct.*;
 public interface MerkezMapper extends EntityMapper<MerkezDTO, Merkez> {
 
     @Mapping(source = "mahalle.id", target = "mahalleId")
+    @Mapping(source = "mahalle.mahalleAd", target = "mahalleAd")
     @Mapping(source = "gpsLokasyon.id", target = "gpsLokasyonId")
     @Mapping(source = "adres.id", target = "adresId")
+    @Mapping(source = "adres.acikAdres", target = "acikAdres")
     MerkezDTO toDto(Merkez merkez);
 
     @Mapping(source = "mahalleId", target = "mahalle")
+    @Mapping(source = "mahalleAd", target = "mahalle.mahalleAd")
     @Mapping(source = "gpsLokasyonId", target = "gpsLokasyon")
     @Mapping(source = "adresId", target = "adres")
+    //@Mapping(source = "acikAdres", target = "adres.acikAdres")
     Merkez toEntity(MerkezDTO merkezDTO);
 
     default Merkez fromId(Long id) {
