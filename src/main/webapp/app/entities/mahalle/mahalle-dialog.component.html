@@ -13,12 +13,12 @@
                    [(ngModel)]="mahalle.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="roketApp.mahalle.mahalleAd" for="field_mahalleAd">Mahalle Ad</label>
-            <input type="text" class="form-control" name="mahalleAd" id="field_mahalleAd"
-                [(ngModel)]="mahalle.mahalleAd" required/>
-            <div [hidden]="!(editForm.controls.mahalleAd?.dirty && editForm.controls.mahalleAd?.invalid)">
+            <label class="form-control-label" jhiTranslate="roketApp.mahalle.adi" for="field_adi">Mahalle Ad</label>
+            <input type="text" class="form-control" name="adi" id="field_adi"
+                [(ngModel)]="mahalle.adi" required/>
+            <div [hidden]="!(editForm.controls.adi?.dirty && editForm.controls.adi?.invalid)">
                 <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.mahalleAd?.errors?.required" jhiTranslate="entity.validation.required">
+                   [hidden]="!editForm.controls.adi?.errors?.required" jhiTranslate="entity.validation.required">
                    This field is required.
                 </small>
             </div>

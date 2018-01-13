@@ -68,7 +68,7 @@ class MahalleGatlingTest extends Simulation {
             .exec(http("Create new mahalle")
             .post("/api/mahalles")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "mahalleAd":"SAMPLE_TEXT", "postaKodu":"SAMPLE_TEXT", "semt":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "adi":"SAMPLE_TEXT", "postaKodu":"SAMPLE_TEXT", "semt":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_mahalle_url"))).exitHereIfFailed
             .pause(10)

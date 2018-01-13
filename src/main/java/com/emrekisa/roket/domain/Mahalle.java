@@ -25,7 +25,7 @@ public class Mahalle implements Serializable {
 
     @NotNull
     @Column(name = "mahalle_ad", nullable = false)
-    private String mahalleAd;
+    private String adi;
 
     @Column(name = "posta_kodu")
     private String postaKodu;
@@ -45,17 +45,17 @@ public class Mahalle implements Serializable {
         this.id = id;
     }
 
-    public String getMahalleAd() {
-        return mahalleAd;
+    public String getAdi() {
+        return adi;
     }
 
-    public Mahalle mahalleAd(String mahalleAd) {
-        this.mahalleAd = mahalleAd;
+    public Mahalle adi(String adi) {
+        this.adi = adi;
         return this;
     }
 
-    public void setMahalleAd(String mahalleAd) {
-        this.mahalleAd = mahalleAd;
+    public void setAdi(String adi) {
+        this.adi = adi;
     }
 
     public String getPostaKodu() {
@@ -122,7 +122,7 @@ public class Mahalle implements Serializable {
     public String toString() {
         return "Mahalle{" +
             "id=" + getId() +
-            ", mahalleAd='" + getMahalleAd() + "'" +
+            ", adi='" + getAdi() + "'" +
             ", postaKodu='" + getPostaKodu() + "'" +
             ", semt='" + getSemt() + "'" +
             "}";

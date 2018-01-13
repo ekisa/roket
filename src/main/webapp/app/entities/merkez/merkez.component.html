@@ -18,7 +18,7 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="adi"><span jhiTranslate="roketApp.merkez.adi">Adi</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="mahalleMahalleAd"><span jhiTranslate="roketApp.merkez.mahalle">Mahalle</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mahalleAdi"><span jhiTranslate="roketApp.merkez.mahalle">Mahalle</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="gpsLokasyonId"><span jhiTranslate="roketApp.merkez.gpsLokasyon">Gps Lokasyon</span> <span class="fa fa-sort"></span></th>
             <th><span jhiTranslate="roketApp.merkez.adres">Adres</span></span></th>
             <th></th>
@@ -30,7 +30,7 @@
                 <td>{{merkez.adi}}</td>
                 <td>
                     <div *ngIf="merkez.mahalleId">
-                        <a [routerLink]="['../mahalle', merkez.mahalleId  ]" >{{merkez.mahalleAd}}</a>
+                        <a [routerLink]="['../mahalle', merkez.mahalleId  ]" >{{merkez.mahalleAdi}}</a>
                     </div>
                 </td>
                 <td>

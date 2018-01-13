@@ -15,7 +15,7 @@ public class MahalleDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private String mahalleAd;
+    private String adi;
 
     private String postaKodu;
 
@@ -31,12 +31,12 @@ public class MahalleDTO implements Serializable {
         this.id = id;
     }
 
-    public String getMahalleAd() {
-        return mahalleAd;
+    public String getAdi() {
+        return adi;
     }
 
-    public void setMahalleAd(String mahalleAd) {
-        this.mahalleAd = mahalleAd;
+    public void setAdi(String adi) {
+        this.adi = adi;
     }
 
     public String getPostaKodu() {
@@ -88,7 +88,7 @@ public class MahalleDTO implements Serializable {
     public String toString() {
         return "MahalleDTO{" +
             "id=" + getId() +
-            ", mahalleAd='" + getMahalleAd() + "'" +
+            ", adi='" + getAdi() + "'" +
             ", postaKodu='" + getPostaKodu() + "'" +
             ", semt='" + getSemt() + "'" +
             "}";

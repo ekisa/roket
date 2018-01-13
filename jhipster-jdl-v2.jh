@@ -31,7 +31,7 @@ entity Il{
 }
 
 entity Mahalle{
-	mahalleAd String required,
+	adi String required,
 	postaKodu String,
 	semt String
 }
@@ -87,14 +87,14 @@ entity Fatura{
 }
 
 enum EMIR_STATU{
-	HAZIR, DAGITIMDA, TESLIM_EDILDI, 
+	HAZIR, DAGITIMDA, TESLIM_EDILDI,
     IPTAL, CEZA
 }
 
 enum KURYE_STATU{
 	HAZIR, CALISMIYOR,
     DAGITIMA_CIKTI,
-    TESLIM_ALINIYOR, DAGITIMDA, 
+    TESLIM_ALINIYOR, DAGITIMDA,
     MERKEZE_DONUYOR
 }
 enum BOYUT {

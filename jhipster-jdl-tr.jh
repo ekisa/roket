@@ -3,7 +3,7 @@ entity Merkez {
 }
 
 entity Kurye {
-	
+
 }
 
 entity Lokasyon {
@@ -16,7 +16,7 @@ entity Lokasyon {
 }
 
 entity Mahalle{
-	mahalleAd String,
+	adi String,
 	postaKodu String,
 	sehir String required
 }
@@ -56,7 +56,7 @@ entity Motor{
 }
 
 entity Emir{
-	
+
 }
 
 entity EmirGecmisi{
@@ -70,8 +70,8 @@ entity Fatura{
 }
 
 enum STATU{
-	BEKLEMEDE, ISYERINDE, 
-    DAGITIMDA, TESLIM_EDILDI, 
+	BEKLEMEDE, ISYERINDE,
+    DAGITIMDA, TESLIM_EDILDI,
     IPTAL, CEZA
 }
 enum BOYUT {

@@ -30,7 +30,7 @@ entity Il{
 }
 
 entity Mahalle{
-	mahalleAd String required,
+	adi String required,
 	postaKodu String,
 	semt String
 }
@@ -95,15 +95,15 @@ entity Fatura{
 }
 
 enum EMIR_STATU{
-	HAZIR, ATANDI, 
-    DAGITIMDA, TESLIM_EDILDI, 
+	HAZIR, ATANDI,
+    DAGITIMDA, TESLIM_EDILDI,
     IPTAL, CEZA
 }
 
 enum KURYE_STATU{
 	HAZIR, CALISMIYOR,
     DAGITIMA_CIKTI,
-    TESLIM_ALINIYOR, DAGITIMDA, 
+    TESLIM_ALINIYOR, DAGITIMDA,
     MERKEZE_DONUYOR
 }
 enum BOYUT {
@@ -147,7 +147,7 @@ relationship ManyToOne {
 
 // Set pagination options
 paginate Emir, EmirGecmisi, KuryeGecmisi with infinite-scroll
-paginate Kurye, Merkez, Isci, Motor, 
+paginate Kurye, Merkez, Isci, Motor,
 Isyeri, Musteri, Fatura, Il, Ilce, Mahalle, Adres with pagination
 
 dto * with mapstruct

@@ -2,23 +2,23 @@
     "roketApp": {
         "mahalle" : {
             "home": {
-                "title": "Mahalles",
-                "createLabel": "Create a new Mahalle",
-                "createOrEditLabel": "Create or edit a Mahalle"
+                "title": "Mahalleler",
+                "createLabel": "Mahalle Yarat",
+                "createOrEditLabel": "Mahalle Yarat / Güncelle"
             },
-            "created": "A new Mahalle is created with identifier {{ param }}",
-            "updated": "A Mahalle is updated with identifier {{ param }}",
-            "deleted": "A Mahalle is deleted with identifier {{ param }}",
+            "created": "{{ param }} ID'li mahalle yaratıldı",
+            "updated": "{{ param }} ID'li mahalle güncellendi",
+            "deleted": "{{ param }} ID'li mahalle silindi",
             "delete": {
-                "question": "Are you sure you want to delete Mahalle {{ id }}?"
+                "question": "{{ id }} ID'li mahalleyi silmek istiyor musunuz?"
             },
             "detail": {
                 "title": "Mahalle"
             },
-            "mahalleAd": "Mahalle Ad",
+            "adi": "Mahalle Adı",
             "postaKodu": "Posta Kodu",
-            "semt": "Semt",
-            "ilce": "Ilce"
+            "semt": "Semti",
+            "ilce": "İlçesi"
         }
     }
 }

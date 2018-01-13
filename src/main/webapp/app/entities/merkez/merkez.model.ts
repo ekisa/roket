@@ -5,7 +5,7 @@ export class Merkez implements BaseEntity {
         public id?: number,
         public adi?: string,
         public mahalleId?: number,
-        public mahalleAd?: string,
+        public mahalleAdi?: string,
         public gpsLokasyonId?: number,
         public adresId?: number,
         public acikAdres?: string,

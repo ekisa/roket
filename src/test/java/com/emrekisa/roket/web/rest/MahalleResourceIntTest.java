@@ -41,8 +41,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = RoketApp.class)
 public class MahalleResourceIntTest {
 
-    private static final String DEFAULT_MAHALLE_AD = "AAAAAAAAAA";
-    private static final String UPDATED_MAHALLE_AD = "BBBBBBBBBB";
+    private static final String DEFAULT_ADI = "AAAAAAAAAA";
+    private static final String UPDATED_ADI = "BBBBBBBBBB";
 
     private static final String DEFAULT_POSTA_KODU = "AAAAAAAAAA";
     private static final String UPDATED_POSTA_KODU = "BBBBBBBBBB";
@@ -94,7 +94,7 @@ public class MahalleResourceIntTest {
      */
     public static Mahalle createEntity(EntityManager em) {
         Mahalle mahalle = new Mahalle()
-            .mahalleAd(DEFAULT_MAHALLE_AD)
+            .adi(DEFAULT_ADI)
             .postaKodu(DEFAULT_POSTA_KODU)
             .semt(DEFAULT_SEMT);
         return mahalle;
@@ -121,7 +121,7 @@ public class MahalleResourceIntTest {
         List<Mahalle> mahalleList = mahalleRepository.findAll();
         assertThat(mahalleList).hasSize(databaseSizeBeforeCreate + 1);
         Mahalle testMahalle = mahalleList.get(mahalleList.size() - 1);
-        assertThat(testMahalle.getMahalleAd()).isEqualTo(DEFAULT_MAHALLE_AD);
+        assertThat(testMahalle.getAdi()).isEqualTo(DEFAULT_ADI);
         assertThat(testMahalle.getPostaKodu()).isEqualTo(DEFAULT_POSTA_KODU);
         assertThat(testMahalle.getSemt()).isEqualTo(DEFAULT_SEMT);
     }
@@ -148,10 +148,10 @@ public class MahalleResourceIntTest {
 
     @Test
     @Transactional
-    public void checkMahalleAdIsRequired() throws Exception {
+    public void checkAdiIsRequired() throws Exception {
         int databaseSizeBeforeTest = mahalleRepository.findAll().size();
         // set the field null
-        mahalle.setMahalleAd(null);
+        mahalle.setAdi(null);
 
         // Create the Mahalle, which fails.
         MahalleDTO mahalleDTO = mahalleMapper.toDto(mahalle);
@@ -176,7 +176,7 @@ public class MahalleResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(mahalle.getId().intValue())))
-            .andExpect(jsonPath("$.[*].mahalleAd").value(hasItem(DEFAULT_MAHALLE_AD.toString())))
+            .andExpect(jsonPath("$.[*].adi").value(hasItem(DEFAULT_ADI.toString())))
             .andExpect(jsonPath("$.[*].postaKodu").value(hasItem(DEFAULT_POSTA_KODU.toString())))
             .andExpect(jsonPath("$.[*].semt").value(hasItem(DEFAULT_SEMT.toString())));
     }
@@ -192,7 +192,7 @@ public class MahalleResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(mahalle.getId().intValue()))
-            .andExpect(jsonPath("$.mahalleAd").value(DEFAULT_MAHALLE_AD.toString()))
+            .andExpect(jsonPath("$.adi").value(DEFAULT_ADI.toString()))
             .andExpect(jsonPath("$.postaKodu").value(DEFAULT_POSTA_KODU.toString()))
             .andExpect(jsonPath("$.semt").value(DEFAULT_SEMT.toString()));
     }
@@ -217,7 +217,7 @@ public class MahalleResourceIntTest {
         // Disconnect from session so that the updates on updatedMahalle are not directly saved in db
         em.detach(updatedMahalle);
         updatedMahalle
-            .mahalleAd(UPDATED_MAHALLE_AD)
+            .adi(UPDATED_ADI)
             .postaKodu(UPDATED_POSTA_KODU)
             .semt(UPDATED_SEMT);
         MahalleDTO mahalleDTO = mahalleMapper.toDto(updatedMahalle);
@@ -231,7 +231,7 @@ public class MahalleResourceIntTest {
         List<Mahalle> mahalleList = mahalleRepository.findAll();
         assertThat(mahalleList).hasSize(databaseSizeBeforeUpdate);
         Mahalle testMahalle = mahalleList.get(mahalleList.size() - 1);
-        assertThat(testMahalle.getMahalleAd()).isEqualTo(UPDATED_MAHALLE_AD);
+        assertThat(testMahalle.getAdi()).isEqualTo(UPDATED_ADI);
         assertThat(testMahalle.getPostaKodu()).isEqualTo(UPDATED_POSTA_KODU);
         assertThat(testMahalle.getSemt()).isEqualTo(UPDATED_SEMT);
     }

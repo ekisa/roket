@@ -33,8 +33,8 @@ describe('Mahalle e2e test', () => {
 
     it('should create and save Mahalles', () => {
         mahalleComponentsPage.clickOnCreateButton();
-        mahalleDialogPage.setMahalleAdInput('mahalleAd');
-        expect(mahalleDialogPage.getMahalleAdInput()).toMatch('mahalleAd');
+        mahalleDialogPage.setAdiInput('adi');
+        expect(mahalleDialogPage.getAdiInput()).toMatch('adi');
         mahalleDialogPage.setPostaKoduInput('postaKodu');
         expect(mahalleDialogPage.getPostaKoduInput()).toMatch('postaKodu');
         mahalleDialogPage.setSemtInput('semt');
@@ -66,7 +66,7 @@ export class MahalleDialogPage {
     modalTitle = element(by.css('h4#myMahalleLabel'));
     saveButton = element(by.css('.modal-footer .btn.btn-primary'));
     closeButton = element(by.css('button.close'));
-    mahalleAdInput = element(by.css('input#field_mahalleAd'));
+    adiInput = element(by.css('input#field_adi'));
     postaKoduInput = element(by.css('input#field_postaKodu'));
     semtInput = element(by.css('input#field_semt'));
     ilceSelect = element(by.css('select#field_ilce'));
@@ -75,12 +75,12 @@ export class MahalleDialogPage {
         return this.modalTitle.getAttribute('jhiTranslate');
     }
 
-    setMahalleAdInput = function(mahalleAd) {
-        this.mahalleAdInput.sendKeys(mahalleAd);
+    setAdiInput = function(adi) {
+        this.adiInput.sendKeys(adi);
     }
 
-    getMahalleAdInput = function() {
-        return this.mahalleAdInput.getAttribute('value');
+    getAdiInput = function() {
+        return this.adiInput.getAttribute('value');
     }
 
     setPostaKoduInput = function(postaKodu) {
