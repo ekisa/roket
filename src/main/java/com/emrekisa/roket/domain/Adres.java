@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * A Adres.
@@ -196,14 +197,15 @@ public class Adres implements Serializable {
 
     public String getAcikAdres() {
         return
-            "Semt:'" + getMahalle().getSemt() + "'" +
-                ", Mh:'" + getMahalle().getMahalleAd() + "'" +
-                ", Cd:'" + getCadde() + "'" +
-                ", Sk:'" + getSokak() + "'" +
-                ", Sit:'" + getSite() + "'" +
-                ", Dış:'" + getDiskapiNo() + "'" +
-                ", İç:'" + getIckapiNo() + "'" +
-                ", Tarif:'" + getAdresTarifi() + "'"
+            "Semt:'" + Optional.ofNullable(getMahalle()).map(Mahalle::getSemt).orElse("-") + "'" +
+                ", Mh:'" + Optional.ofNullable(getMahalle()).map(Mahalle::getMahalleAd).orElse("-") + "'" +
+                ", Cd:'" + Optional.ofNullable(getCadde()).orElse("-") + "'" +
+                ", Sk:'" + Optional.ofNullable(getSokak()).orElse("-") + "'" +
+                ", Sit:'" + Optional.ofNullable(getSite()).orElse("-") + "'" +
+                ", Dış:'" + Optional.ofNullable(getDiskapiNo()).orElse("-") + "'" +
+                ", İç:'" + Optional.ofNullable(getIckapiNo()).orElse("-") + "'" +
+                ", Tarif:'" + Optional.ofNullable(getAdresTarifi()).orElse("-") + "'"
             ;
     }
+
 }
