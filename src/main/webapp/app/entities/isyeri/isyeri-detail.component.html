@@ -40,6 +40,12 @@
                 <a [routerLink]="['/musteri', isyeri.musteriId]">{{isyeri.musteriId}}</a>
             </div>
         </dd>
+        <dt><span jhiTranslate="roketApp.isyeri.user">Kullanıcı</span></dt>
+        <dd>
+            <div *ngIf="isyeri.userId">
+                <a [routerLink]="['/user-management', isyeri.username]">{{isyeri.username}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

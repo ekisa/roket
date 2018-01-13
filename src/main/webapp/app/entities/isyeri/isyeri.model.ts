@@ -12,6 +12,7 @@ export class Isyeri implements BaseEntity {
         public adresId?: number,
         public musteriId?: number,
         public userId?: number,
+        public username?: string,
     ) {
     }
 }

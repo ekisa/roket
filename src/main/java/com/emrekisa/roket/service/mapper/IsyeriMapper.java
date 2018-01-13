@@ -16,6 +16,7 @@ public interface IsyeriMapper extends EntityMapper<IsyeriDTO, Isyeri> {
     @Mapping(source = "adres.id", target = "adresId")
     @Mapping(source = "musteri.id", target = "musteriId")
     @Mapping(source = "user.id", target = "userId")
+    @Mapping(source = "user.login", target = "username")
     IsyeriDTO toDto(Isyeri isyeri);
 
     @Mapping(target = "emirlers", ignore = true)
@@ -24,6 +25,7 @@ public interface IsyeriMapper extends EntityMapper<IsyeriDTO, Isyeri> {
     @Mapping(source = "adresId", target = "adres")
     @Mapping(source = "musteriId", target = "musteri")
     @Mapping(source = "userId", target = "user")
+//    @Mapping(source = "username", target = "user.login")
     Isyeri toEntity(IsyeriDTO isyeriDTO);
 
     default Isyeri fromId(Long id) {

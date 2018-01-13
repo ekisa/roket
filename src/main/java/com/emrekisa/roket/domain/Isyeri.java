@@ -54,7 +54,10 @@ public class Isyeri implements Serializable {
     @ManyToOne
     private Musteri musteri;
 
-    @ManyToOne
+
+    @NotNull
+    @OneToOne
+    @JoinColumn(unique = true)
     private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

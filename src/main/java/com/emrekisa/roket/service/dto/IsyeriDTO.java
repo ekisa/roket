@@ -31,6 +31,7 @@ public class IsyeriDTO implements Serializable {
     private Long musteriId;
 
     private Long userId;
+    private String username;
 
     public Long getId() {
         return id;
@@ -102,6 +103,14 @@ public class IsyeriDTO implements Serializable {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override

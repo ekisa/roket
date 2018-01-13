@@ -51,16 +51,20 @@ export class IsyeriDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.merkezService.query()
-            .subscribe((res: ResponseWrapper) => { this.merkezs = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.merkezService.query({
+            sort : ['id,desc']
+        }).subscribe((res: ResponseWrapper) => { this.merkezs = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.gPSLokasyonService.query()
             .subscribe((res: ResponseWrapper) => { this.gpslokasyons = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-        this.adresService.query()
-            .subscribe((res: ResponseWrapper) => { this.adres = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-        this.musteriService.query()
-            .subscribe((res: ResponseWrapper) => { this.musteris = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-        this.userService.query()
-            .subscribe((res: ResponseWrapper) => { this.users = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.adresService.query({
+            sort : ['id,desc']
+        }).subscribe((res: ResponseWrapper) => { this.adres = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.musteriService.query({
+            sort : ['id,desc']
+        }).subscribe((res: ResponseWrapper) => { this.musteris = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.userService.query({
+            sort : ['id,desc']
+        }).subscribe((res: ResponseWrapper) => { this.users = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {

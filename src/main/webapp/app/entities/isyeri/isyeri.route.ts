@@ -7,6 +7,7 @@ import { IsyeriComponent } from './isyeri.component';
 import { IsyeriDetailComponent } from './isyeri-detail.component';
 import { IsyeriPopupComponent } from './isyeri-dialog.component';
 import { IsyeriDeletePopupComponent } from './isyeri-delete-dialog.component';
+import {UserMgmtDetailComponent} from "../../admin/user-management/user-management-detail.component";
 
 @Injectable()
 export class IsyeriResolvePagingParams implements Resolve<any> {
@@ -44,6 +45,13 @@ export const isyeriRoute: Routes = [
             pageTitle: 'roketApp.isyeri.home.title'
         },
         canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'user-management/:login',
+        component: UserMgmtDetailComponent,
+        data: {
+            pageTitle: 'userManagement.home.title'
+        }
     }
 ];
 

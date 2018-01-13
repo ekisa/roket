@@ -2,28 +2,28 @@
     "roketApp": {
         "isyeri" : {
             "home": {
-                "title": "Isyeris",
-                "createLabel": "Create a new Isyeri",
-                "createOrEditLabel": "Create or edit a Isyeri"
+                "title": "İş Yerleri",
+                "createLabel": "İş Yeri Yarat",
+                "createOrEditLabel": "İş Yeri Yarat / Güncelle"
             },
-            "created": "A new Isyeri is created with identifier {{ param }}",
-            "updated": "A Isyeri is updated with identifier {{ param }}",
-            "deleted": "A Isyeri is deleted with identifier {{ param }}",
+            "created": "{{ param }} ID'li iş yeri yaratıldı",
+            "updated": "{{ param }} ID'li iş yeri güncellendi",
+            "deleted": "{{ param }} ID'li iş yeri silindi",
             "delete": {
-                "question": "Are you sure you want to delete Isyeri {{ id }}?"
+                "question": "{{ id }} ID'li iş yerini silmek istiyor musunuz?"
             },
             "detail": {
-                "title": "Isyeri"
+                "title": "İş Yeri"
             },
-            "adi": "Adi",
-            "telefon": "Telefon",
-            "aciklama": "Aciklama",
-            "emirler": "Emirler",
-            "merkez": "Merkez",
-            "gpsLokasyon": "Gps Lokasyon",
-            "adres": "Adres",
-            "musteri": "Musteri",
-            "user" : "Kullanıcı"
+            "adi": "İş Yeri Adı",
+            "telefon": "Telefonu",
+            "aciklama": "Açıklama",
+            "emirler": "Siparişler",
+            "merkez": "Bağlı Olduğu Merkez",
+            "gpsLokasyon": "Gps Lokasyonu",
+            "adres": "Adresi",
+            "musteri": "Müşteri",
+            "user" : "Kullanıcısı"
         }
     }
 }
