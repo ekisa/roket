@@ -23,6 +23,7 @@ public class EmirDTO implements Serializable {
     private BOYUT boyut;
 
     private Long isyeriId;
+    private String isyeriAdi;
 
     private Long adresId;
 
@@ -60,6 +61,14 @@ public class EmirDTO implements Serializable {
 
     public void setIsyeriId(Long isyeriId) {
         this.isyeriId = isyeriId;
+    }
+
+    public String getIsyeriAdi() {
+        return isyeriAdi;
+    }
+
+    public void setIsyeriAdi(String isyeriAdi) {
+        this.isyeriAdi = isyeriAdi;
     }
 
     public Long getAdresId() {

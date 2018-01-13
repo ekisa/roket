@@ -19,7 +19,7 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="statu"><span jhiTranslate="roketApp.emir.statu">Statu</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="boyut"><span jhiTranslate="roketApp.emir.boyut">Boyut</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="isyeriId"><span jhiTranslate="roketApp.emir.isyeri">Isyeri</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isyeriAdi"><span jhiTranslate="roketApp.emir.isyeri">Isyeri</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="adresId"><span jhiTranslate="roketApp.emir.adres">Adres</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="gpsLokasyonId"><span jhiTranslate="roketApp.emir.gpsLokasyon">Gps Lokasyon</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="faturaId"><span jhiTranslate="roketApp.emir.fatura">Fatura</span> <span class="fa fa-sort"></span></th>
@@ -33,7 +33,7 @@
                 <td jhiTranslate="{{'roketApp.BOYUT.' + emir.boyut}}">{{emir.boyut}}</td>
                 <td>
                     <div *ngIf="emir.isyeriId">
-                        <a [routerLink]="['../isyeri', emir.isyeriId  ]" >{{emir.isyeriId}}</a>
+                        <a [routerLink]="['../isyeri', emir.isyeriId  ]" >{{emir.isyeriAdi}}</a>
                     </div>
                 </td>
                 <td>

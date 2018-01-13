@@ -23,6 +23,7 @@ export class Emir implements BaseEntity {
         public statu?: EMIR_STATU,
         public boyut?: BOYUT,
         public isyeriId?: number,
+        public isyeriAdi?: string,
         public emirGecmisis?: BaseEntity[],
         public adresId?: number,
         public gpsLokasyonId?: number,
