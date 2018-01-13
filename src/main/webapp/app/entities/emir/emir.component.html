@@ -20,7 +20,8 @@
             <th jhiSortBy="statu"><span jhiTranslate="roketApp.emir.statu">Statu</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="boyut"><span jhiTranslate="roketApp.emir.boyut">Boyut</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="isyeriAdi"><span jhiTranslate="roketApp.emir.isyeri">Isyeri</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="adresMahalleAdi"><span jhiTranslate="roketApp.emir.adres">Adres</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="acikAdres"><span jhiTranslate="roketApp.emir.adres">Adres</span> <span class="fa fa-sort"></span></th>
+            <th><span jhiTranslate="roketApp.emir.adresTarifi">Adres</span> <span></span></th>
             <!--<th jhiSortBy="gpsLokasyonId"><span jhiTranslate="roketApp.emir.gpsLokasyon">Gps Lokasyon</span> <span class="fa fa-sort"></span></th>-->
             <!--<th jhiSortBy="faturaId"><span jhiTranslate="roketApp.emir.fatura">Fatura</span> <span class="fa fa-sort"></span></th>-->
             <th></th>
@@ -36,11 +37,8 @@
                         <a [routerLink]="['../isyeri', emir.isyeriId  ]" >{{emir.isyeriAdi}}</a>
                     </div>
                 </td>
-                <td>
-                    <div *ngIf="emir.adresId">
-                        <a [routerLink]="['../adres', emir.adresId  ]" >{{emir.adresMahalleAdi}}</a>
-                    </div>
-                </td>
+                <td>{{emir.acikAdres}}</td>
+                <td>{{emir.adresTarifi}}</td>
                 <!--<td>
                     <div *ngIf="emir.gpsLokasyonId">
                         <a [routerLink]="['../gps-lokasyon', emir.gpsLokasyonId  ]" >{{emir.gpsLokasyonId}}</a>

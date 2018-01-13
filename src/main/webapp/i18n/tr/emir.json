@@ -21,7 +21,9 @@
             "emirGecmisi": "Sipariş Geçmisi",
             "adres": "Adres",
             "gpsLokasyon": "Gps Lokasyon",
-            "fatura": "Fatura"
+            "fatura": "Fatura",
+            "acikAdres": "Açık Adresi",
+            "adresTarifi": "Adres Tarifi"
         }
     }
 }

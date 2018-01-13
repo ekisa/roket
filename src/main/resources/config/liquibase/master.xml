@@ -38,5 +38,7 @@
     <include file="config/liquibase/changelog/20180112214438_added_entity_constraints_Fatura.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180113184410_changelog.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180113231946_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180114015330_changelog.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180114015611_changelog.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

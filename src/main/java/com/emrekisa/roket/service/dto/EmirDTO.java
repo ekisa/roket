@@ -26,7 +26,10 @@ public class EmirDTO implements Serializable {
     private String isyeriAdi;
 
     private Long adresId;
-    private String adresMahalleAdi;
+
+    @NotNull
+    private String acikAdres;
+    private String adresTarifi;
 
     private Long gpsLokasyonId;
 
@@ -80,14 +83,6 @@ public class EmirDTO implements Serializable {
         this.adresId = adresId;
     }
 
-    public String getAdresMahalleAdi() {
-        return adresMahalleAdi;
-    }
-
-    public void setAdresMahalleAdi(String adresMahalleAdi) {
-        this.adresMahalleAdi = adresMahalleAdi;
-    }
-
     public Long getGpsLokasyonId() {
         return gpsLokasyonId;
     }
@@ -102,6 +97,22 @@ public class EmirDTO implements Serializable {
 
     public void setFaturaId(Long faturaId) {
         this.faturaId = faturaId;
+    }
+
+    public String getAcikAdres() {
+        return acikAdres;
+    }
+
+    public void setAcikAdres(String acikAdres) {
+        this.acikAdres = acikAdres;
+    }
+
+    public String getAdresTarifi() {
+        return adresTarifi;
+    }
+
+    public void setAdresTarifi(String adresTarifi) {
+        this.adresTarifi = adresTarifi;
     }
 
     @Override

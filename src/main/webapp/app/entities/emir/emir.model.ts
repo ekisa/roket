@@ -26,7 +26,8 @@ export class Emir implements BaseEntity {
         public isyeriAdi?: string,
         public emirGecmisis?: BaseEntity[],
         public adresId?: number,
-        public adresMahalleAdi?: string,
+        public acikAdres?: string,
+        public adresTarifi?: string,
         public gpsLokasyonId?: number,
         public faturaId?: number,
     ) {

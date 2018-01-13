@@ -14,8 +14,8 @@ import { GPSLokasyon, GPSLokasyonService } from '../gps-lokasyon';
 import { Adres, AdresService } from '../adres';
 import { Musteri, MusteriService } from '../musteri';
 import { ResponseWrapper } from '../../shared';
-import {User} from "../../shared/user/user.model";
-import {UserService} from "../../shared/user/user.service";
+import {User} from '../../shared/user/user.model';
+import {UserService} from '../../shared/user/user.service';
 
 @Component({
     selector: 'jhi-isyeri-dialog',

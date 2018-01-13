@@ -51,6 +51,13 @@ public class Emir implements Serializable {
     @ManyToOne
     private Adres adres;
 
+    @Column(name="acik_adres", length=1024, nullable = false)
+    @NotNull
+    private String acikAdres;
+
+    @Column(name="adres_tarifi", length=1024)
+    private String adresTarifi;
+
     @ManyToOne
     private GPSLokasyon gpsLokasyon;
 
@@ -73,6 +80,22 @@ public class Emir implements Serializable {
     public Emir statu(EMIR_STATU statu) {
         this.statu = statu;
         return this;
+    }
+
+    public String getAcikAdres() {
+        return acikAdres;
+    }
+
+    public void setAcikAdres(String acikAdres) {
+        this.acikAdres = acikAdres;
+    }
+
+    public String getAdresTarifi() {
+        return adresTarifi;
+    }
+
+    public void setAdresTarifi(String adresTarifi) {
+        this.adresTarifi = adresTarifi;
     }
 
     public void setStatu(EMIR_STATU statu) {

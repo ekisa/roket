@@ -23,12 +23,14 @@ public class IsyeriDTO implements Serializable {
     private String aciklama;
 
     private Long merkezId;
+    private String merkezAdi;
 
     private Long gpsLokasyonId;
 
     private Long adresId;
 
     private Long musteriId;
+    private String musteriUnvan;
 
     private Long userId;
     private String username;
@@ -73,6 +75,14 @@ public class IsyeriDTO implements Serializable {
         this.merkezId = merkezId;
     }
 
+    public String getMerkezAdi() {
+        return merkezAdi;
+    }
+
+    public void setMerkezAdi(String merkezAdi) {
+        this.merkezAdi = merkezAdi;
+    }
+
     public Long getGpsLokasyonId() {
         return gpsLokasyonId;
     }
@@ -95,6 +105,14 @@ public class IsyeriDTO implements Serializable {
 
     public void setMusteriId(Long musteriId) {
         this.musteriId = musteriId;
+    }
+
+    public String getMusteriUnvan() {
+        return musteriUnvan;
+    }
+
+    public void setMusteriUnvan(String musteriUnvan) {
+        this.musteriUnvan = musteriUnvan;
     }
 
     public Long getUserId() {

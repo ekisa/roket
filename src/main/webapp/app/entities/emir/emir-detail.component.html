@@ -18,11 +18,19 @@
                 <a [routerLink]="['/isyeri', emir.isyeriId]">{{emir.isyeriId}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="roketApp.emir.adres">Adres</span></dt>
+        <!--<dt><span jhiTranslate="roketApp.emir.adres">Adres</span></dt>
         <dd>
             <div *ngIf="emir.adresId">
                 <a [routerLink]="['/adres', emir.adresId]">{{emir.adresId}}</a>
             </div>
+        </dd>-->
+        <dt><span jhiTranslate="roketApp.emir.acikAdres">Acik Adres</span></dt>
+        <dd>
+            <span>{{emir.acikAdres}}</span>
+        </dd>
+        <dt><span jhiTranslate="roketApp.emir.adresTarifi">Adres Tarifi</span></dt>
+        <dd>
+            <span>{{emir.adresTarifi}}</span>
         </dd>
         <dt><span jhiTranslate="roketApp.emir.gpsLokasyon">Gps Lokasyon</span></dt>
         <dd>
