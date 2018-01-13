@@ -18,8 +18,8 @@ public interface MerkezMapper extends EntityMapper<MerkezDTO, Merkez> {
     @Mapping(source = "adres.acikAdres", target = "acikAdres")
     MerkezDTO toDto(Merkez merkez);
 
-    @Mapping(source = "mahalleId", target = "mahalle.id")
-    @Mapping(source = "mahalleAdi", target = "mahalle.adi")
+    @Mapping(source = "mahalleId", target = "mahalle")
+//    @Mapping(source = "mahalleAdi", target = "mahalle.adi")
     @Mapping(source = "gpsLokasyonId", target = "gpsLokasyon")
     @Mapping(source = "adresId", target = "adres")
     //@Mapping(source = "acikAdres", target = "adres.acikAdres")
