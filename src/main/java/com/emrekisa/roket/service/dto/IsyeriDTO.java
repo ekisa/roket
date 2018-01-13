@@ -30,6 +30,8 @@ public class IsyeriDTO implements Serializable {
 
     private Long musteriId;
 
+    private Long userId;
+
     public Long getId() {
         return id;
     }
@@ -92,6 +94,14 @@ public class IsyeriDTO implements Serializable {
 
     public void setMusteriId(Long musteriId) {
         this.musteriId = musteriId;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Override

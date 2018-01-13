@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { SERVER_API_URL } from '../../app.constants';
 
-import { Emir } from './emir.model';
+import {Emir, EMIR_STATU} from './emir.model';
 import { ResponseWrapper, createRequestOption } from '../../shared';
 
 @Injectable()
@@ -14,6 +14,7 @@ export class EmirService {
     constructor(private http: Http) { }
 
     create(emir: Emir): Observable<Emir> {
+        emir.statu = EMIR_STATU.HAZIR;
         const copy = this.convert(emir);
         return this.http.post(this.resourceUrl, copy).map((res: Response) => {
             const jsonResponse = res.json();

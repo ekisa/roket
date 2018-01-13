@@ -54,6 +54,9 @@ public class Isyeri implements Serializable {
     @ManyToOne
     private Musteri musteri;
 
+    @ManyToOne
+    private User user;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -179,6 +182,15 @@ public class Isyeri implements Serializable {
         this.musteri = musteri;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public boolean equals(Object o) {

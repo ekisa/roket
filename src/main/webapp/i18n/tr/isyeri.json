@@ -22,7 +22,8 @@
             "merkez": "Merkez",
             "gpsLokasyon": "Gps Lokasyon",
             "adres": "Adres",
-            "musteri": "Musteri"
+            "musteri": "Musteri",
+            "user" : "Kullanıcı"
         }
     }
 }

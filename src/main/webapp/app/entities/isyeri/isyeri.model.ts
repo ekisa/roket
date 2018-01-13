@@ -11,6 +11,7 @@ export class Isyeri implements BaseEntity {
         public gpsLokasyonId?: number,
         public adresId?: number,
         public musteriId?: number,
+        public userId?: number,
     ) {
     }
 }

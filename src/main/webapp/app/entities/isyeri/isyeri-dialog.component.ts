@@ -14,6 +14,8 @@ import { GPSLokasyon, GPSLokasyonService } from '../gps-lokasyon';
 import { Adres, AdresService } from '../adres';
 import { Musteri, MusteriService } from '../musteri';
 import { ResponseWrapper } from '../../shared';
+import {User} from "../../shared/user/user.model";
+import {UserService} from "../../shared/user/user.service";
 
 @Component({
     selector: 'jhi-isyeri-dialog',
@@ -32,6 +34,8 @@ export class IsyeriDialogComponent implements OnInit {
 
     musteris: Musteri[];
 
+    users: User[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
@@ -39,6 +43,7 @@ export class IsyeriDialogComponent implements OnInit {
         private merkezService: MerkezService,
         private gPSLokasyonService: GPSLokasyonService,
         private adresService: AdresService,
+        private userService: UserService,
         private musteriService: MusteriService,
         private eventManager: JhiEventManager
     ) {
@@ -54,6 +59,8 @@ export class IsyeriDialogComponent implements OnInit {
             .subscribe((res: ResponseWrapper) => { this.adres = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.musteriService.query()
             .subscribe((res: ResponseWrapper) => { this.musteris = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.userService.query()
+            .subscribe((res: ResponseWrapper) => { this.users = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -103,6 +110,10 @@ export class IsyeriDialogComponent implements OnInit {
     }
 
     trackMusteriById(index: number, item: Musteri) {
+        return item.id;
+    }
+
+    trackUserById(index: number, item: User) {
         return item.id;
     }
 }

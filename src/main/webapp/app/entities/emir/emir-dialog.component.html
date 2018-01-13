@@ -13,8 +13,8 @@
                    [(ngModel)]="emir.id" readonly />
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="roketApp.emir.statu" for="field_statu">Statu</label>
-            <select class="form-control" name="statu" [(ngModel)]="emir.statu" id="field_statu"  required>
+            <label *jhiHasAnyAuthority="'ROLE_ADMIN'" class="form-control-label" jhiTranslate="roketApp.emir.statu" for="field_statu">Statu</label>
+            <select *jhiHasAnyAuthority="'ROLE_ADMIN'" class="form-control" name="statu" [(ngModel)]="emir.statu" id="field_statu"  required>
                 <option value="HAZIR">{{'roketApp.EMIR_STATU.HAZIR' | translate}}</option>
                 <option value="ATANDI">{{'roketApp.EMIR_STATU.ATANDI' | translate}}</option>
                 <option value="DAGITIMDA">{{'roketApp.EMIR_STATU.DAGITIMDA' | translate}}</option>
