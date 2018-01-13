@@ -8,9 +8,11 @@ export class Isyeri implements BaseEntity {
         public aciklama?: string,
         public emirlers?: BaseEntity[],
         public merkezId?: number,
+        public merkezAdi?: string,
         public gpsLokasyonId?: number,
         public adresId?: number,
         public musteriId?: number,
+        public musteriUnvan?: string,
         public userId?: number,
         public username?: string,
     ) {
