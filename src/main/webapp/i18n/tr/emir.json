@@ -2,23 +2,23 @@
     "roketApp": {
         "emir" : {
             "home": {
-                "title": "Emirs",
-                "createLabel": "Create a new Emir",
-                "createOrEditLabel": "Create or edit a Emir"
+                "title": "Siparişler",
+                "createLabel": "Sipariş Yarat",
+                "createOrEditLabel": "Sipariş Yarat / Güncelle"
             },
-            "created": "A new Emir is created with identifier {{ param }}",
-            "updated": "A Emir is updated with identifier {{ param }}",
-            "deleted": "A Emir is deleted with identifier {{ param }}",
+            "created": "{{ param }} ID'li yeni sipariş yaratıldı",
+            "updated": "{{ param }} ID'li sipariş güncellendi",
+            "deleted": "{{ param }} ID'li sipariş silindi",
             "delete": {
-                "question": "Are you sure you want to delete Emir {{ id }}?"
+                "question": "{{ id }} ID'li siparişi silmek istiyor musunuz?"
             },
             "detail": {
-                "title": "Emir"
+                "title": "Sipariş"
             },
-            "statu": "Statu",
+            "statu": "Statü",
             "boyut": "Boyut",
-            "isyeri": "Isyeri",
-            "emirGecmisi": "Emir Gecmisi",
+            "isyeri": "İşyeri",
+            "emirGecmisi": "Sipariş Geçmisi",
             "adres": "Adres",
             "gpsLokasyon": "Gps Lokasyon",
             "fatura": "Fatura"
