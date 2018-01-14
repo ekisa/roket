@@ -3,7 +3,7 @@ import {GeolocationService} from './geolocation.service';
 @Component({
     selector: 'geolocation',
      template: `<div *ngIf="geolocation; else elseBlock">
-                    <b>{{geolocation.coords.latitude}} "," {{geolocation.coords.longitude}}</b>
+                    {{geolocation.coords.latitude}}, {{geolocation.coords.longitude}}
                 </div>
                 <ng-template #elseBlock><span style="color:red;font-weight:bold" jhiTranslate="{{message}}">HATA</span></ng-template>
                 `
