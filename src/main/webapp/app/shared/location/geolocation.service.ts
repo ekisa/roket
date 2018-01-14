@@ -17,6 +17,11 @@ import { Observable } from 'rxjs/Observable';
      * @return An observable of Position
      */
     getCurrentPosition(): Observable<Position> {
+        var geoOptions = {
+            //maximumAge: 5 * 60 * 1000,
+            timeout: 10 * 1000
+            //enableHighAccuracy: true
+        };
         return Observable.create((observer: Observer<Position>) => {
             // Invokes getCurrentPosition method of Geolocation API.
             navigator.geolocation.getCurrentPosition(
@@ -27,9 +32,13 @@ import { Observable } from 'rxjs/Observable';
                 (error: PositionError) => {
                     console.log('Geolocation service: ' + error.message);
                     observer.error(error);
-                }
+                },
+                geoOptions
             );
         });
+        //watchPosition sürekli yer değişimi tespiti için kullan
+        //call clearWatch to turnoff
+        //https://developers.google.com/web/fundamentals/native-hardware/user-location/
     }
 
 }
