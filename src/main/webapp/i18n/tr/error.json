@@ -8,6 +8,11 @@
             "500": "Internal server error."
         },
         "concurrencyFailure": "Another user modified this data at the same time as you. Your changes were rejected.",
-        "validation": "Validation error on the server."
+        "validation": "Validation error on the server.",
+        "location": {
+            "permissionDenied" : "Yetki verilmediği için lokasyon bilgisi alınamadı, lokasyon bilgisi gereklidir",
+            "positionUnavailable" : "Lokasyon bulanamadı, tekrar deneyiniz",
+            "timeout" : "İşlem zaman aşımına uğradı, tekrar deneyiniz"
+        }
     }
 }
