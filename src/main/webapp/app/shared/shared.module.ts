@@ -18,8 +18,6 @@ import {
     JhiSocialComponent,
     SocialService,
 } from './';
-import {GeolocationComponent} from './location/geolocation.component';
-import {GeolocationService} from "./location/geolocation.service";
 
 @NgModule({
     imports: [
@@ -29,8 +27,7 @@ import {GeolocationService} from "./location/geolocation.service";
     declarations: [
         JhiSocialComponent,
         JhiLoginModalComponent,
-        HasAnyAuthorityDirective,
-        GeolocationComponent
+        HasAnyAuthorityDirective
     ],
     providers: [
         LoginService,
@@ -43,8 +40,7 @@ import {GeolocationService} from "./location/geolocation.service";
         AuthServerProvider,
         SocialService,
         UserService,
-        DatePipe,
-        GeolocationService
+        DatePipe
     ],
     entryComponents: [JhiLoginModalComponent],
     exports: [
@@ -52,8 +48,7 @@ import {GeolocationService} from "./location/geolocation.service";
         JhiSocialComponent,
         JhiLoginModalComponent,
         HasAnyAuthorityDirective,
-        DatePipe,
-        GeolocationComponent
+        DatePipe
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

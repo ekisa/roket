@@ -14,6 +14,7 @@ import {
     emirRoute,
     emirPopupRoute,
 } from './';
+import {GeolocationModule} from "../../shared/location/geolocation.module";
 
 const ENTITY_STATES = [
     ...emirRoute,
@@ -23,7 +24,8 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         RoketSharedModule,
-        RouterModule.forChild(ENTITY_STATES)
+        RouterModule.forChild(ENTITY_STATES),
+        GeolocationModule
     ],
     declarations: [
         EmirComponent,
