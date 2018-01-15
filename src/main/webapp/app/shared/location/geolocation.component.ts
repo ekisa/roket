@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {NgModule, Component, OnInit} from '@angular/core';
+import {NgModule, Component, OnInit, AfterViewInit} from '@angular/core';
 
 import { AgmCoreModule } from '@agm/core';
-import {GeolocationService} from "./geolocation.service";
+import {GeolocationService} from './geolocation.service';
 
 @Component({
     selector: 'geo-location',
@@ -13,8 +13,8 @@ import {GeolocationService} from "./geolocation.service";
   `],
     template: `
     <div *ngIf="geolocation; else elseBlock">
-        <agm-map [latitude]="geolocation.latitude" [longitude]="geolocation.longitude" [zoom]=zoomValue>
-            <agm-marker [latitude]="geolocation.latitude" [longitude]="geolocation.longitude">
+        <agm-map [latitude]="geolocation.coords.latitude" [longitude]="geolocation.coords.longitude" [zoom]=zoomValue disableDefaultUI="true">
+            <agm-marker [latitude]="geolocation.coords.latitude" [longitude]="geolocation.coords.longitude">
                 <agm-info-window>Paketiniz Burada</agm-info-window>
             </agm-marker>
         </agm-map>
@@ -23,7 +23,7 @@ import {GeolocationService} from "./geolocation.service";
   `
 })
 export class GeolocationComponent implements OnInit{
-    geolocation: Coordinates;
+    geolocation: Position;
     zoomValue = 15;
     message : string;
     constructor(
@@ -35,7 +35,7 @@ export class GeolocationComponent implements OnInit{
     ngOnInit() {
         this.geolocationService.getCurrentPosition()
             .subscribe((position : Position)=>{
-                    this.geolocation= position.coords;
+                    this.geolocation= position;
                 },(error: PositionError) => {
                     if (error.code > 0) {
                         switch (error.code) {
@@ -52,6 +52,10 @@ export class GeolocationComponent implements OnInit{
                     }
                 });
     }
+
+    // ngAfterContentInit(){
+    //     navigator.geolocation.clearWatch(id)
+    // }
 }
 
 

@@ -14,7 +14,7 @@ import {
     emirRoute,
     emirPopupRoute,
 } from './';
-import {GeolocationModule} from "../../shared/location/geolocation.module";
+import {GeolocationModule} from '../../shared/location/geolocation.module';
 
 const ENTITY_STATES = [
     ...emirRoute,

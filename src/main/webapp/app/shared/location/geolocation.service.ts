@@ -17,7 +17,7 @@ import { Observable } from 'rxjs/Observable';
      * @return An observable of Position
      */
     getCurrentPosition(): Observable<Position> {
-        var geoOptions = {
+        const geoOptions = {
             //maximumAge: 5 * 60 * 1000,
             timeout: 10 * 1000
             //enableHighAccuracy: true
