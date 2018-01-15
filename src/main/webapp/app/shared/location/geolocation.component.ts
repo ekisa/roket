@@ -50,8 +50,7 @@ export class GeolocationComponent implements OnInit{
                                 break;
                         }
                     }
-                },
-                () => console.log('Geolocation service: completed.'));
+                });
     }
 }
 
