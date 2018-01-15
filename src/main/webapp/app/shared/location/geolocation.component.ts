@@ -3,7 +3,10 @@ import {GeolocationService} from './geolocation.service';
 @Component({
     selector: 'geolocation',
      template: `<div *ngIf="geolocation; else elseBlock">
-                    {{geolocation.coords.latitude}}, {{geolocation.coords.longitude}}
+                    <a href="https://maps.googleapis.com/maps/api/staticmap?center='
+                        +{{geolocation.coords.latitude}}{{geolocation.coords.longitude}}+'&zoom=14&size=400x300&key=API_KEY">
+                        {{geolocation.coords.latitude}}, {{geolocation.coords.longitude}}
+                    </a>
                 </div>
                 <ng-template #elseBlock><span style="color:red;font-weight:bold" jhiTranslate="{{message}}">HATA</span></ng-template>
                 `
