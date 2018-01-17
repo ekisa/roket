@@ -25,12 +25,12 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
                 '/auth'
             ],
             target: 'https://127.0.0.1:8443',
-            secure: true
+            secure: false
         },{
             context: [
                 '/websocket'
             ],
-            target: 'ws://127.0.0.1:8080',
+            target: 'wss://127.0.0.1:8443',
             ws: true
         }],
         watchOptions: {
@@ -76,8 +76,9 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 9000,
+            https: true,
             proxy: {
-                target: 'http://localhost:9060',
+                target: 'https://localhost:9060',
                 ws: true
             }
         }, {
