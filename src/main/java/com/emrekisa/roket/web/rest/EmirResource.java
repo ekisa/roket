@@ -3,6 +3,7 @@ package com.emrekisa.roket.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.emrekisa.roket.domain.Authority;
 import com.emrekisa.roket.domain.Isyeri;
+import com.emrekisa.roket.domain.enumeration.EMIR_STATU;
 import com.emrekisa.roket.repository.IsyeriRepository;
 import com.emrekisa.roket.repository.UserRepository;
 import com.emrekisa.roket.security.AuthoritiesConstants;
@@ -105,24 +106,28 @@ public class EmirResource {
      */
     @GetMapping("/emirs")
     @Timed
-    public ResponseEntity<List<EmirDTO>> getAllEmirs(Pageable pageable) {
+    public ResponseEntity<List<EmirDTO>> getAllEmirs(String statu, Pageable pageable) {
         log.debug("REST request to get a page of Emirs");
+        EMIR_STATU emirStatu = EMIR_STATU.getStatuOrDefault(statu, EMIR_STATU.HAZIR);
         Page<EmirDTO> page = SecurityUtils.getCurrentUserLogin()
             .flatMap(userRepository::findOneWithAuthoritiesByLogin)
             .map(user -> {
                 Predicate<Authority> p = a -> a.getName().equals(AuthoritiesConstants.USER_KURYE);
                 if (user.getAuthorities().stream().anyMatch(p)) {
-                    return emirService.findAllByKuryeId(pageable, user.getId());
+                    return emirService.findAllByKuryeIdAndStatu(pageable, user.getId(), emirStatu);
                 }
+
                 p = a -> a.getName().equals(AuthoritiesConstants.USER_ISYERI);
                 if (user.getAuthorities().stream().anyMatch(p)) {
                     Isyeri isyeri = isyeriRepository.findOneByUserId(user.getId());
-                    return emirService.findAllByIsyeriId(pageable, isyeri.getId());
+                    return emirService.findAllByIsyeriIdAndStatu(pageable, isyeri.getId(), emirStatu);
                 }
+
                 p = a -> a.getName().equals(AuthoritiesConstants.ADMIN);
                 if (user.getAuthorities().stream().anyMatch(p)) {
-                    return emirService.findAll(pageable);
+                    return emirService.findAllByStatu(pageable, emirStatu);
                 }
+
                 return new PageImpl<EmirDTO>(new ArrayList<EmirDTO>());
             }).get();
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/emirs");

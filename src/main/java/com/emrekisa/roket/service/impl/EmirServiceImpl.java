@@ -1,5 +1,6 @@
 package com.emrekisa.roket.service.impl;
 
+import com.emrekisa.roket.domain.enumeration.EMIR_STATU;
 import com.emrekisa.roket.service.EmirService;
 import com.emrekisa.roket.domain.Emir;
 import com.emrekisa.roket.repository.EmirRepository;
@@ -89,13 +90,19 @@ public class EmirServiceImpl implements EmirService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<EmirDTO> findAllByIsyeriId(Pageable pageable, Long id) {
-        return emirRepository.findAllByIsyeriId(pageable, id).map(emirMapper::toDto);
+    public Page<EmirDTO> findAllByIsyeriIdAndStatu(Pageable pageable, Long id, EMIR_STATU statu) {
+        return emirRepository.findAllByIsyeriIdAndStatu(pageable, id, statu).map(emirMapper::toDto);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<EmirDTO> findAllByKuryeId(Pageable pageable, Long id) {
-        return emirRepository.findAllByKuryeId(pageable, id).map(emirMapper::toDto);
+    public Page<EmirDTO> findAllByKuryeIdAndStatu(Pageable pageable, Long id, EMIR_STATU statu) {
+        return emirRepository.findAllByKuryeIdAndStatu(pageable, id, statu).map(emirMapper::toDto);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<EmirDTO> findAllByStatu(Pageable pageable, EMIR_STATU statu) {
+        return emirRepository.findAllByStatu(pageable, statu).map(emirMapper::toDto);
     }
 }

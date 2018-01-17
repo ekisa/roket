@@ -1,5 +1,6 @@
 package com.emrekisa.roket.service;
 
+import com.emrekisa.roket.domain.enumeration.EMIR_STATU;
 import com.emrekisa.roket.service.dto.EmirDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +28,8 @@ public interface EmirService {
      */
     Page<EmirDTO> findAll(Pageable pageable);
 
+    Page<EmirDTO> findAllByStatu(Pageable pageable, EMIR_STATU statu);
+
     /**
      * Get the "id" emir.
      *
@@ -42,7 +45,7 @@ public interface EmirService {
      */
     void delete(Long id);
 
-    Page<EmirDTO> findAllByIsyeriId(Pageable pageable, Long id);
+    Page<EmirDTO> findAllByIsyeriIdAndStatu(Pageable pageable, Long id, EMIR_STATU statu);
 
-    Page<EmirDTO> findAllByKuryeId(Pageable pageable, Long id);
+    Page<EmirDTO> findAllByKuryeIdAndStatu(Pageable pageable, Long id, EMIR_STATU statu);
 }

@@ -1,6 +1,7 @@
 package com.emrekisa.roket.repository;
 
 import com.emrekisa.roket.domain.Emir;
+import com.emrekisa.roket.domain.enumeration.EMIR_STATU;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
@@ -17,7 +18,9 @@ import java.util.List;
 @Repository
 public interface EmirRepository extends JpaRepository<Emir, Long> {
 
-    Page<Emir> findAllByIsyeriId(Pageable pageable, Long id);
+    Page<Emir> findAllByIsyeriIdAndStatu(Pageable pageable, Long id, EMIR_STATU statu);
 
-    Page<Emir> findAllByKuryeId(Pageable pageable, Long id);
+    Page<Emir> findAllByKuryeIdAndStatu(Pageable pageable, Long id, EMIR_STATU statu);
+
+    Page<Emir> findAllByStatu(Pageable pageable, EMIR_STATU statu);
 }

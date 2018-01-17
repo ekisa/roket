@@ -8,6 +8,9 @@
             "TESLIM_EDILDI": "TESLIM_EDILDI",
             "IPTAL": "IPTAL",
             "CEZA": "CEZA"
+        },
+        "error":{
+            "gecersizDeger" : "Geçersiz statü değeri"
         }
     }
 }
