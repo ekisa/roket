@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {NgModule, Component, OnInit, AfterViewInit} from '@angular/core';
+import {NgModule, Component, OnInit, AfterViewInit, Input} from '@angular/core';
 
 import { AgmCoreModule } from '@agm/core';
 import {GeolocationService} from './geolocation.service';
@@ -15,7 +15,7 @@ import {GeolocationService} from './geolocation.service';
     <div *ngIf="geolocation; else elseBlock">
         <agm-map [latitude]="geolocation.coords.latitude" [longitude]="geolocation.coords.longitude" [zoom]=zoomValue disableDefaultUI="true">
             <agm-marker [latitude]="geolocation.coords.latitude" [longitude]="geolocation.coords.longitude">
-                <agm-info-window>Paketiniz Burada</agm-info-window>
+                <agm-info-window isOpen="true">{{markerText}}</agm-info-window>
             </agm-marker>
         </agm-map>
     </div>
@@ -23,6 +23,9 @@ import {GeolocationService} from './geolocation.service';
   `
 })
 export class GeolocationComponent implements OnInit{
+
+    @Input()
+    markerText: string;
     geolocation: Position;
     zoomValue = 15;
     message : string;

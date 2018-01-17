@@ -15,6 +15,7 @@ import {
     isyeriPopupRoute,
     IsyeriResolvePagingParams,
 } from './';
+import {GeolocationModule} from '../../shared/location/geolocation.module';
 
 const ENTITY_STATES = [
     ...isyeriRoute,
@@ -24,7 +25,8 @@ const ENTITY_STATES = [
 @NgModule({
     imports: [
         RoketSharedModule,
-        RouterModule.forChild(ENTITY_STATES)
+        RouterModule.forChild(ENTITY_STATES),
+        GeolocationModule
     ],
     declarations: [
         IsyeriComponent,
