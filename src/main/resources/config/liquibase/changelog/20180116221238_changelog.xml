@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="Emre KISA (generated)" id="1516129968525-1">
+      <createTable tableName="emir">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="emirPK"/>
+         </column>
+         <column name="acik_adres" type="VARCHAR(1024)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="adres_tarifi" type="VARCHAR(1024)"/>
+         <column name="boyut" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="guncel_statu" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="statu" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="adres_id" type="BIGINT"/>
+         <column name="fatura_id" type="BIGINT"/>
+         <column name="gps_lokasyon_id" type="BIGINT"/>
+         <column name="isyeri_id" type="BIGINT"/>
+         <column name="kurye_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-2">
+      <createTable tableName="emir_gecmisi">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="emir_gecmisiPK"/>
+         </column>
+         <column name="kurye" type="TINYBLOB"/>
+         <column name="statu" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="zaman" type="TINYBLOB">
+            <constraints nullable="false"/>
+         </column>
+         <column name="emir_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-3">
+      <createTable tableName="fatura">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="faturaPK"/>
+         </column>
+         <column name="ay" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="yil" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="musteri_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-4">
+      <createTable tableName="isyeri">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="isyeriPK"/>
+         </column>
+         <column name="aciklama" type="VARCHAR(255)"/>
+         <column name="adi" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="telefon" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="adres_id" type="BIGINT"/>
+         <column name="gps_lokasyon_id" type="BIGINT"/>
+         <column name="merkez_id" type="BIGINT"/>
+         <column name="musteri_id" type="BIGINT"/>
+         <column name="user_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-5">
+      <createTable tableName="musteri">
+         <column autoIncrement="true" name="id" type="BIGINT">
+            <constraints primaryKey="true" primaryKeyName="musteriPK"/>
+         </column>
+         <column name="eposta" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="telefon" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="unvan" type="VARCHAR(255)">
+            <constraints nullable="false"/>
+         </column>
+         <column name="adres_id" type="BIGINT"/>
+      </createTable>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-6">
+      <addUniqueConstraint columnNames="user_id"
+                           constraintName="UC_ISYERIUSER_ID_COL"
+                           tableName="isyeri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-7">
+      <addUniqueConstraint columnNames="adres_id"
+                           constraintName="UC_MUSTERIADRES_ID_COL"
+                           tableName="musteri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-8">
+      <addForeignKeyConstraint baseColumnNames="kurye_id"
+                               baseTableName="emir"
+                               constraintName="FK15812vlb7imvw13pr29fbrpvu"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="kurye"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-9">
+      <addForeignKeyConstraint baseColumnNames="isyeri_id"
+                               baseTableName="emir"
+                               constraintName="FK8s5xddpa17has5jsx7nho7hbf"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="isyeri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-10">
+      <addForeignKeyConstraint baseColumnNames="musteri_id"
+                               baseTableName="isyeri"
+                               constraintName="FKbcgh72mhv6h7mwsa6ts99fxhg"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="musteri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-11">
+      <addForeignKeyConstraint baseColumnNames="fatura_id"
+                               baseTableName="emir"
+                               constraintName="FKddd3lyr5dpdyylxa73rr883mn"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="fatura"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-12">
+      <addForeignKeyConstraint baseColumnNames="emir_id"
+                               baseTableName="emir_gecmisi"
+                               constraintName="FKh0q2gsgtlk3627vwyobf3bqt6"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="emir"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-13">
+      <addForeignKeyConstraint baseColumnNames="gps_lokasyon_id"
+                               baseTableName="isyeri"
+                               constraintName="FKj0pbehdhynaskj85ulp78qj3y"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="gps_lokasyon"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-14">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="isyeri"
+                               constraintName="FKlr9pafmuflftcjkbnvm206b21"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-15">
+      <addForeignKeyConstraint baseColumnNames="musteri_id"
+                               baseTableName="fatura"
+                               constraintName="FKme16e5dqkpm30mc34ypsxgw06"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="musteri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-16">
+      <addForeignKeyConstraint baseColumnNames="adres_id"
+                               baseTableName="isyeri"
+                               constraintName="FKohf3n93mwn8aqtwcf0j1n70o1"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="adres"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-17">
+      <addForeignKeyConstraint baseColumnNames="adres_id"
+                               baseTableName="musteri"
+                               constraintName="FKp8a3v0dn2b40dbr98wyawoquh"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="adres"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-18">
+      <addForeignKeyConstraint baseColumnNames="merkez_id"
+                               baseTableName="isyeri"
+                               constraintName="FKqschgub2utrdju2f0obaarjdv"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="merkez"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-19">
+      <addForeignKeyConstraint baseColumnNames="adres_id"
+                               baseTableName="emir"
+                               constraintName="FKrfrap306geqr9ephh7ivir7my"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="adres"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129968525-20">
+      <addForeignKeyConstraint baseColumnNames="gps_lokasyon_id"
+                               baseTableName="emir"
+                               constraintName="FKs87bhorewo2jwbffigg1v9bqg"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="gps_lokasyon"/>
+   </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="Emre KISA (generated)" id="1516129480463-1">
+      <dropForeignKeyConstraint baseTableName="isyeri" constraintName="FKlr9pafmuflftcjkbnvm206b21"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-2">
+      <dropForeignKeyConstraint baseTableName="emir" constraintName="fk_emir_adres_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-3">
+      <dropForeignKeyConstraint baseTableName="emir" constraintName="fk_emir_fatura_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-4">
+      <dropForeignKeyConstraint baseTableName="emir_gecmisi" constraintName="fk_emir_gecmisi_emir_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-5">
+      <dropForeignKeyConstraint baseTableName="emir" constraintName="fk_emir_gps_lokasyon_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-6">
+      <dropForeignKeyConstraint baseTableName="emir" constraintName="fk_emir_isyeri_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-7">
+      <dropForeignKeyConstraint baseTableName="fatura" constraintName="fk_fatura_musteri_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-8">
+      <dropForeignKeyConstraint baseTableName="isyeri" constraintName="fk_isyeri_adres_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-9">
+      <dropForeignKeyConstraint baseTableName="isyeri" constraintName="fk_isyeri_gps_lokasyon_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-10">
+      <dropForeignKeyConstraint baseTableName="isyeri" constraintName="fk_isyeri_merkez_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-11">
+      <dropForeignKeyConstraint baseTableName="isyeri" constraintName="fk_isyeri_musteri_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-12">
+      <dropForeignKeyConstraint baseTableName="musteri" constraintName="fk_musteri_adres_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-13">
+      <dropUniqueConstraint constraintName="UC_ISYERIUSER_ID_COL" tableName="isyeri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-14">
+      <dropUniqueConstraint constraintName="adres_id" tableName="musteri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-15">
+      <dropTable tableName="emir"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-16">
+      <dropTable tableName="emir_gecmisi"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-17">
+      <dropTable tableName="fatura"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-18">
+      <dropTable tableName="isyeri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516129480463-19">
+      <dropTable tableName="musteri"/>
+   </changeSet>
+</databaseChangeLog>

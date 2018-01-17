@@ -4,6 +4,8 @@ import com.emrekisa.roket.service.dto.EmirDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 /**
  * Service Interface for managing Emir.
  */
@@ -39,4 +41,8 @@ public interface EmirService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    Page<EmirDTO> findAllByIsyeriId(Pageable pageable, Long id);
+
+    Page<EmirDTO> findAllByKuryeId(Pageable pageable, Long id);
 }

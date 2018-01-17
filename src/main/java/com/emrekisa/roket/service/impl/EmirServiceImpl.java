@@ -12,6 +12,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 /**
  * Service Implementation for managing Emir.
@@ -82,5 +85,17 @@ public class EmirServiceImpl implements EmirService {
     public void delete(Long id) {
         log.debug("Request to delete Emir : {}", id);
         emirRepository.delete(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<EmirDTO> findAllByIsyeriId(Pageable pageable, Long id) {
+        return emirRepository.findAllByIsyeriId(pageable, id).map(emirMapper::toDto);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<EmirDTO> findAllByKuryeId(Pageable pageable, Long id) {
+        return emirRepository.findAllByKuryeId(pageable, id).map(emirMapper::toDto);
     }
 }

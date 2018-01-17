@@ -1,7 +1,14 @@
 package com.emrekisa.roket.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import com.emrekisa.roket.domain.Authority;
+import com.emrekisa.roket.domain.Isyeri;
+import com.emrekisa.roket.repository.IsyeriRepository;
+import com.emrekisa.roket.repository.UserRepository;
+import com.emrekisa.roket.security.AuthoritiesConstants;
+import com.emrekisa.roket.security.SecurityUtils;
 import com.emrekisa.roket.service.EmirService;
+import com.emrekisa.roket.service.UserService;
 import com.emrekisa.roket.web.rest.errors.BadRequestAlertException;
 import com.emrekisa.roket.web.rest.util.HeaderUtil;
 import com.emrekisa.roket.web.rest.util.PaginationUtil;
@@ -10,6 +17,7 @@ import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,8 +28,10 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 
 /**
  * REST controller for managing Emir.
@@ -36,8 +46,13 @@ public class EmirResource {
 
     private final EmirService emirService;
 
-    public EmirResource(EmirService emirService) {
+    private final UserRepository userRepository;
+    private final IsyeriRepository isyeriRepository;
+
+    public EmirResource(EmirService emirService, UserRepository userRepository,IsyeriRepository isyeriRepository) {
         this.emirService = emirService;
+        this.userRepository= userRepository;
+        this.isyeriRepository = isyeriRepository;
     }
 
     /**
@@ -92,7 +107,24 @@ public class EmirResource {
     @Timed
     public ResponseEntity<List<EmirDTO>> getAllEmirs(Pageable pageable) {
         log.debug("REST request to get a page of Emirs");
-        Page<EmirDTO> page = emirService.findAll(pageable);
+        Page<EmirDTO> page = SecurityUtils.getCurrentUserLogin()
+            .flatMap(userRepository::findOneWithAuthoritiesByLogin)
+            .map(user -> {
+                Predicate<Authority> p = a -> a.getName().equals(AuthoritiesConstants.USER_KURYE);
+                if (user.getAuthorities().stream().anyMatch(p)) {
+                    return emirService.findAllByKuryeId(pageable, user.getId());
+                }
+                p = a -> a.getName().equals(AuthoritiesConstants.USER_ISYERI);
+                if (user.getAuthorities().stream().anyMatch(p)) {
+                    Isyeri isyeri = isyeriRepository.findOneByUserId(user.getId());
+                    return emirService.findAllByIsyeriId(pageable, isyeri.getId());
+                }
+                p = a -> a.getName().equals(AuthoritiesConstants.ADMIN);
+                if (user.getAuthorities().stream().anyMatch(p)) {
+                    return emirService.findAll(pageable);
+                }
+                return new PageImpl<EmirDTO>(new ArrayList<EmirDTO>());
+            }).get();
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/emirs");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

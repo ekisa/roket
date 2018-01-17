@@ -5,6 +5,7 @@ import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 import { Emir } from './emir.model';
 import { EmirService } from './emir.service';
 import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
+import {Input} from '@angular/core/src/metadata/directives';
 
 @Component({
     selector: 'jhi-emir',

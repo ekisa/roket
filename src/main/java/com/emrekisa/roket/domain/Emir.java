@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
@@ -34,6 +35,9 @@ public class Emir implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "statu", nullable = false)
     private EMIR_STATU statu;
+
+    @ManyToOne
+    private Kurye kurye;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -78,8 +82,20 @@ public class Emir implements Serializable {
     }
 
     public Emir statu(EMIR_STATU statu) {
+        if (statu == null) {
+            this.statu = EMIR_STATU.HAZIR;
+        }
         this.statu = statu;
+        this.ilkEmirGecmisiniYarat();
         return this;
+    }
+
+    private void ilkEmirGecmisiniYarat() {
+        EmirGecmisi emirGecmisi = new EmirGecmisi();
+        emirGecmisi.setEmir(this);
+        emirGecmisi.setStatu(this.statu);
+        emirGecmisi.setZaman(Instant.now());
+        this.emirGecmisis.add(emirGecmisi);
     }
 
     public String getAcikAdres() {
@@ -186,6 +202,13 @@ public class Emir implements Serializable {
     public Emir fatura(Fatura fatura) {
         this.fatura = fatura;
         return this;
+    }
+    public Kurye getKurye() {
+        return kurye;
+    }
+
+    public void setKurye(Kurye kurye) {
+        this.kurye = kurye;
     }
 
     public void setFatura(Fatura fatura) {

@@ -35,6 +35,10 @@ public class EmirGecmisi implements Serializable {
     @Column(name = "statu", nullable = false)
     private EMIR_STATU statu;
 
+    @NotNull
+    @Column(name = "kurye")
+    private Kurye kurye;
+
     @ManyToOne
     private Emir emir;
 
@@ -80,6 +84,14 @@ public class EmirGecmisi implements Serializable {
     public EmirGecmisi emir(Emir emir) {
         this.emir = emir;
         return this;
+    }
+
+    public Kurye getKurye() {
+        return kurye;
+    }
+
+    public void setKurye(Kurye kurye) {
+        this.kurye = kurye;
     }
 
     public void setEmir(Emir emir) {

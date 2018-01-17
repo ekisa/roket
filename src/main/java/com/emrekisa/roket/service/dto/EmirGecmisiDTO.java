@@ -23,6 +23,7 @@ public class EmirGecmisiDTO implements Serializable {
     private EMIR_STATU statu;
 
     private Long emirId;
+    private Long kuryeId;
 
     public Long getId() {
         return id;
@@ -54,6 +55,14 @@ public class EmirGecmisiDTO implements Serializable {
 
     public void setEmirId(Long emirId) {
         this.emirId = emirId;
+    }
+
+    public Long getKuryeId() {
+        return kuryeId;
+    }
+
+    public void setKuryeId(Long kuryeId) {
+        this.kuryeId = kuryeId;
     }
 
     @Override

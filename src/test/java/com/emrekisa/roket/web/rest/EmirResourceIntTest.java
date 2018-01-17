@@ -4,6 +4,8 @@ import com.emrekisa.roket.RoketApp;
 
 import com.emrekisa.roket.domain.Emir;
 import com.emrekisa.roket.repository.EmirRepository;
+import com.emrekisa.roket.repository.IsyeriRepository;
+import com.emrekisa.roket.repository.UserRepository;
 import com.emrekisa.roket.service.EmirService;
 import com.emrekisa.roket.service.dto.EmirDTO;
 import com.emrekisa.roket.service.mapper.EmirMapper;
@@ -59,6 +61,12 @@ public class EmirResourceIntTest {
     private EmirService emirService;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private IsyeriRepository isyeriRepository;
+
+    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -77,7 +85,7 @@ public class EmirResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final EmirResource emirResource = new EmirResource(emirService);
+        final EmirResource emirResource = new EmirResource(emirService, userRepository, isyeriRepository);
         this.restEmirMockMvc = MockMvcBuilders.standaloneSetup(emirResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
