@@ -3,3 +3,6 @@ C:\\Users\\"Emre KISA"\\AppData\\Local\\Yarn\\bin\\jhipster import-jdl jhipster-
 c:\Program Files\Java\jdk1.8.0_65\jre\lib\security>..\..\bin\keytool.exe -genkey
  -alias roket -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12
  -validity 3650
+
+
+chrome.exe" --args --ignore-certificate-errors
