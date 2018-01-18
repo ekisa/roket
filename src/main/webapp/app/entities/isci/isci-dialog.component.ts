@@ -11,6 +11,8 @@ import { IsciPopupService } from './isci-popup.service';
 import { IsciService } from './isci.service';
 import { Motor, MotorService } from '../motor';
 import { ResponseWrapper } from '../../shared';
+import {UserService} from '../../shared/user/user.service';
+import {User} from '../../shared/user/user.model';
 
 @Component({
     selector: 'jhi-isci-dialog',
@@ -22,20 +24,23 @@ export class IsciDialogComponent implements OnInit {
     isSaving: boolean;
 
     motors: Motor[];
+    users: User[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private isciService: IsciService,
         private motorService: MotorService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private userService: UserService
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.motorService.query()
-            .subscribe((res: ResponseWrapper) => { this.motors = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.motorService.query({sort: ['marka,model,numarasi']}).subscribe((res: ResponseWrapper) => { this.motors = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        this.userService.query({size: 99999, sort: ['id,desc']})
+            .subscribe((res: ResponseWrapper) => { this.users= res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -73,6 +78,9 @@ export class IsciDialogComponent implements OnInit {
     }
 
     trackMotorById(index: number, item: Motor) {
+        return item.id;
+    }
+    trackUserById(index: number, item: User) {
         return item.id;
     }
 }

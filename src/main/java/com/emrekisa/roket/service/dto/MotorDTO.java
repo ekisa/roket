@@ -19,6 +19,8 @@ public class MotorDTO implements Serializable {
 
     private String yil;
 
+    private String motorAciklama;
+
     public Long getId() {
         return id;
     }
@@ -73,6 +75,14 @@ public class MotorDTO implements Serializable {
             return false;
         }
         return Objects.equals(getId(), motorDTO.getId());
+    }
+
+    public String getMotorAciklama() {
+        return this.motorAciklama;
+    }
+
+    public void setMotorAciklama(String motorAciklama) {
+        this.motorAciklama = motorAciklama;
     }
 
     @Override

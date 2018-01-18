@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="Emre KISA (generated)" id="1516306669435-1">
+      <addColumn tableName="isci">
+         <column name="user_id" type="bigint"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516306669435-2">
+      <addUniqueConstraint columnNames="user_id"
+                           constraintName="UC_ISCIUSER_ID_COL"
+                           tableName="isci"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516306669435-3">
+      <addForeignKeyConstraint baseColumnNames="user_id"
+                               baseTableName="isci"
+                               constraintName="FK6kl56uj6thb4bxeytvu9w51qc"
+                               deferrable="false"
+                               initiallyDeferred="false"
+                               referencedColumnNames="id"
+                               referencedTableName="jhi_user"/>
+   </changeSet>
+</databaseChangeLog>

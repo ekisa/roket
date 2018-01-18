@@ -12,6 +12,12 @@
         <dd>
             <span>{{isci.soyadi}}</span>
         </dd>
+        <dt><span jhiTranslate="roketApp.isci.user">Kullanıcı</span></dt>
+        <dd>
+            <div *ngIf="isci.userId">
+                <a [routerLink]="['/user-management', isci.login]">{{isci.login}}</a>
+            </div>
+        </dd>
         <dt><span jhiTranslate="roketApp.isci.eposta">Eposta</span></dt>
         <dd>
             <span>{{isci.eposta}}</span>
@@ -43,7 +49,7 @@
         <dt><span jhiTranslate="roketApp.isci.motor">Motor</span></dt>
         <dd>
             <div *ngIf="isci.motorId">
-                <a [routerLink]="['/motor', isci.motorId]">{{isci.motorId}}</a>
+                <a [routerLink]="['/motor', isci.motorId]">{{isci.motorAciklama}}</a>
             </div>
         </dd>
     </dl>

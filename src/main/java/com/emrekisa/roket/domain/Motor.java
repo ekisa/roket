@@ -34,6 +34,9 @@ public class Motor implements Serializable {
     @Column(name = "yil")
     private String yil;
 
+    @Transient
+    private String motorAciklama;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -41,6 +44,10 @@ public class Motor implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getMotorAciklama() {
+        return new StringBuffer(this.getMarka()).append(" ").append(this.getModel()).append(" (").append(this.getNumarasi()).append(")").toString();
     }
 
     public String getNumarasi() {

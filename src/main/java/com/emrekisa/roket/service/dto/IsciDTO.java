@@ -32,6 +32,9 @@ public class IsciDTO implements Serializable {
     private String zimmetliMallar;
 
     private Long motorId;
+    private Long userId;
+    private String login;
+    private String motorAciklama;
 
     public Long getId() {
         return id;
@@ -39,6 +42,30 @@ public class IsciDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getMotorAciklama() {
+        return motorAciklama;
+    }
+
+    public void setMotorAciklama(String motorAciklama) {
+        this.motorAciklama = motorAciklama;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getAdi() {

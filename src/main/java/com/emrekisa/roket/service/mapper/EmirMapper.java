@@ -25,6 +25,7 @@ public interface EmirMapper extends EntityMapper<EmirDTO, Emir> {
     @Mapping(source = "adresId", target = "adres")
     @Mapping(source = "gpsLokasyonId", target = "gpsLokasyon")
     @Mapping(source = "kuryeId", target = "kurye")
+    @Mapping(source = "faturaId", target = "fatura")
     Emir toEntity(EmirDTO emirDTO);
 
     default Emir fromId(Long id) {

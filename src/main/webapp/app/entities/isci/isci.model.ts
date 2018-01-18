@@ -13,6 +13,9 @@ export class Isci implements BaseEntity {
         public tckn?: string,
         public zimmetliMallar?: string,
         public motorId?: number,
+        public motorAciklama?: string,
+        public userId?: number,
+        public login?: string,
     ) {
     }
 }

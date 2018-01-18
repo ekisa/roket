@@ -113,7 +113,8 @@
             "edit": "Düzenle",
             "open": "Aç",
             "save": "Kaydet",
-            "view": "Görüntüle"
+            "view": "Görüntüle",
+            "uzerineAl": "Al"
         },
         "detail": {
             "field": "Alan",

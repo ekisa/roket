@@ -30,6 +30,19 @@
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
             <tr *ngFor="let emir of emirs ;trackBy: trackId">
                 <td><a [routerLink]="['../emir', emir.id ]">{{emir.id}}</a></td>
+                <!--<td>-->
+                    <!--<button type="submit"
+                                [routerLink]="['../emir/al', emir.id ]"
+                                class="btn btn-info btn-sm">
+                        <span class="fa fa-eye"></span>
+                        <span class="d-none d-md-inline" jhiTranslate="entity.action.uzerineAl">Al</span>
+                    </button>-->
+                    <!--<mat-button-toggle-->
+                        <!--[checked]="emir.kuryeId === this.currentAccount.id"-->
+                        <!--(change)="myFlagForButtonToggle = $event.source.checked">-->
+                        <!--Toggle me!-->
+                    <!--</mat-button-toggle>-->
+                <!--</td>-->
                 <td jhiTranslate="{{'roketApp.EMIR_STATU.' + emir.statu}}">{{emir.statu}}</td>
                 <td jhiTranslate="{{'roketApp.BOYUT.' + emir.boyut}}">{{emir.boyut}}</td>
                 <td>

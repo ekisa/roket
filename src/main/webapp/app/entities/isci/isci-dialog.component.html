@@ -15,21 +15,28 @@
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.isci.adi" for="field_adi">Adi</label>
             <input type="text" class="form-control" name="adi" id="field_adi"
-                [(ngModel)]="isci.adi" />
+                [(ngModel)]="isci.adi" required/>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.isci.soyadi" for="field_soyadi">Soyadi</label>
             <input type="text" class="form-control" name="soyadi" id="field_soyadi"
-                [(ngModel)]="isci.soyadi" />
+                [(ngModel)]="isci.soyadi" required/>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="roketApp.isci.user" for="field_user">Kullanıcı</label>
+            <select class="form-control" id="field_user" required name="user" [(ngModel)]="isci.userId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.isci.eposta" for="field_eposta">Eposta</label>
-            <input type="text" class="form-control" name="eposta" id="field_eposta"
+            <input type="text" class="form-control"  name="eposta" id="field_eposta"
                 [(ngModel)]="isci.eposta" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.isci.telefon" for="field_telefon">Telefon</label>
-            <input type="text" class="form-control" name="telefon" id="field_telefon"
+            <input type="text" class="form-control" required name="telefon" id="field_telefon"
                 [(ngModel)]="isci.telefon" />
         </div>
         <div class="form-group">
@@ -49,7 +56,7 @@
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.isci.tckn" for="field_tckn">Tckn</label>
-            <input type="text" class="form-control" name="tckn" id="field_tckn"
+            <input type="text" class="form-control" required name="tckn" id="field_tckn"
                 [(ngModel)]="isci.tckn" />
         </div>
         <div class="form-group">
@@ -62,7 +69,7 @@
             <label class="form-control-label" jhiTranslate="roketApp.isci.motor" for="field_motor">Motor</label>
             <select class="form-control" id="field_motor" name="motor" [(ngModel)]="isci.motorId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="motorOption.id" *ngFor="let motorOption of motors; trackBy: trackMotorById">{{motorOption.id}}</option>
+                <option [ngValue]="motorOption.id" *ngFor="let motorOption of motors; trackBy: trackMotorById">{{motorOption.marka}} {{motorOption.model}} ({{motorOption.numarasi}})</option>
             </select>
         </div>
     </div>
