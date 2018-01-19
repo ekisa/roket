@@ -195,17 +195,4 @@ public class Adres implements Serializable {
             "}";
     }
 
-    public String getAcikAdres() {
-        return
-            "Semt:'" + Optional.ofNullable(getMahalle()).map(Mahalle::getSemt).orElse("-") + "'" +
-                ", Mh:'" + Optional.ofNullable(getMahalle()).map(Mahalle::getAdi).orElse("-") + "'" +
-                ", Cd:'" + Optional.ofNullable(getCadde()).orElse("-") + "'" +
-                ", Sk:'" + Optional.ofNullable(getSokak()).orElse("-") + "'" +
-                ", Sit:'" + Optional.ofNullable(getSite()).orElse("-") + "'" +
-                ", Dış:'" + Optional.ofNullable(getDiskapiNo()).orElse("-") + "'" +
-                ", İç:'" + Optional.ofNullable(getIckapiNo()).orElse("-") + "'" +
-                ", Tarif:'" + Optional.ofNullable(getAdresTarifi()).orElse("-") + "'"
-            ;
-    }
-
 }

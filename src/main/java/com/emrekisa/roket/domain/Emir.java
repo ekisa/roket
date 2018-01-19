@@ -52,12 +52,12 @@ public class Emir implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<EmirGecmisi> emirGecmisis = new HashSet<>();
 
-    @ManyToOne
-    private Adres adres;
+    /*@ManyToOne
+    private Adres adres;*/
 
-    @Column(name="acik_adres", length=1024, nullable = false)
+    @Column(name="adres", length=1024, nullable = false)
     @NotNull
-    private String acikAdres;
+    private String adres;
 
     @Column(name="adres_tarifi", length=1024)
     private String adresTarifi;
@@ -96,14 +96,6 @@ public class Emir implements Serializable {
         emirGecmisi.setStatu(this.statu);
         emirGecmisi.setZaman(Instant.now());
         this.emirGecmisis.add(emirGecmisi);
-    }
-
-    public String getAcikAdres() {
-        return acikAdres;
-    }
-
-    public void setAcikAdres(String acikAdres) {
-        this.acikAdres = acikAdres;
     }
 
     public String getAdresTarifi() {
@@ -169,18 +161,7 @@ public class Emir implements Serializable {
         this.emirGecmisis = emirGecmisis;
     }
 
-    public Adres getAdres() {
-        return adres;
-    }
 
-    public Emir adres(Adres adres) {
-        this.adres = adres;
-        return this;
-    }
-
-    public void setAdres(Adres adres) {
-        this.adres = adres;
-    }
 
     public GPSLokasyon getGpsLokasyon() {
         return gpsLokasyon;
@@ -243,5 +224,13 @@ public class Emir implements Serializable {
             ", statu='" + getStatu() + "'" +
             ", boyut='" + getBoyut() + "'" +
             "}";
+    }
+
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
+        this.adres = adres;
     }
 }
