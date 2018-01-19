@@ -2,22 +2,22 @@
     "roketApp": {
         "kurye" : {
             "home": {
-                "title": "Kuryes",
-                "createLabel": "Create a new Kurye",
-                "createOrEditLabel": "Create or edit a Kurye"
+                "title": "Kuryeler",
+                "createLabel": "Kurye Yarat",
+                "createOrEditLabel": "Kurye Yarat / Güncelle"
             },
-            "created": "A new Kurye is created with identifier {{ param }}",
-            "updated": "A Kurye is updated with identifier {{ param }}",
-            "deleted": "A Kurye is deleted with identifier {{ param }}",
+            "created": "{{ param }} ID'li Kurye yaratıldı",
+            "updated": "{{ param }} ID'li Kurye güncellendi",
+            "deleted": "{{ param }} ID'li Kurye silindi",
             "delete": {
-                "question": "Are you sure you want to delete Kurye {{ id }}?"
+                "question": "{{ id }} ID'li Kurye silinecektir?"
             },
             "detail": {
                 "title": "Kurye"
             },
-            "statu": "Statu",
-            "statuGecmisi": "Statu Gecmisi",
-            "merkez": "Merkez",
+            "statu": "Durum",
+            "statuGecmisi": "Durum Gecmisi",
+            "merkez": "Bağlı Olduğu Merkez",
             "gpsLokasyon": "Gps Lokasyon",
             "user": "Kullanıcı Adı"
         }
