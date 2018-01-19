@@ -2,25 +2,25 @@
     "roketApp": {
         "musteri" : {
             "home": {
-                "title": "Musteris",
-                "createLabel": "Create a new Musteri",
-                "createOrEditLabel": "Create or edit a Musteri"
+                "title": "Müşteriler",
+                "createLabel": "Müşteri Yarat",
+                "createOrEditLabel": "Müşteri Yarat / Güncelle"
             },
-            "created": "A new Musteri is created with identifier {{ param }}",
-            "updated": "A Musteri is updated with identifier {{ param }}",
-            "deleted": "A Musteri is deleted with identifier {{ param }}",
+            "created": "{{ param }} ID'li Müşteri yaratıldı",
+            "updated": "{{ param }} ID'li Müşteri güncellendi",
+            "deleted": "{{ param }} ID'li Müşteri silindi",
             "delete": {
-                "question": "Are you sure you want to delete Musteri {{ id }}?"
+                "question": "{{ id }} ID'li Müşteri silinecektir?"
             },
             "detail": {
-                "title": "Musteri"
+                "title": "Müşteri"
             },
-            "unvan": "Unvan",
+            "unvan": "Ünvan",
             "eposta": "Eposta",
-            "telefon": "Telefon",
-            "adres": "Adres",
-            "isyerleri": "Isyerleri",
-            "faturalar": "Faturalar"
+            "telefon": "Telefonu",
+            "adres": "Adresi",
+            "isyerleri": "İşyerleri",
+            "faturalar": "Faturaları"
         }
     }
 }
