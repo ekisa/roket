@@ -26,34 +26,34 @@ export class EmirDialogComponent implements OnInit {
 
     isyeris: Isyeri[];
 
-    adres: Adres[];
+    /*adres: Adres[];
 
     gpslokasyons: GPSLokasyon[];
 
-    faturas: Fatura[];
+    faturas: Fatura[];*/
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private emirService: EmirService,
         private isyeriService: IsyeriService,
-        private adresService: AdresService,
+        /*private adresService: AdresService,
         private gPSLokasyonService: GPSLokasyonService,
-        private faturaService: FaturaService,
+        private faturaService: FaturaService,*/
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.isyeriService.query()
+        this.isyeriService.query({size : 99999, sort: ['adi']})
             .subscribe((res: ResponseWrapper) => { this.isyeris = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-        this.adresService.query()
+        /*this.adresService.query()
             .subscribe((res: ResponseWrapper) => { this.adres = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.gPSLokasyonService.query()
             .subscribe((res: ResponseWrapper) => { this.gpslokasyons = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.faturaService.query()
-            .subscribe((res: ResponseWrapper) => { this.faturas = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+            .subscribe((res: ResponseWrapper) => { this.faturas = res.json; }, (res: ResponseWrapper) => this.onError(res.json));*/
     }
 
     clear() {

@@ -38,9 +38,13 @@ public class Musteri implements Serializable {
     @Column(name = "telefon", nullable = false)
     private String telefon;
 
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(unique = true)
-    private Adres adres;
+    private Adres adres;*/
+
+    @NotNull
+    @Column(name = "adres", nullable = false, length = 520)
+    private String adres;
 
     @OneToMany(mappedBy = "musteri")
     @JsonIgnore
@@ -100,7 +104,7 @@ public class Musteri implements Serializable {
         this.telefon = telefon;
     }
 
-    public Adres getAdres() {
+    /*public Adres getAdres() {
         return adres;
     }
 
@@ -110,6 +114,15 @@ public class Musteri implements Serializable {
     }
 
     public void setAdres(Adres adres) {
+        this.adres = adres;
+    }
+    */
+
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
         this.adres = adres;
     }
 

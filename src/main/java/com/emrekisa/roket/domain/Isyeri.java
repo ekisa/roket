@@ -48,8 +48,10 @@ public class Isyeri implements Serializable {
     @ManyToOne
     private GPSLokasyon gpsLokasyon;
 
-    @ManyToOne
-    private Adres adres;
+    /*@ManyToOne
+    private Adres adres;*/
+
+    private String adres;
 
     @ManyToOne
     private Musteri musteri;
@@ -159,7 +161,7 @@ public class Isyeri implements Serializable {
         this.gpsLokasyon = gPSLokasyon;
     }
 
-    public Adres getAdres() {
+    /*public Adres getAdres() {
         return adres;
     }
 
@@ -169,6 +171,14 @@ public class Isyeri implements Serializable {
     }
 
     public void setAdres(Adres adres) {
+        this.adres = adres;
+    }*/
+
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
         this.adres = adres;
     }
 

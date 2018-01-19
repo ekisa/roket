@@ -34,7 +34,7 @@ export class MusteriDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.adresService
+        /*this.adresService
             .query({filter: 'musteri-is-null'})
             .subscribe((res: ResponseWrapper) => {
                 if (!this.musteri.adresId) {
@@ -46,7 +46,7 @@ export class MusteriDialogComponent implements OnInit {
                             this.adres = [subRes].concat(res.json);
                         }, (subRes: ResponseWrapper) => this.onError(subRes.json));
                 }
-            }, (res: ResponseWrapper) => this.onError(res.json));
+            }, (res: ResponseWrapper) => this.onError(res.json));*/
     }
 
     clear() {

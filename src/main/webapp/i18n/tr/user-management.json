@@ -25,6 +25,12 @@
         "createdBy": "Oluşturan",
         "createdDate": "Oluşturma tarihi",
         "lastModifiedBy": "Düzenleyen",
-        "lastModifiedDate": "Düzenleme tarihi"
+        "lastModifiedDate": "Düzenleme tarihi",
+        "telefon": "Telefonu",
+        "teminatTutari": "Teminat Tutarı",
+        "maas": "Maaşı",
+        "sicil": "Sicili",
+        "tckn": "TC Kimlik No",
+        "zimmetliMallar": "Zimmetli Mallar"
     }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="Emre KISA (generated)" id="1516392663015-1">
+      <addColumn tableName="musteri">
+         <column name="adres" type="varchar(520)">
+            <constraints nullable="false"/>
+         </column>
+      </addColumn>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516392663015-2">
+      <dropForeignKeyConstraint baseTableName="musteri" constraintName="FKp8a3v0dn2b40dbr98wyawoquh"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516392663015-3">
+      <dropUniqueConstraint constraintName="UC_MUSTERIADRES_ID_COL" tableName="musteri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516392663015-4">
+      <dropColumn columnName="adres_id" tableName="musteri"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516392663015-5">
+      <addNotNullConstraint columnDataType="varchar(20)"
+                            columnName="sicil"
+                            tableName="jhi_user"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516392663015-6">
+      <addNotNullConstraint columnDataType="varchar(11)" columnName="tckn" tableName="jhi_user"/>
+   </changeSet>
+</databaseChangeLog>

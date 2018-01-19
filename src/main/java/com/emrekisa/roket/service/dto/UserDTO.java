@@ -53,6 +53,18 @@ public class UserDTO {
 
     private Set<String> authorities;
 
+    private String telefon;
+
+    private Long teminatTutari;
+
+    private Long maas;
+
+    private String sicil;
+
+    private String tckn;
+
+    private String zimmetliMallar;
+
     public UserDTO() {
         // Empty constructor needed for Jackson.
     }
@@ -177,6 +189,54 @@ public class UserDTO {
 
     public void setAuthorities(Set<String> authorities) {
         this.authorities = authorities;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public Long getTeminatTutari() {
+        return teminatTutari;
+    }
+
+    public void setTeminatTutari(Long teminatTutari) {
+        this.teminatTutari = teminatTutari;
+    }
+
+    public Long getMaas() {
+        return maas;
+    }
+
+    public void setMaas(Long maas) {
+        this.maas = maas;
+    }
+
+    public String getSicil() {
+        return sicil;
+    }
+
+    public void setSicil(String sicil) {
+        this.sicil = sicil;
+    }
+
+    public String getTckn() {
+        return tckn;
+    }
+
+    public void setTckn(String tckn) {
+        this.tckn = tckn;
+    }
+
+    public String getZimmetliMallar() {
+        return zimmetliMallar;
+    }
+
+    public void setZimmetliMallar(String zimmetliMallar) {
+        this.zimmetliMallar = zimmetliMallar;
     }
 
     @Override

@@ -8,9 +8,9 @@ import { RoketTestModule } from '../../../test.module';
 import { KuryeDialogComponent } from '../../../../../../main/webapp/app/entities/kurye/kurye-dialog.component';
 import { KuryeService } from '../../../../../../main/webapp/app/entities/kurye/kurye.service';
 import { Kurye } from '../../../../../../main/webapp/app/entities/kurye/kurye.model';
-import { IsciService } from '../../../../../../main/webapp/app/entities/isci';
 import { MerkezService } from '../../../../../../main/webapp/app/entities/merkez';
 import { GPSLokasyonService } from '../../../../../../main/webapp/app/entities/gps-lokasyon';
+import {UserService} from '../../../../../../main/webapp/app/shared/user/user.service';
 
 describe('Component Tests', () => {
 
@@ -26,7 +26,7 @@ describe('Component Tests', () => {
                 imports: [RoketTestModule],
                 declarations: [KuryeDialogComponent],
                 providers: [
-                    IsciService,
+                    UserService,
                     MerkezService,
                     GPSLokasyonService,
                     KuryeService

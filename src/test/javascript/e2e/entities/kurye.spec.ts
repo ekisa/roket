@@ -34,7 +34,6 @@ describe('Kurye e2e test', () => {
     it('should create and save Kuryes', () => {
         kuryeComponentsPage.clickOnCreateButton();
         kuryeDialogPage.statuSelectLastOption();
-        kuryeDialogPage.isciSelectLastOption();
         kuryeDialogPage.merkezSelectLastOption();
         kuryeDialogPage.gpsLokasyonSelectLastOption();
         kuryeDialogPage.save();
@@ -64,7 +63,6 @@ export class KuryeDialogPage {
     saveButton = element(by.css('.modal-footer .btn.btn-primary'));
     closeButton = element(by.css('button.close'));
     statuSelect = element(by.css('select#field_statu'));
-    isciSelect = element(by.css('select#field_isci'));
     merkezSelect = element(by.css('select#field_merkez'));
     gpsLokasyonSelect = element(by.css('select#field_gpsLokasyon'));
 
@@ -82,21 +80,6 @@ export class KuryeDialogPage {
 
     statuSelectLastOption = function() {
         this.statuSelect.all(by.tagName('option')).last().click();
-    }
-    isciSelectLastOption = function() {
-        this.isciSelect.all(by.tagName('option')).last().click();
-    }
-
-    isciSelectOption = function(option) {
-        this.isciSelect.sendKeys(option);
-    }
-
-    getIsciSelect = function() {
-        return this.isciSelect;
-    }
-
-    getIsciSelectedOption = function() {
-        return this.isciSelect.element(by.css('option:checked')).getText();
     }
 
     merkezSelectLastOption = function() {

@@ -10,7 +10,6 @@ import { RoketMahalleModule } from './mahalle/mahalle.module';
 import { RoketGPSLokasyonModule } from './gps-lokasyon/gps-lokasyon.module';
 import { RoketIsyeriModule } from './isyeri/isyeri.module';
 import { RoketMusteriModule } from './musteri/musteri.module';
-import { RoketIsciModule } from './isci/isci.module';
 import { RoketMotorModule } from './motor/motor.module';
 import { RoketEmirModule } from './emir/emir.module';
 import { RoketEmirGecmisiModule } from './emir-gecmisi/emir-gecmisi.module';
@@ -31,7 +30,6 @@ import { RoketFaturaModule } from './fatura/fatura.module';
         RoketGPSLokasyonModule,
         RoketIsyeriModule,
         RoketMusteriModule,
-        RoketIsciModule,
         RoketMotorModule,
         RoketEmirModule,
         RoketEmirGecmisiModule,

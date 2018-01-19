@@ -27,8 +27,8 @@ public class IsyeriDTO implements Serializable {
 
     private Long gpsLokasyonId;
 
-    private Long adresId;
-
+    //    private Long adresId;
+    private String adres;
     private Long musteriId;
     private String musteriUnvan;
 
@@ -91,12 +91,21 @@ public class IsyeriDTO implements Serializable {
         this.gpsLokasyonId = gPSLokasyonId;
     }
 
-    public Long getAdresId() {
+    /*public Long getAdresId() {
         return adresId;
     }
 
     public void setAdresId(Long adresId) {
         this.adresId = adresId;
+    }
+*/
+
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
+        this.adres = adres;
     }
 
     public Long getMusteriId() {

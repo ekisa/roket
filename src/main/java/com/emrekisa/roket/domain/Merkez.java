@@ -33,8 +33,12 @@ public class Merkez implements Serializable {
     @ManyToOne
     private GPSLokasyon gpsLokasyon;
 
-    @ManyToOne
-    private Adres adres;
+    /*@ManyToOne
+    private Adres adres;*/
+
+    @NotNull
+    @Column(name = "adres", nullable = false, length = 500)
+    private String adres;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -84,7 +88,15 @@ public class Merkez implements Serializable {
         this.gpsLokasyon = gPSLokasyon;
     }
 
-    public Adres getAdres() {
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
+        this.adres = adres;
+    }
+
+/*public Adres getAdres() {
         return adres;
     }
 
@@ -96,6 +108,7 @@ public class Merkez implements Serializable {
     public void setAdres(Adres adres) {
         this.adres = adres;
     }
+    */
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

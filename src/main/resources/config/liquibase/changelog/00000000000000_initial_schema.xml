@@ -175,4 +175,37 @@
 
         <addUniqueConstraint tableName="jhi_social_user_connection" columnNames="user_id, provider_id, rank"/>
     </changeSet>
+
+    <changeSet author="Emre KISA (generated)" id="1516387550564-1">
+        <addColumn tableName="jhi_user">
+            <column name="maas" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Emre KISA (generated)" id="1516387550564-2">
+        <addColumn tableName="jhi_user">
+            <column name="sicil" type="varchar(20)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Emre KISA (generated)" id="1516387550564-3">
+        <addColumn tableName="jhi_user">
+            <column name="tckn" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Emre KISA (generated)" id="1516387550564-4">
+        <addColumn tableName="jhi_user">
+            <column name="telefon" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Emre KISA (generated)" id="1516387550564-5">
+        <addColumn tableName="jhi_user">
+            <column name="teminat_tutari" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Emre KISA (generated)" id="1516387550564-7">
+        <addColumn tableName="jhi_user">
+            <column name="zimmetli_mallar" type="varchar(512)"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

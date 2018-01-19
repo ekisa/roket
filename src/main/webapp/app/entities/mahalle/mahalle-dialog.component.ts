@@ -34,7 +34,7 @@ export class MahalleDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.ilceService.query()
+        this.ilceService.query({size : 99999})
             .subscribe((res: ResponseWrapper) => { this.ilces = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 

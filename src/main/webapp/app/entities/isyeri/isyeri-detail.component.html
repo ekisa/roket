@@ -20,7 +20,7 @@
         <dt><span jhiTranslate="roketApp.isyeri.merkez">Merkez</span></dt>
         <dd>
             <div *ngIf="isyeri.merkezId">
-                <a [routerLink]="['/merkez', isyeri.merkezId]">{{isyeri.merkezId}}</a>
+                <a [routerLink]="['/merkez', isyeri.merkezId]">{{isyeri.merkezAdi}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="roketApp.isyeri.gpsLokasyon">Gps Lokasyon</span></dt>
@@ -32,13 +32,13 @@
         <dt><span jhiTranslate="roketApp.isyeri.adres">Adres</span></dt>
         <dd>
             <div *ngIf="isyeri.adresId">
-                <a [routerLink]="['/adres', isyeri.adresId]">{{isyeri.adresId}}</a>
+                <a [routerLink]="['/adres', isyeri.adresId]">{{isyeri.adres}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="roketApp.isyeri.musteri">Musteri</span></dt>
         <dd>
             <div *ngIf="isyeri.musteriId">
-                <a [routerLink]="['/musteri', isyeri.musteriId]">{{isyeri.musteriId}}</a>
+                <a [routerLink]="['/musteri', isyeri.musteriId]">{{isyeri.musteriUnvan}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="roketApp.isyeri.user">Kullanıcı</span></dt>

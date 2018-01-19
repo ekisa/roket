@@ -46,17 +46,17 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" *jhiHasAnyAuthority="'ROLE_ADMIN','ROLE_USER_MERKEZ'">
             <label class="form-control-label" jhiTranslate="roketApp.emir.isyeri" for="field_isyeri">Isyeri</label>
             <select class="form-control" id="field_isyeri" name="isyeri" [(ngModel)]="emir.isyeriId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="isyeriOption.id" *ngFor="let isyeriOption of isyeris; trackBy: trackIsyeriById">{{isyeriOption.id}}</option>
+                <option [ngValue]="isyeriOption.id" *ngFor="let isyeriOption of isyeris; trackBy: trackIsyeriById">{{isyeriOption.adi}}</option>
             </select>
         </div>
         <div class="form-group">
-            <label class="form-control-label" jhiTranslate="roketApp.emir.acikAdres" for="field_acikAdres">Acik Adres</label>
-            <textarea class="form-control" id="field_acikAdres" name="acikAdres"
-                   [(ngModel)]="emir.acikAdres"></textarea>
+            <label class="form-control-label" jhiTranslate="roketApp.emir.adres" for="field_acikAdres">Acik Adres</label>
+            <textarea class="form-control" id="field_acikAdres" name="adres"
+                   [(ngModel)]="emir.adres"></textarea>
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.emir.adresTarifi" for="field_adresTarifi">Adres Tarifi</label>
@@ -70,7 +70,7 @@
                 <option [ngValue]="null"></option>
                 <option [ngValue]="adresOption.id" *ngFor="let adresOption of adres; trackBy: trackAdresById">{{adresOption.id}}</option>
             </select>
-        </div>-->
+        </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="roketApp.emir.gpsLokasyon" for="field_gpsLokasyon">Gps Lokasyon</label>
             <select class="form-control" id="field_gpsLokasyon" name="gpsLokasyon" [(ngModel)]="emir.gpsLokasyonId" >
@@ -84,7 +84,7 @@
                 <option [ngValue]="null"></option>
                 <option [ngValue]="faturaOption.id" *ngFor="let faturaOption of faturas; trackBy: trackFaturaById">{{faturaOption.id}}</option>
             </select>
-        </div>
+        </div>-->
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

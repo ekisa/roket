@@ -7,8 +7,8 @@ export class Merkez implements BaseEntity {
         public mahalleId?: number,
         public mahalleAdi?: string,
         public gpsLokasyonId?: number,
-        public adresId?: number,
-        public acikAdres?: string,
+        // public adresId?: number,
+        public adres?: string,
     ) {
     }
 }

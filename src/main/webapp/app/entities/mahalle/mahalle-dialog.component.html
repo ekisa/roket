@@ -38,7 +38,7 @@
             <label class="form-control-label" jhiTranslate="roketApp.mahalle.ilce" for="field_ilce">Ilce</label>
             <select class="form-control" id="field_ilce" name="ilce" [(ngModel)]="mahalle.ilceId" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="ilceOption.id" *ngFor="let ilceOption of ilces; trackBy: trackIlceById">{{ilceOption.id}}</option>
+                <option [ngValue]="ilceOption.id" *ngFor="let ilceOption of ilces; trackBy: trackIlceById">{{ilceOption.ad}}</option>
             </select>
         </div>
     </div>

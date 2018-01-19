@@ -19,7 +19,7 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="adi"><span jhiTranslate="roketApp.merkez.adi">Adi</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="mahalleAdi"><span jhiTranslate="roketApp.merkez.mahalle">Mahalle</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="gpsLokasyonId"><span jhiTranslate="roketApp.merkez.gpsLokasyon">Gps Lokasyon</span> <span class="fa fa-sort"></span></th>
+            <!--<th jhiSortBy="gpsLokasyonId"><span jhiTranslate="roketApp.merkez.gpsLokasyon">Gps Lokasyon</span> <span class="fa fa-sort"></span></th>-->
             <th><span jhiTranslate="roketApp.merkez.adres">Adres</span></span></th>
             <th></th>
             </tr>
@@ -33,16 +33,17 @@
                         <a [routerLink]="['../mahalle', merkez.mahalleId  ]" >{{merkez.mahalleAdi}}</a>
                     </div>
                 </td>
-                <td>
+                <!--<td>
                     <div *ngIf="merkez.gpsLokasyonId">
                         <a [routerLink]="['../gps-lokasyon', merkez.gpsLokasyonId  ]" >{{merkez.gpsLokasyonId}}</a>
                     </div>
-                </td>
-                <td>
+                </td>-->
+                <!--<td>
                     <div *ngIf="merkez.adresId">
-                        <a [routerLink]="['../adres', merkez.adresId  ]" >{{merkez.acikAdres}}</a>
+                        <a [routerLink]="['../adres', merkez.adresId  ]" >{{merkez.adres}}</a>
                     </div>
-                </td>
+                </td>-->
+                <td>{{merkez.adres}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

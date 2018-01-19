@@ -18,9 +18,13 @@ public class KuryeDTO implements Serializable {
     @NotNull
     private KURYE_STATU statu;
 
-    private Long isciId;
+    private String firstName;
+    private String lastName;
+    private String login;
+    private Long userId;
 
     private Long merkezId;
+    private String merkezAd;
 
     private Long gpsLokasyonId;
 
@@ -32,20 +36,28 @@ public class KuryeDTO implements Serializable {
         this.id = id;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getMerkezAd() {
+        return merkezAd;
+    }
+
+    public void setMerkezAd(String merkezAd) {
+        this.merkezAd = merkezAd;
+    }
+
     public KURYE_STATU getStatu() {
         return statu;
     }
 
     public void setStatu(KURYE_STATU statu) {
         this.statu = statu;
-    }
-
-    public Long getIsciId() {
-        return isciId;
-    }
-
-    public void setIsciId(Long isciId) {
-        this.isciId = isciId;
     }
 
     public Long getMerkezId() {
@@ -91,5 +103,29 @@ public class KuryeDTO implements Serializable {
             "id=" + getId() +
             ", statu='" + getStatu() + "'" +
             "}";
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 }

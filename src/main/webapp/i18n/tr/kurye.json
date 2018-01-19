@@ -16,10 +16,10 @@
                 "title": "Kurye"
             },
             "statu": "Statu",
-            "isci": "Isci",
             "statuGecmisi": "Statu Gecmisi",
             "merkez": "Merkez",
-            "gpsLokasyon": "Gps Lokasyon"
+            "gpsLokasyon": "Gps Lokasyon",
+            "user": "Kullanıcı Adı"
         }
     }
 }

@@ -108,6 +108,12 @@ public class UserService {
         newUser.setEmail(userDTO.getEmail());
         newUser.setImageUrl(userDTO.getImageUrl());
         newUser.setLangKey(userDTO.getLangKey());
+        newUser.setTelefon(userDTO.getTelefon());
+        newUser.setTeminatTutari(userDTO.getTeminatTutari());
+        newUser.setMaas(userDTO.getMaas());
+        newUser.setSicil(userDTO.getSicil());
+        newUser.setTckn(userDTO.getTckn());
+        newUser.setZimmetliMallar(userDTO.getZimmetliMallar());
         // new user is not active
         newUser.setActivated(false);
         // new user gets registration key
@@ -144,6 +150,13 @@ public class UserService {
         user.setResetKey(RandomUtil.generateResetKey());
         user.setResetDate(Instant.now());
         user.setActivated(true);
+        user.setTelefon(userDTO.getTelefon());
+        user.setTeminatTutari(userDTO.getTeminatTutari());
+        user.setMaas(userDTO.getMaas());
+        user.setSicil(userDTO.getSicil());
+        user.setTckn(userDTO.getTckn());
+        user.setZimmetliMallar(userDTO.getZimmetliMallar());
+
         userRepository.save(user);
         cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE).evict(user.getLogin());
         cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE).evict(user.getEmail());
@@ -160,7 +173,8 @@ public class UserService {
      * @param langKey language key
      * @param imageUrl image URL of user
      */
-    public void updateUser(String firstName, String lastName, String email, String langKey, String imageUrl) {
+    public void updateUser(String firstName, String lastName, String email, String langKey, String imageUrl,
+                           String telefon, Long teminatTutari, Long maas, String sicil, String tckn, String zimmetliMallar) {
         SecurityUtils.getCurrentUserLogin()
             .flatMap(userRepository::findOneByLogin)
             .ifPresent(user -> {
@@ -169,6 +183,12 @@ public class UserService {
                 user.setEmail(email);
                 user.setLangKey(langKey);
                 user.setImageUrl(imageUrl);
+                user.setTelefon(telefon);
+                user.setTeminatTutari(teminatTutari);
+                user.setMaas(maas);
+                user.setSicil(sicil);
+                user.setTckn(tckn);
+                user.setZimmetliMallar(zimmetliMallar);
                 cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE).evict(user.getLogin());
                 cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE).evict(user.getEmail());
                 log.debug("Changed Information for User: {}", user);
@@ -192,6 +212,12 @@ public class UserService {
                 user.setImageUrl(userDTO.getImageUrl());
                 user.setActivated(userDTO.isActivated());
                 user.setLangKey(userDTO.getLangKey());
+                user.setTelefon(userDTO.getTelefon());
+                user.setTeminatTutari(userDTO.getTeminatTutari());
+                user.setMaas(userDTO.getMaas());
+                user.setSicil(userDTO.getSicil());
+                user.setTckn(userDTO.getTckn());
+                user.setZimmetliMallar(userDTO.getZimmetliMallar());
                 Set<Authority> managedAuthorities = user.getAuthorities();
                 managedAuthorities.clear();
                 userDTO.getAuthorities().stream()

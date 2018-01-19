@@ -9,10 +9,11 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { Kurye } from './kurye.model';
 import { KuryePopupService } from './kurye-popup.service';
 import { KuryeService } from './kurye.service';
-import { Isci, IsciService } from '../isci';
 import { Merkez, MerkezService } from '../merkez';
 import { GPSLokasyon, GPSLokasyonService } from '../gps-lokasyon';
 import { ResponseWrapper } from '../../shared';
+import {User} from '../../shared/user/user.model';
+import {UserService} from '../../shared/user/user.service';
 
 @Component({
     selector: 'jhi-kurye-dialog',
@@ -23,42 +24,42 @@ export class KuryeDialogComponent implements OnInit {
     kurye: Kurye;
     isSaving: boolean;
 
-    iscis: Isci[];
+    users: User[];
 
     merkezs: Merkez[];
 
-    gpslokasyons: GPSLokasyon[];
+    // gpslokasyons: GPSLokasyon[];
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private kuryeService: KuryeService,
-        private isciService: IsciService,
+        private userService: UserService,
         private merkezService: MerkezService,
-        private gPSLokasyonService: GPSLokasyonService,
+        // private gpsLokasyonService: GPSLokasyonService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.isciService
-            .query({filter: 'kurye-is-null'})
+        this.userService
+            .query({size: 99999, sort:['login']})
             .subscribe((res: ResponseWrapper) => {
-                if (!this.kurye.isciId) {
-                    this.iscis = res.json;
+                if (!this.kurye.login) {
+                    this.users = res.json;
                 } else {
-                    this.isciService
-                        .find(this.kurye.isciId)
-                        .subscribe((subRes: Isci) => {
-                            this.iscis = [subRes].concat(res.json);
+                    this.userService
+                        .find(this.kurye.login)
+                        .subscribe((subRes: User) => {
+                            this.users = [subRes].concat(res.json);
                         }, (subRes: ResponseWrapper) => this.onError(subRes.json));
                 }
             }, (res: ResponseWrapper) => this.onError(res.json));
-        this.merkezService.query()
+        this.merkezService.query({sort:['adi'], size:999999})
             .subscribe((res: ResponseWrapper) => { this.merkezs = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-        this.gPSLokasyonService.query()
-            .subscribe((res: ResponseWrapper) => { this.gpslokasyons = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+        /*this.gpsLokasyonService.query()
+            .subscribe((res: ResponseWrapper) => { this.gpslokasyons = res.json; }, (res: ResponseWrapper) => this.onError(res.json));*/
     }
 
     clear() {
@@ -95,8 +96,8 @@ export class KuryeDialogComponent implements OnInit {
         this.jhiAlertService.error(error.message, null, null);
     }
 
-    trackIsciById(index: number, item: Isci) {
-        return item.id;
+    trackUserById(index: number, item: User) {
+        return item.login;
     }
 
     trackMerkezById(index: number, item: Merkez) {

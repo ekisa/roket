@@ -6,7 +6,8 @@ export class Musteri implements BaseEntity {
         public unvan?: string,
         public eposta?: string,
         public telefon?: string,
-        public adresId?: number,
+        // public adresId?: number,
+        public adres?: string,
         public isyerleris?: BaseEntity[],
         public faturalars?: BaseEntity[],
     ) {

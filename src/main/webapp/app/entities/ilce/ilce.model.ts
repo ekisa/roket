@@ -5,6 +5,7 @@ export class Ilce implements BaseEntity {
         public id?: number,
         public ad?: string,
         public ilId?: number,
+        public ilAd?: string,
     ) {
     }
 }

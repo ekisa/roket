@@ -38,7 +38,26 @@
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-        
+
+    </changeSet>
+    <changeSet author="Emre KISA (generated)" id="1516387550564-6">
+        <addColumn tableName="kurye">
+            <column name="user_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Emre KISA (generated)" id="1516387550564-8">
+        <addUniqueConstraint columnNames="user_id"
+                             constraintName="UC_KURYEUSER_ID_COL"
+                             tableName="kurye"/>
+    </changeSet>
+    <changeSet author="Emre KISA (generated)" id="1516387550564-9">
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="kurye"
+                                 constraintName="FKqrmsapoh8eg0t751ojntvmp7u"
+                                 deferrable="false"
+                                 initiallyDeferred="false"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

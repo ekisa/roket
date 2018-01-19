@@ -12,6 +12,12 @@ export class User {
     public lastModifiedBy?: string;
     public lastModifiedDate?: Date;
     public password?: string;
+    public telefon?: string;
+    public teminatTutari?: number;
+    public maas?: number;
+    public sicil?: string;
+    public tckn?: string;
+    public zimmetliMallar?: string;
 
     constructor(
         id?: any,
@@ -26,7 +32,13 @@ export class User {
         createdDate?: Date,
         lastModifiedBy?: string,
         lastModifiedDate?: Date,
-        password?: string
+        password?: string,
+        telefon?: string,
+        teminatTutari?: number,
+        maas?: number,
+        sicil?: string,
+        tckn?: string,
+        zimmetliMallar?: string,
     ) {
         this.id = id ? id : null;
         this.login = login ? login : null;
@@ -41,5 +53,11 @@ export class User {
         this.lastModifiedBy = lastModifiedBy ? lastModifiedBy : null;
         this.lastModifiedDate = lastModifiedDate ? lastModifiedDate : null;
         this.password = password ? password : null;
+        this.telefon = telefon ? telefon : null;
+        this.teminatTutari = teminatTutari ? teminatTutari : null;
+        this.maas = maas ? maas : null;
+        this.sicil = sicil ? sicil : null;
+        this.tckn = tckn ? tckn : null;
+        this.zimmetliMallar = zimmetliMallar ? zimmetliMallar : null;
     }
 }

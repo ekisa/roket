@@ -11,10 +11,10 @@ import org.mapstruct.*;
 @Mapper(componentModel = "spring", uses = {AdresMapper.class})
 public interface MusteriMapper extends EntityMapper<MusteriDTO, Musteri> {
 
-    @Mapping(source = "adres.id", target = "adresId")
+//    @Mapping(source = "adres.id", target = "adresId")
     MusteriDTO toDto(Musteri musteri);
 
-    @Mapping(source = "adresId", target = "adres")
+//    @Mapping(source = "adresId", target = "adres")
     @Mapping(target = "isyerleris", ignore = true)
     @Mapping(target = "faturalars", ignore = true)
     Musteri toEntity(MusteriDTO musteriDTO);

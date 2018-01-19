@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="Emre KISA (generated)" id="1516396686008-1">
+      <addColumn tableName="isyeri">
+         <column name="adres" type="varchar(255)"/>
+      </addColumn>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516396686008-2">
+      <dropForeignKeyConstraint baseTableName="isyeri" constraintName="FKohf3n93mwn8aqtwcf0j1n70o1"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516396686008-3">
+      <dropColumn columnName="adres_id" tableName="isyeri"/>
+   </changeSet>
+</databaseChangeLog>

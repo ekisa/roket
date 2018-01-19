@@ -18,7 +18,7 @@
             <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="statu"><span jhiTranslate="roketApp.kurye.statu">Statu</span> <span class="fa fa-sort"></span></th>
-            <th jhiSortBy="isciId"><span jhiTranslate="roketApp.kurye.isci">Isci</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="userId"><span jhiTranslate="roketApp.kurye.user">Kullanıcı</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="merkezId"><span jhiTranslate="roketApp.kurye.merkez">Merkez</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="gpsLokasyonId"><span jhiTranslate="roketApp.kurye.gpsLokasyon">Gps Lokasyon</span> <span class="fa fa-sort"></span></th>
             <th></th>
@@ -29,13 +29,13 @@
                 <td><a [routerLink]="['../kurye', kurye.id ]">{{kurye.id}}</a></td>
                 <td jhiTranslate="{{'roketApp.KURYE_STATU.' + kurye.statu}}">{{kurye.statu}}</td>
                 <td>
-                    <div *ngIf="kurye.isciId">
-                        <a [routerLink]="['../isci', kurye.isciId  ]" >{{kurye.isciId}}</a>
+                    <div *ngIf="kurye.userId">
+                        <a [routerLink]="['../user-management', kurye.login  ]" >{{kurye.firstName}} {{kurye.lastName}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="kurye.merkezId">
-                        <a [routerLink]="['../merkez', kurye.merkezId  ]" >{{kurye.merkezId}}</a>
+                        <a [routerLink]="['../merkez', kurye.merkezId  ]" >{{kurye.merkezAd}}</a>
                     </div>
                 </td>
                 <td>

@@ -23,7 +23,9 @@ public class MusteriDTO implements Serializable {
     @NotNull
     private String telefon;
 
-    private Long adresId;
+    @NotNull
+    private String adres;
+//    private Long adresId;
 
     public Long getId() {
         return id;
@@ -57,13 +59,20 @@ public class MusteriDTO implements Serializable {
         this.telefon = telefon;
     }
 
-    public Long getAdresId() {
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
+        this.adres = adres;
+    }
+/*   public Long getAdresId() {
         return adresId;
     }
 
     public void setAdresId(Long adresId) {
         this.adresId = adresId;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {

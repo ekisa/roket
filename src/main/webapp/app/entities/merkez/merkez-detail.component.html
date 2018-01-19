@@ -11,10 +11,15 @@
         <dt><span jhiTranslate="roketApp.merkez.mahalle">Mahalle</span></dt>
         <dd>
             <div *ngIf="merkez.mahalleId">
-                <a [routerLink]="['/mahalle', merkez.mahalleId]">{{merkez.mahalleId}}</a>
+                <a [routerLink]="['/mahalle', merkez.mahalleId]">{{merkez.mahalleAdi}}</a>
             </div>
         </dd>
-        <dt><span jhiTranslate="roketApp.merkez.gpsLokasyon">Gps Lokasyon</span></dt>
+        <dt><span jhiTranslate="roketApp.merkez.adres">Adres</span></dt>
+        <dd>
+            <span>{{merkez.adres}}</span>
+        </dd>
+
+        <!--
         <dd>
             <div *ngIf="merkez.gpsLokasyonId">
                 <a [routerLink]="['/gps-lokasyon', merkez.gpsLokasyonId]">{{merkez.gpsLokasyonId}}</a>
@@ -25,7 +30,7 @@
             <div *ngIf="merkez.adresId">
                 <a [routerLink]="['/adres', merkez.adresId]">{{merkez.adresId}}</a>
             </div>
-        </dd>
+        </dd>-->
     </dl>
 
     <button type="submit"

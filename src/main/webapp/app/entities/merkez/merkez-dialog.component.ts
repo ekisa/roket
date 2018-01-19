@@ -25,29 +25,29 @@ export class MerkezDialogComponent implements OnInit {
 
     mahalles: Mahalle[];
 
-    gpslokasyons: GPSLokasyon[];
+    /*gpslokasyons: GPSLokasyon[];
 
-    adres: Adres[];
+    adres: Adres[];*/
 
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private merkezService: MerkezService,
         private mahalleService: MahalleService,
-        private gPSLokasyonService: GPSLokasyonService,
-        private adresService: AdresService,
+        /*private gPSLokasyonService: GPSLokasyonService,
+        private adresService: AdresService,*/
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
-        this.mahalleService.query()
+        this.mahalleService.query({size: 99999, sort:['adi']})
             .subscribe((res: ResponseWrapper) => { this.mahalles = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
-        this.gPSLokasyonService.query()
+       /* this.gPSLokasyonService.query()
             .subscribe((res: ResponseWrapper) => { this.gpslokasyons = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
         this.adresService.query()
-            .subscribe((res: ResponseWrapper) => { this.adres = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
+            .subscribe((res: ResponseWrapper) => { this.adres = res.json; }, (res: ResponseWrapper) => this.onError(res.json));*/
     }
 
     clear() {

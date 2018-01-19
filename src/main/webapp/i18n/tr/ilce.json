@@ -2,21 +2,21 @@
     "roketApp": {
         "ilce" : {
             "home": {
-                "title": "Ilces",
-                "createLabel": "Create a new Ilce",
-                "createOrEditLabel": "Create or edit a Ilce"
+                "title": "İlçeler",
+                "createLabel": "İlçe Yarat",
+                "createOrEditLabel": "İlçe Yarat / Güncelle"
             },
-            "created": "A new Ilce is created with identifier {{ param }}",
-            "updated": "A Ilce is updated with identifier {{ param }}",
-            "deleted": "A Ilce is deleted with identifier {{ param }}",
+            "created": "{{ param }} ID'li İlçe yaratıldı",
+            "updated": "{{ param }} ID'li İlçe güncellendi",
+            "deleted": "{{ param }} ID'li İlçe silindi",
             "delete": {
-                "question": "Are you sure you want to delete Ilce {{ id }}?"
+                "question": "{{ id }} ID'li İlçe silinecektir?"
             },
             "detail": {
-                "title": "Ilce"
+                "title": "İlçe"
             },
-            "ad": "Ad",
-            "il": "Il"
+            "ad": "İlçe Adı",
+            "il": "İl Adı"
         }
     }
 }

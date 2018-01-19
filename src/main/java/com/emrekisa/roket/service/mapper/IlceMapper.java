@@ -12,6 +12,7 @@ import org.mapstruct.*;
 public interface IlceMapper extends EntityMapper<IlceDTO, Ilce> {
 
     @Mapping(source = "il.id", target = "ilId")
+    @Mapping(source = "il.ad", target = "ilAd")
     IlceDTO toDto(Ilce ilce);
 
     @Mapping(source = "ilId", target = "il")

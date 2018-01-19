@@ -16,6 +16,7 @@ public class IlceDTO implements Serializable {
 
     @NotNull
     private String ad;
+    private String ilAd;
 
     private Long ilId;
 
@@ -41,6 +42,14 @@ public class IlceDTO implements Serializable {
 
     public void setIlId(Long ilId) {
         this.ilId = ilId;
+    }
+
+    public String getIlAd() {
+        return ilAd;
+    }
+
+    public void setIlAd(String ilAd) {
+        this.ilAd = ilAd;
     }
 
     @Override

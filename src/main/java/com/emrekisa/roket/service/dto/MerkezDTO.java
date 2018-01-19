@@ -3,8 +3,6 @@ package com.emrekisa.roket.service.dto;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -22,8 +20,8 @@ public class MerkezDTO implements Serializable {
 
     private Long gpsLokasyonId;
 
-    private Long adresId;
-    private String acikAdres;
+//    private Long adresId;
+    private String adres;
 
     public Long getId() {
         return id;
@@ -65,20 +63,20 @@ public class MerkezDTO implements Serializable {
         this.gpsLokasyonId = gPSLokasyonId;
     }
 
-    public Long getAdresId() {
+ /*   public Long getAdresId() {
         return adresId;
     }
 
     public void setAdresId(Long adresId) {
         this.adresId = adresId;
+    }*/
+
+    public String getAdres() {
+        return adres;
     }
 
-    public String getAcikAdres() {
-        return acikAdres;
-    }
-
-    public void setAcikAdres(String acikAdres) {
-        this.acikAdres = acikAdres;
+    public void setAdres(String adres) {
+        this.adres = adres;
     }
 
     @Override

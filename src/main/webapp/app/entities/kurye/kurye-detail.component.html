@@ -8,16 +8,16 @@
         <dd>
             <span jhiTranslate="{{'roketApp.KURYE_STATU.' + kurye.statu}}">{{kurye.statu}}</span>
         </dd>
-        <dt><span jhiTranslate="roketApp.kurye.isci">Isci</span></dt>
+        <dt><span jhiTranslate="roketApp.kurye.user">Kullanıcı</span></dt>
         <dd>
-            <div *ngIf="kurye.isciId">
-                <a [routerLink]="['/isci', kurye.isciId]">{{kurye.isciId}}</a>
+            <div *ngIf="kurye.login">
+                <a [routerLink]="['/user-management', kurye.login]">{{kurye.firstName}} {{kurye.lastName}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="roketApp.kurye.merkez">Merkez</span></dt>
         <dd>
             <div *ngIf="kurye.merkezId">
-                <a [routerLink]="['/merkez', kurye.merkezId]">{{kurye.merkezId}}</a>
+                <a [routerLink]="['/merkez', kurye.merkezId]">{{kurye.merkezAd}}</a>
             </div>
         </dd>
         <dt><span jhiTranslate="roketApp.kurye.gpsLokasyon">Gps Lokasyon</span></dt>

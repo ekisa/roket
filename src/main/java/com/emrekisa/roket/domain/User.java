@@ -10,6 +10,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -93,6 +94,29 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @BatchSize(size = 20)
     private Set<Authority> authorities = new HashSet<>();
+
+    @Size(max = 50)
+    @Column(name = "telefon", length = 50)
+    private String telefon;
+
+    @Column(name = "teminat_tutari")
+    private Long teminatTutari;
+
+    @NotNull
+    @Column(name="maas", nullable = false)
+    private Long maas;
+
+    @NotNull
+    @Column(name="sicil", nullable = false, length = 20)
+    private String sicil;
+
+    @NotNull
+    @Column(name="tckn", nullable = false, length = 11)
+    private String tckn;
+
+    @Size(max = 512)
+    @Column(name = "zimmetli_mallar", length = 512)
+    private String zimmetliMallar;
 
     public Long getId() {
         return id;
@@ -229,5 +253,54 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
             "}";
+    }
+
+    public Long getMaas() {
+        return maas;
+    }
+
+    public void setMaas(Long maas) {
+        this.maas = maas;
+    }
+
+
+    public String getTckn() {
+        return tckn;
+    }
+
+    public void setTckn(String tckn) {
+        this.tckn = tckn;
+    }
+
+    public String getSicil() {
+        return sicil;
+    }
+
+    public void setSicil(String sicil) {
+        this.sicil = sicil;
+    }
+
+    public String getZimmetliMallar() {
+        return zimmetliMallar;
+    }
+
+    public void setZimmetliMallar(String zimmetliMallar) {
+        this.zimmetliMallar = zimmetliMallar;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public Long getTeminatTutari() {
+        return teminatTutari;
+    }
+
+    public void setTeminatTutari(Long teminatTutari) {
+        this.teminatTutari = teminatTutari;
     }
 }

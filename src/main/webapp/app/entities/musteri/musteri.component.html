@@ -31,9 +31,10 @@
                 <td>{{musteri.eposta}}</td>
                 <td>{{musteri.telefon}}</td>
                 <td>
-                    <div *ngIf="musteri.adresId">
+                    <!--<div *ngIf="musteri.adresId">
                         <a [routerLink]="['../adres', musteri.adresId  ]" >{{musteri.adresId}}</a>
-                    </div>
+                    </div>-->
+                    {{musteri.adres}}
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

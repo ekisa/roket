@@ -35,7 +35,7 @@ public class Kurye implements Serializable {
 
     @OneToOne
     @JoinColumn(unique = true)
-    private Isci isci;
+    private User user;
 
     @OneToMany(mappedBy = "kurye")
     @JsonIgnore
@@ -70,17 +70,12 @@ public class Kurye implements Serializable {
         this.statu = statu;
     }
 
-    public Isci getIsci() {
-        return isci;
+    public User getUser() {
+        return user;
     }
 
-    public Kurye isci(Isci isci) {
-        this.isci = isci;
-        return this;
-    }
-
-    public void setIsci(Isci isci) {
-        this.isci = isci;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Set<KuryeGecmisi> getStatuGecmisis() {

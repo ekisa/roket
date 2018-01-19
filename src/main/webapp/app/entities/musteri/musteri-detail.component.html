@@ -18,10 +18,13 @@
         </dd>
         <dt><span jhiTranslate="roketApp.musteri.adres">Adres</span></dt>
         <dd>
+            <span>{{musteri.adres}}</span>
+        </dd>
+        <!--<dd>
             <div *ngIf="musteri.adresId">
                 <a [routerLink]="['/adres', musteri.adresId]">{{musteri.adresId}}</a>
             </div>
-        </dd>
+        </dd>-->
     </dl>
 
     <button type="submit"

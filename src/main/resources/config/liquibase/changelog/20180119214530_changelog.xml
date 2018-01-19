@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   <changeSet author="Emre KISA (generated)" id="1516387550564-10">
+      <dropForeignKeyConstraint baseTableName="isci" constraintName="FK6kl56uj6thb4bxeytvu9w51qc"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516387550564-11">
+      <dropForeignKeyConstraint baseTableName="isci" constraintName="fk_isci_motor_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516387550564-12">
+      <dropForeignKeyConstraint baseTableName="kurye" constraintName="fk_kurye_isci_id"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516387550564-13">
+      <dropUniqueConstraint constraintName="UC_ISCIUSER_ID_COL" tableName="isci"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516387550564-14">
+      <dropUniqueConstraint constraintName="isci_id" tableName="kurye"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516387550564-15">
+      <dropTable tableName="isci"/>
+   </changeSet>
+   <changeSet author="Emre KISA (generated)" id="1516387550564-16">
+      <dropColumn columnName="isci_id" tableName="kurye"/>
+   </changeSet>
+</databaseChangeLog>
